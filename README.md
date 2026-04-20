@@ -3,3 +3,4 @@
 ## Integrantes COMMIT TESTE
 
 -Ayla Barcelos 
+-Nicole Portes 
