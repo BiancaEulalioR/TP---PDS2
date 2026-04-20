@@ -4,3 +4,4 @@
 
 -Ayla Barcelos 
 -Nicole Portes 
+-Samara Aquino
