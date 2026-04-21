@@ -5,4 +5,4 @@
 -Ayla Barcelos 
 -Nicole Portes
 -Samara Aquino
--Gustavo Henrique S
+-Gustavo Henrique
