@@ -6,3 +6,4 @@
 -Nicole Portes
 -Samara Aquino
 -Gustavo Henrique
+-Bianca Ramos 
