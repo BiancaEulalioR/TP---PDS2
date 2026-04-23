@@ -13,8 +13,5 @@
 
 *ESCOPO INICIAL DO TRABALHO*
 
- O intuito deste projeto e criar uma rede social para usufruto dos alunos da UFMG para facilitar a vida universitaria. Nessa pequena plataforma, queremos
- colocar uma area para posts (que tera fuhncionalidades como: criar um novo post, curtir, compartilhar, comentar, republicar e seguir outro usuario), outra
- para divulgacao de eventos da faculdade e ainda outra para divulgacao de vagas de estagio e processos seletivos diversos. Alem disso, pretendemos implementar
- chats privados entre perfis de estudantes. Para o acesso dessa plataforma, sera possivel a criacao de novos perfis, fazer login em perfis ja existentes e
- editar dados de um perfil (como nome de usuario e senha).
+ O intuito deste projeto é o desenvolvimento de uma rede social voltada aos alunos da UFMG, com o objetivo de facilitar a
+vida universitária. A solução consiste em uma pequena plataforma, com funcionalidades como feed de publicações (com curtidas, comentários e compartilhamentos), área de eventos, divulgação de oportunidades (estágios, projetos, etc.), oferta de serviços entre alunos e mensagens privadas (direct). Além disso, para o acesso à plataforma, o sistema contará com perfis de usuário, sendo assim possível a criação de novos perfis, fazer login em perfis já existentes e editar dados de um perfil (como nome de usuário e senha).
