@@ -15,6 +15,8 @@ class Post{
     std::vector <std::string> comments;
 
     public:
+    Post(); //construtor
+
     //Inserir a curtida no post
     void inserirLike();
 
