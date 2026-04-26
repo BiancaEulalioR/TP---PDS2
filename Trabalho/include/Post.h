@@ -29,6 +29,8 @@ class Post{
     //Remover o comentário do post
     void removerComment(int *indice);
 
+    //Listar todos os comentários
+    void listarComment();
     };
     
     #endif
