@@ -9,7 +9,7 @@
 class Spotted{
     private:
 
-    //listas de posts do Spotted
+    //lista de posts do Spotted
     std::vector <std::string> lista;
 
     public:
