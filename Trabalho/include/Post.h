@@ -10,6 +10,7 @@ class Post{
 
     //Guarda a quantidade de likes
     int likes;
+
     //Guarda os comentários em um vector de string
     std::vector <std::string> comments;
 
@@ -26,6 +27,13 @@ class Post{
 
     //Remove o comentário feito pelo perfil
     void removerComment(int *indice);
+
+    //Retorna o número de likes do post;
+    int getLikes();
+
+    //Retorna o número de comentários do post;
+    int getComment();
+
 
     
     #endif
