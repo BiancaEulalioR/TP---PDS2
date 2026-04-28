@@ -1,5 +1,5 @@
-#ifndef EVENTOS_H
-#define EVENTOS_H
+#ifndef EVENTO_H
+#define EVENTO_H
 
 #include <string>
 #include "Perfil.h"
@@ -38,4 +38,4 @@ class Evento {
 
 };
 
-#endif // EVENTOS_H
+#endif // EVENTO_H
