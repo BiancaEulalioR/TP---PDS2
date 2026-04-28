@@ -3,50 +3,37 @@
 
 #include "Perfil.h"
 #include "Post.h"
-
+ 
 
 #include <string>
-#include <vector>
 
 
-// Classe que gerencia várias oportunidades (lista)
+
+// Representa uma oportunidade
 class Oportunidades {
 
     private:
         
-      // Representa UMA oportunidade (entidade) e só essa classe usa
-        struct Oportunidade {
-            std::string descricao;  // descrição da oportunidade
-            std::string contato;    // informação de contato
-            std::string usuario;   // username do usuário que criou a oportunidade
-            int id;                // identificador único da oportunidade
-        };
-    
-    // vetor que armazena todas as oportunidades do sistema
-        std::vector<Oportunidade> oportunidades; 
-
-        int proximoId; 
-        // Controla o próximo ID único a ser atribuído, evitando 
-        // recalcular ou buscar IDs no vetor
-
+            std::string descricao_;  // descrição da oportunidade
+            std::string contato_;    // informação de contato
+            std::string usuario_;   // username do usuário que criou a oportunidade
+            int id_;                // identificador único da oportunidade
+            
     public:
     
-    //Construtor
-    Oportunidades(); 
+    //Construtor responsável por incializar uma oportunidade
+    Oportunidades(int id_, const std::string& descricao_, const std::string& contato_, const Perfil& usuario_);
 
-    // Cria uma nova oportunidade e adiciona ao vetor
-    void criarOportunidade(const std::string& descricao, const std::string& contato, const Perfil& usuario);
+    // Getters (acesso aos dados)
+    int getId() const;
+    std::string getDescricao() const;
+    std::string getContato() const;
+    std::string getUsuario() const;
 
-    // Lista todas as oportunidades
-    void listarOportunidades();
+    // Edita os dados da oportunidade
+    // Pré-condição: só pode ser feita a edição se o usuario for o dono
+    void editarOportunidade(const std::string& novaDescricao, const std::string& novoContato);
 
-    // Edita uma oportunidade específica
-    // Só deve permitir edição se o usuario for o dono
-    void editarOportunidade(int id, const Perfil& usuario,  const std::string& novaDescricao, const std::string& novoContato);
-
-    // Remove uma oportunidade
-    // Também deve verificar se o usuario é o dono
-    void removerOportunidade(int id, const Perfil& usuario);
 };
 
 #endif // OPORTUNIDADES_H
