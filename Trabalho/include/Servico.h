@@ -11,14 +11,11 @@ private:
     // A lista dos comentarios:
     std::vector<std::string> comentario;
 
-    // Quantos comentarios tem nesse post de servico em especifico:
-    int numeroDeComentarios = comentario.size();
-
     // Perfil da pessoa responsavel pelo post de servico:
     Perfil perfil;
 
     // Texto do post do perfil:
-    std::vector<char> descricaoDoServico;
+    std::string descricaoDoServico;
 
 public:
     // 1. Construtores:
@@ -30,7 +27,7 @@ public:
 
     std::vector<std::string> getListaDeComentarios();
 
-    std::vector<char> getDescricaoDoServico();
+    std::string getDescricaoDoServico();
 
     // 3. Metodos:
     // 3.1. Editar o post do servico:
