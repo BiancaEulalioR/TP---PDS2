@@ -32,8 +32,6 @@ class Evento {
 
             Evento infoContato(std::string contato);
 
-            void listarEvento(std::string textoEvento);
-
             void excluirEvento(std::string textoEvento);
 
 };
