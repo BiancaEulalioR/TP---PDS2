@@ -8,29 +8,24 @@
 class Post{
     private:
 
-    //curtidas
+    //Guarda a quantidade de likes
     int likes;
-
-    //comentários
+    //Guarda os comentários em um vector de string
     std::vector <std::string> comments;
 
     public:
-    Post(); //construtor
-
-    //Inserir a curtida no post
+    //Inicializa Post com 0 likes 
+    Post(); 
+    
     void inserirLike();
 
-     //Remover a curtida post
     void removerLike();
 
-     //Inserir um comentário no post
+    //Insere um comentário no fim do post
     void inserirComment(std::string comment);
 
-    //Remover o comentário do post
+    //Remove o comentário feito pelo perfil
     void removerComment(int *indice);
 
-    //Listar todos os comentários
-    void listarComment();
-    };
     
     #endif
