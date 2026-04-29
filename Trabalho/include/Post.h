@@ -34,6 +34,6 @@ class Post{
     //Retorna o número de comentários do post;
     int getComment();
 
-
+    };
     
     #endif
