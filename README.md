@@ -66,5 +66,17 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 - Inserir informações de contato nas publicações feitas
 
 ---
+## Cartões CRC – CampusConnect
+
+| Classe               | Responsabilidades                                                                    | Colaborações |
+|----------------------|--------------------------------------------------------------------------------------|--------------|
+| **Perfil** | Nome, usuário, senha, biografia, editar perfil, telefone, e‑mail, apagar perfil    | –            |
+| **Post**     | Curtir, descurtir, comentar, apagar comentário                                      | –            |
+| **Spotted**  | Criar post, apagar post, listar post                                                | Post        |
+| **Eventos**  | Criar eventos, editar eventos, informações de contato, apagar eventos               | Perfil, Post |
+| **Oportunidades** | Criar oportunidades, editar oportunidades, informações de contato, apagar oportunidade              | Perfil, Post       |
+| **Serviços** | Criar serviços, editar serviços                                                    | Perfil, Post       |
+
+
 
 
