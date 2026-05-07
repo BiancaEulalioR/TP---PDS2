@@ -21,9 +21,5 @@ class Spotted{
 
      //Remove post publicado da listagem
     void apagarPost(int indice);
-
-     //Lista os posts publicados
-    void listarPosts();
-    };
     
     #endif
