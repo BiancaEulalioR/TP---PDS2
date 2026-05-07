@@ -33,6 +33,8 @@ class Oportunidades {
     // Edita os dados da oportunidade
     // Pré-condição: só pode ser feita a edição se o usuario for o dono
     void editarOportunidade(const std::string& novaDescricao, const std::string& novoContato);
+    // método para apagar a oportunidade
+    void apagarOportunidade();
 
 };
 
