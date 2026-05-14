@@ -3,14 +3,12 @@
 #include <string>
 #include <vector>
 #include "Perfil.h"
+#include "Post.h"
 
 // Depois vou ajeitar para ser uma classe filha de post quando fizermos a implementacao dos contratos
-class Servico
+class Servico : public Post
 {
 private:
-    // A lista dos comentarios:
-    std::vector<std::string> comentario;
-
     // Perfil da pessoa responsavel pelo post de servico:
     Perfil perfil;
 
@@ -22,14 +20,16 @@ public:
     Servico();
     Servico(Perfil PrestadorServico);
 
-    // 2. "Getters":
+    // 2. Destrutor:
+    ~Servico();
+
+    // 3. "Getters":
     int getNumeroDeComentarios();
 
     std::vector<std::string> getListaDeComentarios();
 
     std::string getDescricaoDoServico();
 
-    // 3. Metodos:
-    // 3.1. Editar o post do servico:
+    // 4. Metodos:
     void editarDescricao();
 };
