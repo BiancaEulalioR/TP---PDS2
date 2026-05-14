@@ -10,10 +10,10 @@ class Servico : public Post
 {
 private:
     // Perfil da pessoa responsavel pelo post de servico:
-    Perfil perfil;
+    Perfil prestadorDoServico_;
 
     // Texto do post do perfil:
-    std::string descricaoDoServico;
+    std::string descricaoDoServico_;
 
 public:
     // 1. Construtores:
@@ -24,12 +24,12 @@ public:
     ~Servico();
 
     // 3. "Getters":
-    int getNumeroDeComentarios();
-
     std::vector<std::string> getListaDeComentarios();
 
     std::string getDescricaoDoServico();
 
+    Perfil getPerfilDoPrestador();
+
     // 4. Metodos:
-    void editarDescricao();
+    void editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto);
 };
