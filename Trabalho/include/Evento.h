@@ -2,16 +2,18 @@
 #define EVENTO_H
 
 #include <string>
+#include <vector>
 #include "Perfil.h"
 #include "Post.h"
 
 class Evento {
         private:
 
-            std::string textoEvento; //Evento a ser inserido
-            std::string contato; //Informações de contato
+            std::string _textoEvento; //Evento a ser inserido
+            std::string _contato; //Informações de contato
             Perfil organizador; //Perfil do organizador do evento
             Post post; //Para incluir curtidas e comentários
+            std::vector<Evento> _listaEvento; // Para inserir os eventos cadastrados
 
         public:
             Evento(); //Construtor 
@@ -20,11 +22,12 @@ class Evento {
             std::string getTextoEvento();
             std::string getContato();
             Perfil getOrganizador();
+            Post getPost();
 
             //Metodos
-            Evento criarEvento(std::string textoEvento, std::string contato, Perfil organizador);
-            Evento infoContato(std::string contato);
-            void editarEvento(std::string textoEvento);
+            void criarEvento(std::string textoEvento, std::string contato, Perfil organizador);
+            void infoContato(std::string contato);
+            void editarEvento(std::string novoTexto);
             void excluirEvento(std::string textoEvento);
 
 };
