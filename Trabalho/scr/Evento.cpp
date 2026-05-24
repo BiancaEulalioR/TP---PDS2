@@ -12,10 +12,10 @@ std::string Evento::getContato(){
     return _contato; }
 
 
-Perfil Evento::getOrganizador(){
+Perfil& Evento::getOrganizador(){
     return organizador; }
 
-Post Evento::getPost(){
+Post& Evento::getPost(){
     return post; }
 
             
@@ -26,8 +26,11 @@ void Evento::criarEvento(std::string textoEvento, std::string contato, Perfil or
     novoEvento.organizador = organizador;
     _listaEvento.push_back(novoEvento); }
             
-void Evento::infoContato(std::string contato){
-    _contato = contato; }
+void Evento::editarContato(std::string novoContato){
+    _contato = novoContato; }
+
+void Evento::editarOrganizador(Perfil novoOrganizador){
+    organizador = novoOrganizador; }
             
 void Evento::editarEvento(std::string novoTexto){
     _textoEvento = novoTexto; }

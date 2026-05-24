@@ -26,7 +26,8 @@ class Evento {
 
             //Metodos
             void criarEvento(std::string textoEvento, std::string contato, Perfil organizador);
-            void infoContato(std::string contato);
+            void editarContato(std::string novoContato);
+            void editarOrganizador(Perfil novoOrganizador);
             void editarEvento(std::string novoTexto);
             void excluirEvento(std::string textoEvento);
 
