@@ -1,8 +1,15 @@
 #include "Servico.h"
 
+Servico::Servico() {}
+
 Servico::Servico(Perfil PrestadorServico)
 {
     prestadorDoServico_ = PrestadorServico;
+}
+
+Servico::~Servico()
+{
+    descricaoDoServico_.clear();
 }
 
 std::string Servico::getDescricaoDoServico()
@@ -15,7 +22,7 @@ Perfil Servico::getPerfilDoPrestador()
     return prestadorDoServico_;
 }
 
-// Aqui, os parametros de "editarDescricao" sao obtidos com cin e cout na main;
+// Aqui, os parametros de "editarDescricao" sao obtidos com cin, diretamente do usario, (na main);
 // Ela substitui a parte do texto "selecionada" pelo usuario por outra substring que ele digita (cin na main)
 // Unica ressalva: essa funcao vai substituir a primeira ocorrencia do trecho dado na string "descricaoDoServico",
 // ou seja, se a pessoa quiser editar um trecho (repetido, por exemplo) em sua segunda ou enesima ocorrencia
@@ -27,4 +34,9 @@ void Servico::editarDescricao(std::string ParteDoTexto, int numeroCaracteres, st
     size_t indiceEdicao = descricaoDoServico_.find(ParteDoTexto);
     if (indiceEdicao != std::string::npos)
         descricaoDoServico_.replace(indiceEdicao, numeroCaracteres, novoTexto);
+}
+
+void Servico::reescreverDescricao(std::string novaDescricao)
+{
+    descricaoDoServico_ = novaDescricao;
 }

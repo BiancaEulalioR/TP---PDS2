@@ -4,7 +4,6 @@
 #include "Perfil.h"
 #include "Post.h"
 
-// Depois vou ajeitar para ser uma classe filha de post quando fizermos a implementacao dos contratos
 class Servico : public Post
 {
 private:
@@ -23,12 +22,10 @@ public:
     ~Servico();
 
     // 3. "Getters":
-    std::vector<std::string> getListaDeComentarios();
-
     std::string getDescricaoDoServico();
-
     Perfil getPerfilDoPrestador();
 
     // 4. Metodos:
     void editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto);
+    void reescreverDescricao(std::string novaDescricao);
 };
