@@ -52,12 +52,12 @@ while(1){
 
     while(aux2){
         std::cout << "Qual aba deseja acessar: " << std::endl;
-        std::cout << "1. Spotted" << std::endl;
-        std::cout << "2. Eventos" << std::endl;
-        std::cout << "3. Oportunidades" << std::endl;
-        std::cout << "4. Serviços" << std::endl;
-        std::cout << "5. Informações do usuario" << std::endl;
-        std::cin >> aux3;
+        std::cout << "1.Spotted" << std::endl;
+        std::cout << "2.Eventos" << std::endl;
+        std::cout << "3.Oportunidades" << std::endl;
+        std::cout << "4.Serviços" << std::endl;
+        std::cout << "5.Informações do usuario" << std::endl;
+        std::cout << "6.Sair do perfil"
 
         switch (aux3){
             case 1: {
@@ -73,7 +73,10 @@ while(1){
 
             }
             case 5:{
-                
+
+            }
+            case 6:{
+                aux 2 = 0;
             }
         }
     }
