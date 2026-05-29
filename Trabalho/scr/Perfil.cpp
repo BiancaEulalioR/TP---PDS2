@@ -31,6 +31,15 @@ void Perfil::editarPerfil(std::string usuario, std::string parametro, std::strin
             }
         }
 }
+bool Perfil::verificaPerfil(std::string usuario, std::string senha){
+    for (int i = 0; i < Perfil_.size(); i++){
+        if(Perfil_[i].usuario_ == usuario){
+            if(Perfil_[i].senha_ == senha)
+                return true;
+        }
+    }
+    return false;
+}
 
 void Perfil::apagaPerfil(std::string usuario){
     for (int i = 0; i < Perfil_.size(); i++){
