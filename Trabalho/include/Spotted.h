@@ -2,24 +2,25 @@
 #define SPOTTED_H_
 
 #include <string>
-#include <vector>
+#include <map>
 #include "Post.h"
 
 
-class Spotted{
+    class Spotted : public Post {
     private:
 
-    //lista de posts do Spotted
-    std::vector <std::string> lista;
+    std::map <int ,std::string> lista;
+    int idCont; //chave do map
 
     public:
 
-    Spotted(); //Construtor
+    Spotted(); 
 
-    //Cria um novo post e adiciona na listagem
     void criarPost(std::string s);
 
-     //Remove post publicado da listagem
     void apagarPost(int indice);
+
+    const std::map<int, std::string>& listarPosts();
+    };
     
     #endif
