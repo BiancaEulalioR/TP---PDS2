@@ -12,6 +12,7 @@ class Perfil{
     void editarPerfil(std::string usuario, std::string parametro, std::string novo);
     void apagaPerfil(std::string usuario);
     bool verificaPerfil(std::string usuario, std::string senha);
+    std::string getUsuario();
     
     private:
     //dados

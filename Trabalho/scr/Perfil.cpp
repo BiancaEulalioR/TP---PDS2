@@ -41,6 +41,10 @@ bool Perfil::verificaPerfil(std::string usuario, std::string senha){
     return false;
 }
 
+std::string Perfil::getUsuario(){
+    return ;
+}
+
 void Perfil::apagaPerfil(std::string usuario){
     for (int i = 0; i < Perfil_.size(); i++){
         if(Perfil_[i].usuario_ == usuario){
