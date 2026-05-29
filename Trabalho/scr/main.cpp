@@ -57,7 +57,7 @@ while(1){
         std::cout << "3.Oportunidades" << std::endl;
         std::cout << "4.Serviços" << std::endl;
         std::cout << "5.Informações do usuario" << std::endl;
-        std::cout << "6.Sair do perfil"
+        std::cout << "6.Sair do perfil";
 
         switch (aux3){
             case 1: {
