@@ -26,7 +26,7 @@ class Post{
 
     int getLikes();
 
-    const std::map<int, std::string>& listarComments(); // passagem por referência
+    const std::map<int, std::string>& getComments(); // passagem por referência
 
     };
     

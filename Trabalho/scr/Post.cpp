@@ -27,7 +27,7 @@
       return likes;
     }
 
-    const std::map<int, std::string>& Post::listarComments() {
+    const std::map<int, std::string>& Post::getComments() {
     return comments; 
     }
 
