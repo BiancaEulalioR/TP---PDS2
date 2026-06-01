@@ -3,19 +3,19 @@
 
 #include <string>
 #include <map>
+#include "Perfil.h"
 
-
-class Post{
-    private:
-
+class Post
+{
+private:
     int likes;
-    int idCont; //chave do map
-    std::map <int,std::string> comments;
+    int idCont; // chave do map
+    std::map<int, std::string> comments;
+    Perfil perfilAssociado;
 
-    public:
+public:
+    Post();
 
-    Post(); 
-    
     void inserirLike();
 
     void removerLike();
@@ -26,8 +26,11 @@ class Post{
 
     int getLikes();
 
-    const std::map<int, std::string>& listarComments(); // passagem por referência
+    Perfil getPerfil();
 
-    };
-    
-    #endif
+    virtual void idContador();
+
+    const std::map<int, std::string> &listarComments(); // passagem por referência
+};
+
+#endif
