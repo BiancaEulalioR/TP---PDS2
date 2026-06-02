@@ -10,7 +10,7 @@
     private:
 
     std::map <int ,std::string> lista;
-    int idCont; //chave do map
+    int idCont_; //chave do map
     
 
     public:
