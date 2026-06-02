@@ -10,6 +10,7 @@ class Post
 private:
     int likes;
     int idCont; // chave do map
+    int qtdComments;
     std::map<int, std::string> comments;
     Perfil perfilAssociado;
 
@@ -29,8 +30,10 @@ public:
     Perfil getPerfil();
 
     virtual void idContador();
-    const std::map<int, std::string>& getComments(); // passagem por referência
+    
 
+    int getComments();
+    
     const std::map<int, std::string> &listarComments(); // passagem por referência
 };
 

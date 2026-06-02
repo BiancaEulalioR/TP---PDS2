@@ -5,6 +5,7 @@ Post::Post()
 {
   likes = 0;
   idCont = 0; // chave do map comments
+  qtdComments = 0;
 }
 
 void Post::inserirLike()
@@ -21,11 +22,13 @@ void Post::inserirComment(std::string comment)
 {
   comments[idCont] = comment;
   idCont++; // aumenta o índice do próximo comentário
+  qtdComments++;
 }
 
 void Post::removerComment(int id)
 {
   comments.erase(id);
+  qtdComments--;
 }
 
 int Post::getLikes()
@@ -40,8 +43,10 @@ Perfil Post::getPerfil()
 {
   return perfilAssociado;
 }
-
-const std::map<int, std::string> &Post::getComments()
+int Post::getComments(){
+  return qtdComments;
+}
+const std::map<int, std::string> &Post::listarComments()
 {
   return comments;
 }

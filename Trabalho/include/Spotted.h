@@ -11,6 +11,7 @@
 
     std::map <int ,std::string> lista;
     int idCont; //chave do map
+    
 
     public:
 
@@ -20,7 +21,7 @@
 
     void apagarPost(int indice);
 
-    const std::map<int, std::string>& listarPosts();
+    const std::map<int, std::string>& listarPosts();  
     };
     
     #endif

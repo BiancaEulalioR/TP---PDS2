@@ -84,7 +84,20 @@ void main()
             {
             case 1:
             {
+                std::cout << "spotteds disponiveis:" << std::endl;
+                for (auto &spotted : postDeSpotted_){
+
+                    std::cout << "SPOTTED" << spotted.first << std::endl;
+
+                    for (auto &i : spotted.second.listarPosts()){ 
+                        // Imprime número de likes e comentários para cada mensagem do spotted
+
+                    std::cout << "likes: " << spotted.second.getLikes() << std::endl;
+                    std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
+                    }
+                }
             }
+
             case 2:
             {
             }
