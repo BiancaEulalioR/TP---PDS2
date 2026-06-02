@@ -2,9 +2,9 @@
 
 Servico::Servico() {}
 
-Servico::Servico(Perfil PrestadorServico)
+Servico::Servico(std::string descricao)
 {
-    prestadorDoServico_ = PrestadorServico;
+    descricaoDoServico_ = descricao;
 }
 
 Servico::~Servico()
@@ -12,14 +12,9 @@ Servico::~Servico()
     descricaoDoServico_.clear();
 }
 
-std::string Servico::getDescricaoDoServico()
+std::string Servico::getDescricaoDoServico() const
 {
     return descricaoDoServico_;
-}
-
-Perfil Servico::getPerfilDoPrestador()
-{
-    return prestadorDoServico_;
 }
 
 // Aqui, os parametros de "editarDescricao" sao obtidos com cin, diretamente do usario, (na main);
