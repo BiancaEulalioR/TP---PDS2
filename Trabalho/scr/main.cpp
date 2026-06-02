@@ -89,16 +89,39 @@ void main()
                 std::cout << "spotteds disponiveis:" << std::endl;
                 for (auto &spotted : postDeSpotted_)
                 {
-
                     std::cout << "SPOTTED" << spotted.first << std::endl;
-
                     for (auto &i : spotted.second.listarPosts())
                     {
                         // Imprime número de likes e comentários para cada mensagem do spotted
-
-                        std::cout << "likes: " << spotted.second.getLikes() << std::endl;
-                        std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
+                    std::cout << "likes: " << spotted.second.getLikes() << std::endl;
+                    std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
                     }
+                }
+                int opcao=0;
+                std::cout << "para onde deseja prosseguir?" << std::endl;
+                std::cout << "1. Ver os comentarios de um spotted;" << std::endl;
+                std::cout << "2. Fazer um comentario em um spotted" << std::endl;
+                std::cout << "3. Deixar o like em um spotted" << std::endl;
+                std::cout << "4. Remover seu comentario de um spotted" << std::endl;
+                std::cout << "5. Retirar seu like de um spotted" << std::endl;
+                std::cin >> opcao;
+                switch (opcao){
+                    case 1:
+                    {
+                    }
+                    case 2:
+                    {
+                    }
+                    case 3:
+                    {
+                    }
+                    case 4:
+                    {
+                    }
+                    case 5:
+                    {
+                    }
+           
                 }
             }
 
