@@ -6,6 +6,7 @@
 #include "Post.h"
 #include "Servico.h"
 #include "Spotted.h"
+#include "funcoesAuxiares.hpp"
 #include <string>
 
 void main()
@@ -85,15 +86,17 @@ void main()
             case 1:
             {
                 std::cout << "spotteds disponiveis:" << std::endl;
-                for (auto &spotted : postDeSpotted_){
+                for (auto &spotted : postDeSpotted_)
+                {
 
                     std::cout << "SPOTTED" << spotted.first << std::endl;
 
-                    for (auto &i : spotted.second.listarPosts()){ 
+                    for (auto &i : spotted.second.listarPosts())
+                    {
                         // Imprime número de likes e comentários para cada mensagem do spotted
 
-                    std::cout << "likes: " << spotted.second.getLikes() << std::endl;
-                    std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
+                        std::cout << "likes: " << spotted.second.getLikes() << std::endl;
+                        std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
                     }
                 }
             }
@@ -117,7 +120,20 @@ void main()
                 }
                 int opcao = 0;
                 std::cout << "para onde deseja prosseguir?" << std::endl;
-                std::cout << "1. Ver os comentarios de um post;" << std::endl;
+                std::cout << "1. Ver os comentarios de um servico;" << std::endl;
+                std::cout << "2. Fazer um comentario em um servico" << std::endl;
+                std::cout << "3. Ver informacoes de contato de um servico" << std::endl;
+                std::cin >> opcao;
+
+                switch (opcao)
+                {
+                case 1:
+                    std::cout << "Deseja ver os comentarios de qual post de servico?(digite o id)" << std::endl;
+                    int idserv;
+                    std::cin >> idserv;
+                    Servico &servicoSelecionado = acharPostOuPerfil(postDeServico_, idserv);
+                    break;
+                }
             }
             case 5:
             {
