@@ -2,7 +2,8 @@
 
 Servico::Servico() {}
 
-Servico::Servico(std::string descricao){
+Servico::Servico(std::string descricao)
+{
     descricaoDoServico_ = descricao;
 }
 
@@ -11,7 +12,7 @@ Servico::~Servico()
     descricaoDoServico_.clear();
 }
 
-std::string Servico::getDescricaoDoServico()
+std::string Servico::getDescricaoDoServico() const
 {
     return descricaoDoServico_;
 }

@@ -19,7 +19,7 @@ public:
     ~Servico();
 
     // 3. "Getters":
-    std::string getDescricaoDoServico();
+    std::string getDescricaoDoServico() const;
 
     // 4. Metodos:
     void editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto);
