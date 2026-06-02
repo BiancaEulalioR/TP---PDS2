@@ -1,5 +1,5 @@
 # Ignore VS Code local configurations
-../.vscode/
+./.vscode/
 
 # Ignore compiled executables and build folders
 build/
