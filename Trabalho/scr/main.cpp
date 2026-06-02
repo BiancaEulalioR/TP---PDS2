@@ -77,8 +77,9 @@ void main()
             std::cout << "2.Eventos" << std::endl;
             std::cout << "3.Oportunidades" << std::endl;
             std::cout << "4.Serviços" << std::endl;
-            std::cout << "5.Informações do usuario" << std::endl;
-            std::cout << "6.Sair do perfil";
+            std::cout << "5.Postar" << std::endl;
+            std::cout << "6.Informações do usuario" << std::endl;
+            std::cout << "7.Sair do perfil";
             std::cin >> aux3;
 
             switch (aux3)
@@ -139,6 +140,9 @@ void main()
             {
             }
             case 6:
+            {
+            }
+            case 7:
             {
                 aux2 = 0;
             }
