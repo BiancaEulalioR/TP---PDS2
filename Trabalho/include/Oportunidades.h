@@ -6,23 +6,23 @@
 
 #include <string>
 
-// Representa uma oportunidade
-class Oportunidades
+// Representa uma oportunidade, classe do tipo post
+class Oportunidades : public Post
 {
 
 private:
     std::string descricao_; // descrição da oportunidade
+    std::string contato_; // contato da oportunidade
     int id_;                // identificador único da oportunidade
 
 public:
     // Construtor responsável por incializar uma oportunidade
-    Oportunidades(int id_, const std::string &descricao_, const std::string &contato_, const Perfil &usuario_);
+    Oportunidades(int id, const std::string &descricao, const std::string &contato, const Perfil &usuario);
 
     // Getters (acesso aos dados)
     int getId() const;
     std::string getDescricao() const;
     std::string getContato() const;
-    std::string getUsuario() const;
 
     // Edita os dados da oportunidade
     // Pré-condição: só pode ser feita a edição se o usuario for o dono
