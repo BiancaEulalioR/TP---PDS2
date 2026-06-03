@@ -136,26 +136,75 @@ void main()
                 std::cout << "servicos disponiveis:" << std::endl;
                 for (auto &i : postDeServico_)
                 {
-                    std::cout << "SERVICO " << i.first << std::endl;
+                    std::cout << "SERVICO (" << i.first << ") " << std::endl;
                     std::cout << (i.second).getDescricaoDoServico() << std::endl;
-                    std::cout << (i.second).getLikes() << " likes" << "\n"
-                              << std::endl;
+                    std::cout << (i.second).getLikes() << " likes  " << (i.second).getComments() << " comentarios  " << std::endl;
                     // falta so por o numero de comentarios
                 }
                 int opcao = 0;
                 std::cout << "para onde deseja prosseguir?" << std::endl;
                 std::cout << "1. Ver os comentarios de um servico;" << std::endl;
-                std::cout << "2. Fazer um comentario em um servico" << std::endl;
-                std::cout << "3. Ver informacoes de contato de um servico" << std::endl;
+                std::cout << "2. Fazer um comentario em um servico;" << std::endl;
+                std::cout << "3. Ver informacoes de contato de um servico;" << std::endl;
+                std::cout << "4. Voltar ao menu principal." << std::endl;
                 std::cin >> opcao;
 
                 switch (opcao)
                 {
                 case 1:
+                {
                     std::cout << "Deseja ver os comentarios de qual post de servico?(digite o id)" << std::endl;
                     int idserv;
                     std::cin >> idserv;
-                    Servico &servicoSelecionado = acharPostOuPerfil(postDeServico_, idserv);
+                    Servico &servicoSelecionado = acharPost(postDeServico_, idserv);
+                    std::cout << "Comentarios: " << std::endl;
+                    imprimirElementos(servicoSelecionado.listarComments());
+                    std::cout << std::endl;
+                    std::cout << "Pressione enter para voltar." << std::endl;
+                    std::cin.ignore();
+                    std::cin.get();
+                    break;
+                }
+                case 2:
+                {
+                    std::cout << "Em qual post de Servico deseja deixar um comentario?(digite o id)" << std::endl;
+                    int idserv1;
+                    std::cin >> idserv1;
+                    Servico &servicoSelecionado1 = acharPost(postDeServico_, idserv1);
+                    std::string novoComentario;
+                    std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
+                    std::cin.ignore();
+                    std::getline(std::cin, novoComentario);
+                    while (novoComentario.empty())
+                    {
+                        std::cout << "O comentario esta vazio. Digite-o novamente:" << std::endl;
+                        std::cin.ignore();
+                        std::getline(std::cin, novoComentario);
+                    }
+                    servicoSelecionado1.inserirComment(novoComentario);
+                    std::cout << "Comentario publicado. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore();
+                    std::cin.get();
+                    break;
+                }
+                case 3:
+                {
+                    std::cout << "De qual servico deseja ver as informacoes de contato?(digite o id)" << std::endl;
+                    int idserv2;
+                    std::cin >> idserv2;
+                    Servico &servicoSelecionado2 = acharPost(postDeServico_, idserv2);
+                    std::string nomeDoPrestador = (servicoSelecionado2.getPerfil()).getUsuario();
+                    std::cout << "Usuario que postou esse servico: " << nomeDoPrestador << std::endl;
+                    std::cout << "Telefone para contado: " << servicoSelecionado2.getNumeroContato() << std::endl;
+                    std::cout << "Pressione enter para voltar." << std::endl;
+                    std::cin.ignore();
+                    std::cin.get();
+                    break;
+                }
+                case 4:
+                    break;
+                default:
+                    std::cout << "Opcao nao encontrada. Tente novamente." << std::endl;
                     break;
                 }
             }
