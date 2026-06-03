@@ -1,10 +1,10 @@
-# Ignore VS Code local configurations
+# Ignorar conf. do vscode
 ./.vscode/
 
-# Ignore compiled executables and build folders
+# Ignorar compilados
 build/
 *.exe
 *.out
 
-# Ignore temporary object files
+# Ignorar os eventuais ".o"s
 *.o
