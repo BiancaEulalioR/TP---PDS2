@@ -2,9 +2,10 @@
 
 Servico::Servico() {}
 
-Servico::Servico(std::string descricao)
+Servico::Servico(std::string descricao, int num)
 {
     descricaoDoServico_ = descricao;
+    numeroContato_ = num;
 }
 
 Servico::~Servico()
@@ -15,6 +16,11 @@ Servico::~Servico()
 std::string Servico::getDescricaoDoServico() const
 {
     return descricaoDoServico_;
+}
+
+int Servico::getNumeroContato() const
+{
+    return numeroContato_;
 }
 
 // Aqui, os parametros de "editarDescricao" sao obtidos com cin, diretamente do usario, (na main);
