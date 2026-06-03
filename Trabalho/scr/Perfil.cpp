@@ -2,51 +2,73 @@
 
 void Perfil::criaPerfil(std::string nome, std::string usuario, std::string senha, 
                         std::string bio, std::string telefone, std::string email){
-                        Usuario perfil;
-                        perfil.nome_ = nome;
-                        perfil.senha_ = senha;
-                        perfil.bio_ = bio;
-                        perfil.telefone_ = telefone;
-                        perfil.email_ = email;
-                        perfil.usuario_ = usuario;
-                        Perfil_.push_back(perfil);
+                        perfil_.nome_ = nome;
+                        perfil_.senha_ = senha;
+                        perfil_.bio_ = bio;
+                        perfil_.telefone_ = telefone;
+                        perfil_.email_ = email;
+                        perfil_.usuario_ = usuario;
                         }
 
-void Perfil::editarPerfil(std::string usuario, std::string parametro, std::string novo){
-        for(int i = 0; i < Perfil_.size(); i++){
-            if(Perfil_[i].usuario_ == usuario){
-                if(parametro == "nome")
-                    Perfil_[i].nome_ = novo;
-                if(parametro == "senha")
-                    Perfil_[i].senha_ = novo;
-                if(parametro == "bio")
-                    Perfil_[i].bio_ = novo;
-                if(parametro == "telefone")
-                    Perfil_[i].telefone_ = novo;
-                if(parametro == "email")
-                    Perfil_[i].email_ = novo;
-                if(parametro == "usuario")
-                    Perfil_[i].usuario_ = novo;
-                break;
-            }
-        }
+void Perfil::editarPerfil(std::string parametro, std::string novo){
+
+    if(parametro == "nome")
+        perfil_.nome_ = novo;
+
+    if(parametro == "senha")
+        perfil_.senha_ = novo;
+
+    if(parametro == "bio")
+        perfil_.bio_ = novo;
+
+    if(parametro == "telefone")
+        perfil_.telefone_ = novo;
+
+    if(parametro == "email")
+        perfil_.email_ = novo;
+
+    if(parametro == "usuario")
+        perfil_.usuario_ = novo;
 }
+
+
 bool Perfil::verificaPerfil(std::string usuario, std::string senha){
-    for (int i = 0; i < Perfil_.size(); i++){
-        if(Perfil_[i].usuario_ == usuario){
-            if(Perfil_[i].senha_ == senha)
-                return true;
-        }
-    }
-    return false;
+    return (perfil_.usuario_ == usuario &&
+            perfil_.senha_ == senha);
 }
 
 
 void Perfil::apagaPerfil(std::string usuario){
-    for (int i = 0; i < Perfil_.size(); i++){
-        if(Perfil_[i].usuario_ == usuario){
-            Perfil_.erase(Perfil_.begin() + i);
-            break;
-        }
-    }
+// metodo perdeu o sentido agora que a main tem maps, o ideal é removermos 
+}
+
+// getters
+std::string Perfil::getNome() const
+{
+    return perfil_.nome_;
+}
+
+std::string Perfil::getUsuario() const
+{
+    return perfil_.usuario_;
+}
+
+std::string Perfil::getSenha() const
+{
+    return perfil_.senha_;
+}
+
+std::string Perfil::getBio() const
+{
+    return perfil_.bio_;
+}
+
+std::string Perfil::getTelefone() const
+{
+    return perfil_.telefone_;
+}
+
+std::string Perfil::getEmail() const
+{
+    return perfil_.email_;
 }

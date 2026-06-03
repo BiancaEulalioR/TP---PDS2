@@ -2,16 +2,23 @@
 
 
 Oportunidades::Oportunidades(int id,
-                             const std::string& descricao,
-                             const std::string& contato,
-                             const std::string& usuario) {
+                             const std::string &descricao,
+                             const std::string &contato,
+                             const Perfil &usuario) {
 
     id_ = id;
     descricao_ = descricao;
     contato_ = contato;
-    usuario_ = usuario;
+    perfilAssociado_= usuario;
 
 
+}
+
+Oportunidades::Oportunidades()
+{
+    id_ = 0;
+    descricao_ = "";
+    contato_ = "";
 }
 
 int Oportunidades::getId() const {
@@ -26,8 +33,9 @@ std::string Oportunidades::getContato() const {
     return contato_;
 }
 
-std::string Oportunidades::getUsuario() const {
-    return usuario_;
+Perfil Oportunidades::getPerfil() const
+{
+    return perfilAssociado_;
 }
 
 void Oportunidades::editarOportunidade(const std::string& novaDescricao,
