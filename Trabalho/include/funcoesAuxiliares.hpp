@@ -25,6 +25,7 @@ val &acharPost(const std::map<ch, val> &conjunto, ch idEscolhido)
             std::cout << "Não encontrado. Digite novamente: ";
             std::cin.ignore();
             std::cin >> idEscolhido;
+            procurado = conjunto.find(idEscolhido);
         } while (procurado == conjunto.end());
         return procurado->second;
     }
