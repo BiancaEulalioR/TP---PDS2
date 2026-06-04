@@ -159,9 +159,30 @@ void main()
                 }
                 case 4:
                 {
+                    std::cout << "Em qual post de Spotted deseja remover o comentario? (digite o id)" << std::endl;
+                    int idSpotted3;
+                    std::cin >> idSpotted3;
+                    Spotted &spottedSelecionado3 = acharPost(postDeSpotted_, idSpotted3);
+    
+                    spottedSelecionado3.removerComment();
+                    std::cout << "comentario removido. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore(); // limpa buffer
+                    std::cin.get(); // espera o enter
+                    break;// volta ao menu
+                    
                 }
                 case 5:
                 {
+                    std::cout << "Em qual post de Spotted deseja remover o like? (digite o id)" << std::endl;
+                    int idSpotted4;
+                    std::cin >> idSpotted4;
+                    Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
+    
+                    spottedSelecionado4.removerLike();
+                    std::cout << "Like removido. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore(); // limpa buffer
+                    std::cin.get(); // espera o enter
+                    break;// volta ao menu
                 }
                 }
             }
