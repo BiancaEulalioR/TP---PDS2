@@ -3,12 +3,12 @@
 
 
     Spotted::Spotted() : Post() {
-        idCont = 0;
+        idCont_ = 0;
      }
 
     void Spotted::criarPost(std::string s){
-    lista[idCont] = s;
-    idCont++;
+    lista[idCont_] = s;
+    idCont_++;
     }
 
     void Spotted::apagarPost(int indice){
