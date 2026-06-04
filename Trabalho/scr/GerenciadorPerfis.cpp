@@ -10,7 +10,6 @@
                             novoPerfil.setTelefone(telefone);
                             novoPerfil.setEmail(email);
                             perfis_[id_] = novoPerfil;
-                            id_++;
                         }
 
     void GerenciadorPerfis::editarPerfil(int id, std::string parametro, std::string novo){

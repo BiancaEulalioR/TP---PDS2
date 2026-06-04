@@ -16,7 +16,7 @@ class GerenciadorPerfis{
 
     private:
     std::map<int, Perfil> perfis_;
-    int id_ = 0;
+    int id_;
 };
 
 #endif

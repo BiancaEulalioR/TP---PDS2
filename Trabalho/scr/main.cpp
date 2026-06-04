@@ -2,7 +2,6 @@
 #include <map>
 #include "Evento.h"
 #include "Oportunidades.h"
-#include "Perfil.h"
 #include "Post.h"
 #include "Servico.h"
 #include "Spotted.h"
@@ -26,10 +25,10 @@ void main()
     std::cout << "Qual ação deseja realizar: " << std::endl;
     std::cout << "1.Criar Perfil " << std::endl
               << "2.Entrar " << std::endl;
-    int aux1, aux2 = 0, aux3 = 0;
+    int aux1, aux2 = 0, aux3 = 0, id = 0;
     std::cin >> aux1;
     std::string n, u, s, b, t, e;
-    Perfil gerenciador_;
+    GerenciadorPerfis gerenciador_;
 
     while (1)
     {
@@ -50,7 +49,8 @@ void main()
             std::cin >> b;
             std::cout << "Telefone: " << std::endl;
             std::cin >> t;
-            gerenciador_.criaPerfil(n, u, s, b, t, e);
+            gerenciador_.criaPerfil(n, u, s, id, b, t, e);
+            id++;
             aux2 = 1;
             break;
         }
@@ -61,7 +61,7 @@ void main()
             std::cin >> u;
             std::cout << "Senha: " << std::endl;
             std::cin >> s;
-            if (gerenciador_.verificaPerfil(u, s))
+            if (gerenciador_.verificaPerfil(id, u, s))
             {
                 aux2 = 1;
                 std::cout << "Bem vindo!!" << std::endl;
