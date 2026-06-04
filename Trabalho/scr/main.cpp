@@ -146,12 +146,11 @@ void main()
                 }
                 case 3:
                 {
-                    std::cout << "Em qual post de Spotted deseja deixar um like?(digite o id)" << std::endl;
+                    std::cout << "Em qual post de Spotted deseja deixar um like? (digite o id)" << std::endl;
                     int idSpotted2;
                     std::cin >> idSpotted2;
-                    Servico &spottedSelecionado2 = acharPost(postDeSpotted_, idSpotted2);
-                    std::string novoComentarioSpotted;
-                
+                    Spotted &spottedSelecionado2 = acharPost(postDeSpotted_, idSpotted2);
+    
                     spottedSelecionado2.inserirLike();
                     std::cout << "Like publicado. Pressione Enter para voltar." << std::endl;
                     std::cin.ignore(); // limpa buffer
