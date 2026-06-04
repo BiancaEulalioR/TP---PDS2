@@ -5,7 +5,7 @@
                             Perfil novoPerfil;
                             novoPerfil.setNome(nome);
                             novoPerfil.setUsuario(usuario);
-                            novoPerfil.setSenha(senha);
+                            novoPerfil.setSenha(codificador(senha));
                             novoPerfil.setBio(bio);
                             novoPerfil.setTelefone(telefone);
                             novoPerfil.setEmail(email);
@@ -22,7 +22,7 @@
             if(parametro=="usuario")
                 it->second.setUsuario(novo);
             if(parametro=="senha")
-                it->second.setSenha(novo);
+                it->second.setSenha(codificador(novo));
             if(parametro=="bio")
                 it->second.setBio(novo);
             if(parametro=="telefone")
@@ -45,11 +45,25 @@
         auto it = perfis_.find(id);
 
         if(it != perfis_.end()){
-            if((it->second.getUsuario() == usuario)&&(it->second.getSenha() == senha))
+            if((it->second.getUsuario() == usuario)&&(decodificador(it->second.getSenha()) == senha))
                 return true;
             else return false;
         }
         return false;
      }
+
+
+    std::string GerenciadorPerfis::codificador(std::string senha){
+        for(int i = 0; i<senha.size(); i++)
+            senha[i] += 2;
+        return senha;
+    }
+
+    std::string GerenciadorPerfis::decodificador(std::string senha){
+        for(int i = 0; i<senha.size(); i++)
+            senha[i] -= 2;
+        return senha;
+    }
+
 
 
