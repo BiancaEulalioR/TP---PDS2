@@ -88,14 +88,14 @@ void main()
             case 1:
             {
                 std::cout << "spotteds disponiveis:" << std::endl;
-                for (auto &spotted : postDeSpotted_)
+                for (auto &it : postDeSpotted_)
                 {
-                    std::cout << "SPOTTED" << spotted.first << std::endl;
-                    for (auto &i : spotted.second.listarPosts())
+                    std::cout << "SPOTTED" << it.first << std::endl;
+                    for (auto &i : it.second.listarPosts())
                     {
                         // Imprime número de likes e comentários para cada mensagem do spotted
-                        std::cout << "likes: " << spotted.second.getLikes() << std::endl;
-                        std::cout << "Comentarios: " << spotted.second.getComments() << std::endl;
+                        std::cout << "likes: " << i.second.getLikes() << std::endl;
+                        std::cout << "Comentarios: " << i.second.getComments() << std::endl;
                     }
                 }
                 int opcao = 0;
@@ -110,12 +110,53 @@ void main()
                 {
                 case 1:
                 {
-                }
+                    std::cout << "Deseja ver os comentarios de qual spotted?(digite o id)" << std::endl;
+                    int idSpotted;
+                    std::cin >> idSpotted;
+                    Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+                    std::cout << "Comentarios: " << std::endl;
+                    imprimirElementos(spottedSelecionado.listarComments());
+                    std::cout << std::endl;
+                    std::cout << "Pressione enter para voltar." << std::endl;
+                    std::cin.ignore();
+                    std::cin.get();
+                    break;
+                } 
                 case 2:
                 {
+                    std::cout << "Em qual post de Spotted deseja deixar um comentario?(digite o id)" << std::endl;
+                    int idSpotted1;
+                    std::cin >> idSpotted1;
+                    Servico &spottedSelecionado1 = acharPost(postDeSpotted_, idSpotted1);
+                    std::string novoComentarioSpotted;
+                    std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
+                    std::cin.ignore();
+                    std::getline(std::cin, novoComentarioSpotted);//ler a linha inteira
+                    while (novoComentarioSpotted.empty()) //comentário vazio
+                    {
+                        std::cout << "O comentario esta vazio. Digite-o novamente:" << std::endl;
+                        std::cin.ignore(); //limpa buffer
+                        std::getline(std::cin, novoComentarioSpotted);
+                    }
+                    spottedSelecionado1.inserirComment(novoComentarioSpotted);
+                    std::cout << "Comentario publicado. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore(); // limpa buffer
+                    std::cin.get(); // espera o enter
+                    break;// volta ao menu
                 }
                 case 3:
                 {
+                    std::cout << "Em qual post de Spotted deseja deixar um like?(digite o id)" << std::endl;
+                    int idSpotted2;
+                    std::cin >> idSpotted2;
+                    Servico &spottedSelecionado2 = acharPost(postDeSpotted_, idSpotted2);
+                    std::string novoComentarioSpotted;
+                
+                    spottedSelecionado2.inserirLike();
+                    std::cout << "Like publicado. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore(); // limpa buffer
+                    std::cin.get(); // espera o enter
+                    break;// volta ao menu
                 }
                 case 4:
                 {
