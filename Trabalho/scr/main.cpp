@@ -6,7 +6,7 @@
 #include "Post.h"
 #include "Servico.h"
 #include "Spotted.h"
-#include "funcoesAuxiares.hpp"
+#include "funcoesAuxiliares.hpp"
 #include "GerenciadorPerfis.h"
 #include <string>
 

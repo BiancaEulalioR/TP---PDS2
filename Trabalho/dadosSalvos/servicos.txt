@@ -1,10 +1,12 @@
-SERVICO|descricao do servico de teste.|nomeDoPerfilAssociado
-ID|0001
-LIKES|123
+SERVICO|descricao do servico de teste.|
+IDPERF|1234|
+ID|0001|
+LIKES|123|
 COMENTARIOS|comentario 1|comentario 2.!|comentario 3...|
-SERVICO|descricao do segundo teste.|nomeDoPerfil2
-ID|0002
-LIKES|270
+SERVICO|descricao do segundo teste.|
+IDPERF|9874|
+ID|0002|
+LIKES|270|
 COMENTARIOS|comentario 1|comentario 2 ç|comentario 3:|
 
 

@@ -24,7 +24,11 @@ public:
     std::string getDescricaoDoServico() const;
     int getNumeroContato() const;
 
-    // 4. Metodos:
+    // 4. "Setters":
+    void setDescricaoDoServico(std::string descricaoL);
+    void setNumeroContato(int numL);
+
+    // 5. Metodos:
     void editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto);
     void reescreverDescricao(std::string novaDescricao);
 };

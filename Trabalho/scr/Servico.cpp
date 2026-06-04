@@ -23,6 +23,16 @@ int Servico::getNumeroContato() const
     return numeroContato_;
 }
 
+void Servico::setDescricaoDoServico(std::string descricaoL)
+{
+    descricaoDoServico_ = descricaoL;
+}
+
+void Servico::setNumeroContato(int numL)
+{
+    numeroContato_ = numL;
+}
+
 // Aqui, os parametros de "editarDescricao" sao obtidos com cin, diretamente do usario, (na main);
 // Ela substitui a parte do texto "selecionada" pelo usuario por outra substring que ele digita (cin na main)
 // Unica ressalva: essa funcao vai substituir a primeira ocorrencia do trecho dado na string "descricaoDoServico",

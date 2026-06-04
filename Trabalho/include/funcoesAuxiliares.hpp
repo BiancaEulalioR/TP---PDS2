@@ -1,16 +1,17 @@
 #pragma once
-
 #include <iostream>
 #include <map>
 #include <string>
+#include <fstream>
+#include "Servico.h"
 
 // Funcoes normais: ---------------------------------------------------------------------
+
+void carregarServicosSalvos(std::map<int, Servico> &servicos_);
 
 //---------------------------------------------------------------------------------------
 // Funcoes com template:-----------------------------------------------------------------
 
-// funcao responsavel por achar o elemento de qualquer map (seja o que guarda algum tipo de post seja um perfil) atraves do seu id.
-// retorna uma referencia para esse elemento/valor achado.
 template <typename ch, typename val>
 val &acharPost(const std::map<ch, val> &conjunto, ch idEscolhido)
 {
@@ -24,7 +25,8 @@ val &acharPost(const std::map<ch, val> &conjunto, ch idEscolhido)
             std::cout << "Não encontrado. Digite novamente: ";
             std::cin.ignore();
             std::cin >> idEscolhido;
-        } while (procurado == conjunto.end()) return procurado->second;
+        } while (procurado == conjunto.end());
+        return procurado->second;
     }
 }
 
@@ -35,4 +37,16 @@ void imprimirElementos(const std::map<ch, std::string> &conjunto)
     {
         std::cout << (i.second) << std::endl;
     }
+}
+
+template <typename ch, typename val>
+void apagarPost(std::map<ch, val> &conjunto, ch chave)
+{
+    while (conjunto.find(chave) == conjunto.end())
+    {
+        std::cout << "id nao existente, digite novamente: ";
+        std::cin.ignore();
+        std::cin << chave;
+    }
+    conjunto.erase(chave);
 }
