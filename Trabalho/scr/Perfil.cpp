@@ -1,74 +1,51 @@
 #include "Perfil.h"
+// Getters
+    std::string Perfil::getNome() const{
+        return nome_;
+    }
 
-void Perfil::criaPerfil(std::string nome, std::string usuario, std::string senha, 
-                        std::string bio, std::string telefone, std::string email){
-                        perfil_.nome_ = nome;
-                        perfil_.senha_ = senha;
-                        perfil_.bio_ = bio;
-                        perfil_.telefone_ = telefone;
-                        perfil_.email_ = email;
-                        perfil_.usuario_ = usuario;
-                        }
+    std::string Perfil::getUsuario() const{
+        return usuario_;
+    }
 
-void Perfil::editarPerfil(std::string parametro, std::string novo){
+    std::string Perfil::getSenha() const{
+        return senha_;
+    }
+    
+    std::string Perfil::getBio() const{
+        return bio_;
+    }
 
-    if(parametro == "nome")
-        perfil_.nome_ = novo;
+    std::string Perfil::getTelefone() const{
+        return telefone_;
+    }
 
-    if(parametro == "senha")
-        perfil_.senha_ = novo;
-
-    if(parametro == "bio")
-        perfil_.bio_ = novo;
-
-    if(parametro == "telefone")
-        perfil_.telefone_ = novo;
-
-    if(parametro == "email")
-        perfil_.email_ = novo;
-
-    if(parametro == "usuario")
-        perfil_.usuario_ = novo;
-}
+    std::string Perfil::getEmail() const{
+        return email_;
+    }
 
 
-bool Perfil::verificaPerfil(std::string usuario, std::string senha){
-    return (perfil_.usuario_ == usuario &&
-            perfil_.senha_ == senha);
-}
+// Setters
+    void Perfil::setNome(std::string nome){
+        nome_ = nome;
+    }
 
+    void Perfil::setSenha(std::string senha){
+        senha_ = senha;
+    }
 
-void Perfil::apagaPerfil(std::string usuario){
-// metodo perdeu o sentido agora que a main tem maps, o ideal é removermos 
-}
+    void Perfil::setBio(std::string bio){
+        bio_ = bio;
+    }
 
-// getters
-std::string Perfil::getNome() const
-{
-    return perfil_.nome_;
-}
+    void Perfil::setTelefone(std::string telefone){
+        telefone_ = telefone;
+    }
 
-std::string Perfil::getUsuario() const
-{
-    return perfil_.usuario_;
-}
+    void Perfil::setEmail(std::string email){
+        email_ = email;
+    }
 
-std::string Perfil::getSenha() const
-{
-    return perfil_.senha_;
-}
-
-std::string Perfil::getBio() const
-{
-    return perfil_.bio_;
-}
-
-std::string Perfil::getTelefone() const
-{
-    return perfil_.telefone_;
-}
-
-std::string Perfil::getEmail() const
-{
-    return perfil_.email_;
-}
+    void Perfil::setUsuario(std::string usuario){
+        usuario_ = usuario;
+    }
