@@ -6,8 +6,8 @@
         idCont_ = 0;
      }
 
-    void Spotted::criarPost(std::string s){
-    lista[idCont_] = s;
+    void Spotted::criarPost(std::string spotted_){
+    lista[idCont_] = spotted_;
     idCont_++;
     }
 

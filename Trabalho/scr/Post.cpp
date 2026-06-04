@@ -21,7 +21,7 @@ void Post::removerLike()
 void Post::inserirComment(std::string comment)
 {
   comments[idCont] = comment;
-  idCont++; // aumenta o índice do próximo comentário
+  idCont++; //aumenta o índice do próximo comentário
   qtdComments++;
 }
 
@@ -38,10 +38,6 @@ int Post::getLikes()
 void Post::idContador()
 {
   idCont++;
-}
-Perfil Post::getPerfil()
-{
-  return perfilAssociado;
 }
 int Post::getComments(){
   return qtdComments;

@@ -105,6 +105,8 @@ void main()
                 std::cout << "3. Deixar o like em um spotted" << std::endl;
                 std::cout << "4. Remover seu comentario de um spotted" << std::endl;
                 std::cout << "5. Retirar seu like de um spotted" << std::endl;
+                std::cout << "6. Remover um spotted" << std::endl;
+                std::cout << "7. Criar um spotted" << std::endl;
                 std::cin >> opcao;
                 switch (opcao)
                 {
@@ -164,7 +166,7 @@ void main()
                     std::cin >> idSpotted3;
                     Spotted &spottedSelecionado3 = acharPost(postDeSpotted_, idSpotted3);
     
-                    spottedSelecionado3.removerComment();
+                    spottedSelecionado3.removerComment(idSpotted3);
                     std::cout << "comentario removido. Pressione Enter para voltar." << std::endl;
                     std::cin.ignore(); // limpa buffer
                     std::cin.get(); // espera o enter
@@ -177,12 +179,29 @@ void main()
                     int idSpotted4;
                     std::cin >> idSpotted4;
                     Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
-    
+                    
                     spottedSelecionado4.removerLike();
                     std::cout << "Like removido. Pressione Enter para voltar." << std::endl;
                     std::cin.ignore(); // limpa buffer
                     std::cin.get(); // espera o enter
                     break;// volta ao menu
+                }
+                case 6:
+                {
+                     std::cout << "Qual post de Spotted deseja remover? (digite o id)" << std::endl;
+                    int idSpotted5;
+                    std::cin >> idSpotted5;
+                    Spotted &spottedSelecionado5 = acharPost(postDeSpotted_, idSpotted5);
+
+                    spottedSelecionado5.apagarPost(idSpotted5);
+                    std::cout << "Spotted removido. Pressione Enter para voltar." << std::endl;
+                    std::cin.ignore(); // limpa buffer
+                    std::cin.get(); // espera o enter
+                    break;// volta ao menu
+                }
+                case 7:
+                {
+                   
                 }
                 }
             }

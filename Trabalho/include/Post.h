@@ -8,31 +8,28 @@
 class Post
 {
 private:
+    //dados
     int likes;
-    int idCont; // chave do map
+    int idCont; //chave do map
     int qtdComments;
     std::map<int, std::string> comments;
     
 
 public:
+
     Post();
 
     void inserirLike();
-
     void removerLike();
 
     void inserirComment(std::string comment);
-
     void removerComment(int id);
 
     int getLikes();
+    int getComments();
 
     virtual void idContador();
-    
-
-    int getComments();
-    
-    const std::map<int, std::string> &listarComments(); // passagem por referência
+    const std::map<int, std::string> &listarComments();
 };
 
 #endif

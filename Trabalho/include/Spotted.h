@@ -8,7 +8,7 @@
 
     class Spotted : public Post {
     private:
-
+    //dados
     std::map <int ,std::string> lista;
     int idCont_; //chave do map
     
@@ -17,10 +17,8 @@
 
     Spotted(); 
 
-    void criarPost(std::string s);
-
+    void criarPost(std::string spotted_);
     void apagarPost(int indice);
-
     const std::map<int, std::string>& listarPosts();  
     };
     
