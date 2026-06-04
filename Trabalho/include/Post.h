@@ -12,7 +12,7 @@ private:
     int idCont; // chave do map
     int qtdComments;
     std::map<int, std::string> comments;
-    Perfil perfilAssociado;
+    
 
 public:
     Post();
@@ -26,8 +26,6 @@ public:
     void removerComment(int id);
 
     int getLikes();
-
-    Perfil getPerfil();
 
     virtual void idContador();
     
