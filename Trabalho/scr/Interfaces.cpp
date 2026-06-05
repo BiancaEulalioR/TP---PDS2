@@ -4,7 +4,7 @@
 #include "interface.h"
 #include "funcoesAuxiliares.hpp"
 
-void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& aux3, int& id, std::string& n, 
+void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& id, std::string& n, 
                         std::string& u, std::string& s, std::string& b, std::string& t, std::string& e){
     
     switch (aux1) {

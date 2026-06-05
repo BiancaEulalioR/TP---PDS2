@@ -11,7 +11,7 @@
 #include "Perfil.h"
 #include "GerenciadorPerfis.h"
 
-void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& aux3, int& id, std::string& n, 
+void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& id, std::string& n, 
                         std::string& u, std::string& s, std::string& b, std::string& t, std::string& e);
 
 void exibirMenuAbas(std::map<int, Spotted>& postDeSpotted_, std::map<int, Evento>& postDeEvento_,
