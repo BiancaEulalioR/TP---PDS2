@@ -85,7 +85,7 @@ void main()
 
             switch (aux3)
             {
-            case 1:
+            case 1: //spotted
             {
                 std::cout << "spotteds disponiveis:" << std::endl;
                 for (auto &it : postDeSpotted_)
@@ -187,10 +187,10 @@ void main()
                 }
             }
 
-            case 2:
+            case 2: //eventos
             {
             }
-            case 3:
+            case 3: //oportunidades
             {
                 std::cout << "Oportunidades disponiveis:" << std::endl;
 
@@ -311,7 +311,7 @@ void main()
                 break;
             }
             
-            case 4:
+            case 4: //serviços
             {
                 std::cout << "servicos disponiveis:" << std::endl;
                 for (auto &i : postDeServico_)
@@ -388,13 +388,13 @@ void main()
                     break;
                 }
             }
-            case 5:
+            case 5: //postar
             {
             }
-            case 6:
+            case 6: //informações do usuário
             {
             }
-            case 7:
+            case 7: //Sair do Perfil
             {
                 aux2 = 0;
             }
