@@ -192,7 +192,125 @@ void main()
             }
             case 3:
             {
+                std::cout << "Oportunidades disponiveis:" << std::endl;
+
+                    for (auto &i : postDeOportunidade_)
+                    {
+                        std::cout << "OPORTUNIDADE (" << i.first << ")" << std::endl;
+                        std::cout << i.second.getDescricao() << std::endl;
+                        std::cout << i.second.getLikes() << " likes "
+                                << i.second.getComments() << " comentarios" << std::endl;
+                    }
+
+                    std::cout << "Para onde deseja prosseguir?" << std::endl;
+                    std::cout << "1. Ver comentarios" << std::endl;
+                    std::cout << "2. Fazer comentario" << std::endl;
+                    std::cout << "3. Ver informacoes de contato da oportunidade" << std::endl;
+                    std::cout << "4. Curtir oportunidade" << std::endl;
+                    std::cout << "5. Voltar ao menu principal" << std::endl;
+                    
+                    int opcao = 0;
+                    std::cin >> opcao;
+
+                    switch(opcao)
+                        {
+                            case 1:
+                            {
+                                int idOp;
+
+                                std::cout << "Digite o id da oportunidade:" << std::endl;
+                                std::cin >> idOp;
+                                    
+                                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+                                std::cout << "Comentarios:" << std::endl;
+                                imprimirElementos(opSelecionada.listarComments());
+                                std::cout << std::endl;
+                                std::cout << "Pressione enter para voltar." << std::endl;
+                                std::cin.ignore();
+                                std::cin.get();
+
+                                break;
+                            }
+
+                            case 2:
+                            {
+                                int idOp;
+
+                                std::cout << "Digite o id da oportunidade:" << std::endl;
+                                std::cin >> idOp;
+                                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+                                
+                                std::string comentario;
+
+                                std::cout << "Digite seu comentario:" << std::endl;
+
+                                std::cin.ignore();
+                                std::getline(std::cin, comentario);
+
+                                while(comentario.empty())
+                                {
+                                    std::cout << "O comentario esta vazio. Digite novamente:" << std::endl;
+                                    std::getline(std::cin, comentario);
+                                }
+                                
+                                opSelecionada.inserirComment(comentario);
+
+                                std::cout << "Comentario publicado. Pressione enter para voltar." << std::endl;
+
+                                std::cin.get();
+
+                                break;
+                            }
+
+                            case 3:
+                            {
+                                int idOp;
+
+                                std::cout << "Digite o id da oportunidade:" << std::endl;
+                                std::cin >> idOp;
+
+                                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+
+                                std::cout << "Usuario que publicou: " << opSelecionada.getPerfil().getUsuario() << std::endl;
+                                std::cout << "Contato: " << opSelecionada.getContato()<< std::endl;
+                                std::cout << "Pressione enter para voltar." << std::endl;
+                                std::cin.ignore();
+                                std::cin.get();
+
+                                break;  
+                            }
+
+                            case 4:
+                            {
+                                int idOp;
+
+                                std::cout << "Digite o id da oportunidade:" << std::endl;
+                                std::cin >> idOp;
+
+                                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+
+                                opSelecionada.inserirLike();
+
+                                std::cout << "Like registrado. Pressione Enter para voltar."
+                                        << std::endl;
+
+                                std::cin.ignore();
+                                std::cin.get();
+
+                                break;
+                            }
+
+                            case 5:
+                                break;
+                            
+                            default:
+                            std::cout << "Opcao nao encontrada. Tente novamente."<< std::endl;    
+
+                            break;
+                        }    
+                break;
             }
+            
             case 4:
             {
                 std::cout << "servicos disponiveis:" << std::endl;
