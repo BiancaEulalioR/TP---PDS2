@@ -1,42 +1,40 @@
 #include "Evento.h"
 
-Evento::Evento(){
-    _textoEvento = "";
-    _contato = ""; }
+Evento::Evento() : idCont_(0), textoEvento_(""), contato_("") {}
 
-std::string Evento::getTextoEvento(){
-    return _textoEvento; }
-
-
-std::string Evento::getContato(){
-    return _contato; }
+Evento::Evento(int id, const std::string& textoEvento, const std::string& contato, const Perfil& organizador, 
+        const Perfil& usuario) : idCont_(id), textoEvento_(textoEvento), contato_(contato), organizador_(organizador), 
+        perfilAssociado_(usuario) {}
+            // perfilAssociado_ inicializado com usuario (ajustar após verificação de perfis)
 
 
-Perfil& Evento::getOrganizador(){
-    return organizador; }
+int Evento::getId() const{
+    return idCont_; }
 
-Post& Evento::getPost(){
-    return post; }
+std::string Evento::getTextoEvento() const{
+    return textoEvento_; }
 
+
+std::string Evento::getContato() const{
+    return contato_; }
+
+
+Perfil Evento::getOrganizador() const{
+    return organizador_; }
+
+Perfil Evento::getPerfil() const{
+    return perfilAssociado_; }
+
+
+void Evento::editarContato(const std::string& novoContato){
+    contato_ = novoContato; }            
+
+void Evento::editarOrganizador(const Perfil& novoOrganizador){
+    organizador_ = novoOrganizador; }
+
+void Evento::editarEvento(const std::string& novoTexto) {
+    textoEvento_ = novoTexto; }
             
-void Evento::criarEvento(std::string textoEvento, std::string contato, Perfil organizador){
-    Evento novoEvento;
-    novoEvento._textoEvento = textoEvento;
-    novoEvento._contato = contato;
-    novoEvento.organizador = organizador;
-    _listaEvento.push_back(novoEvento); }
-            
-void Evento::editarContato(std::string novoContato){
-    _contato = novoContato; }
-
-void Evento::editarOrganizador(Perfil novoOrganizador){
-    organizador = novoOrganizador; }
-            
-void Evento::editarEvento(std::string novoTexto){
-    _textoEvento = novoTexto; }
-            
-void Evento::excluirEvento(std::string textoEvento){
-    for (int i = 0; i < _listaEvento.size(); i++){
-        if (_listaEvento[i]._textoEvento == textoEvento){
-            _listaEvento.erase(_listaEvento.begin() + i);
-        break; }  }   }
+void Evento::apagarEvento(){
+    textoEvento_ = "";
+    contato_ = ""; }
