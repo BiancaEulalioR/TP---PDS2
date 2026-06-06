@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "interfaces.h"
+#include "Evento.h"
+#include "Interfaces.h"
 #include "funcoesAuxiliares.hpp"
 
 void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& id, std::string& n, 
@@ -186,7 +187,173 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
 
 //--------------------------------------EVENTOS----------------------------------------------------------
 void exibirEventos(std::map<int, Evento>& postDeEvento_){
-    //a ser implememntado aindaa
+    int opcaoEvento = 0;
+
+    while(opcaoEvento != 9){
+        std::cout << "=== EVENTOS ===" << std::endl;
+        std::cout << "1. Ver eventos publicados" << std::endl;
+        std::cout << "2. Publicar evento" << std::endl;
+        std::cout << "3. Visualizar comentários" << std::endl;
+        std::cout << "4. Publicar comentario em evento" << std::endl;
+        std::cout << "5. Remover comentario de evento" << std::endl;
+        std::cout << "6. Visualizar curtidas" << std::endl;
+        std::cout << "7. Curtir evento" << std::endl;
+        std::cout << "8. Remover curtida de evento" << std::endl;
+        std::cout << "9. Voltar ao menu principal" << std::endl;
+        std::cin >> opcaoEvento;
+
+        switch(opcaoEvento){
+            case 1:{
+
+                for(auto& i : postDeEvento_){
+                    std::cout << "EVENTO ("<< i.first <<")" << std::endl;
+                    std::cout << i.second.getTextoEvento() << std::endl;
+                    std::cout << "Organizador: " << i.second.getOrganizador().getUsuario() << std::endl;
+                    std::cout << "Contato: " << i.second.getContato() << std::endl;
+                    std::cout << i.second.getLikes() << " curtidas" << std::endl;
+                    std::cout << i.second.getComments() << " comentarios" << std::endl;  
+                    std::cout << " " << std::endl;    }
+
+                std::cout << "Pressione enter para voltar para o menu de eventos " << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+            break;  }
+            
+            case 2: {
+                std::string texto_evento, contato_evento;
+                int id = postDeEvento_.size();
+
+                std::cout << "Digite o contato responsável pela organizacao do evento:" << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, contato_evento);
+
+                std::cout << "Digite o texto do evento a ser publicado:" << std::endl;
+                std::getline(std::cin, texto_evento);
+
+                // organizador_ e perfilAssociado_ serao implementados apos verificacao de perfis
+
+                Evento novoEvento(id, texto_evento, contato_evento, Perfil());
+                postDeEvento_[id] = novoEvento;
+
+                std::cout << "Evento publicado!" << std::endl;
+                std::cout << "Pressione enter para voltar." << std::endl;
+                std::cin.get();
+            break;  }
+
+            case 3: {
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(eventoSelecionado.listarComments());
+
+                std::cout << "Pressione enter para voltar." << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+
+            break;}
+
+            case 4:{
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+                std::string comentarioEvento;
+                std::cout << "Digite o comentario: " << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, comentarioEvento);
+
+                while(comentarioEvento.empty()){
+                    std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
+                    std::getline(std::cin, comentarioEvento);   }
+                
+                eventoSelecionado.inserirComment(comentarioEvento);
+                std::cout << "Comentário publicado." << std::endl; 
+                std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl; 
+                std::cin.get();
+            break;  }
+
+            case 5: {
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(eventoSelecionado.listarComments());
+
+                std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
+                int idComentario;
+                std::cin >> idComentario;
+                eventoSelecionado.removerComment(idComentario);
+
+                std::cout << "Comentario removido." << std::endl;
+                std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+            break;}
+
+            case 6: {
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                std::cout << "Numero de curtidas do post selecionado:" << eventoSelecionado.getLikes() << std::endl;
+
+                std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+            break;  }
+
+            case 7: {
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                eventoSelecionado.inserirLike();
+                std::cout << "Curtida registrada." << std::endl;
+                std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+
+                std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+            break;  }
+
+            case 8: {
+                std::cout << "Digite o ID do evento: " << std::endl;
+
+                int idEvento;
+                std::cin >> idEvento;
+                Evento& eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                eventoSelecionado.removerLike();
+                std::cout << "Curtida removida." << std::endl;
+                std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+
+                std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+                std::cin.ignore();
+                std::cin.get();
+            break;  }
+
+
+            case 9: {
+            break;  }
+
+            default: {
+                std::cout << "Opcao digitada invalida. Tente novamente digitando um numero entre 1 e 9."  << std::endl;
+            break;  }
+            
+        }
+    }
 }
 
 

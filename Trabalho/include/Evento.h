@@ -13,12 +13,11 @@ class Evento : public Post {
             std::string contato_; //Informações de contato
             int idCont_;
             Perfil organizador_; //Perfil do organizador do evento
-            Perfil perfilAssociado_;
 
         public:
             Evento(); //Construtor 
             Evento(int id, const std::string& textoEvento, const std::string& contato,
-                                    const Perfil& organizador, const Perfil& usuario);
+                                    const Perfil& organizador);
 
             //Getters
             int getId() const;
