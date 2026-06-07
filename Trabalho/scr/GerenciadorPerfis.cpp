@@ -79,4 +79,11 @@
         return nullptr;
     }
 
+        Perfil* GerenciadorPerfis::buscaPorID(int id){
+        auto it = perfis_.find(id);
+        if(it != perfis_.end())
+            return &it->second;
+        return nullptr;
+    }
+
 

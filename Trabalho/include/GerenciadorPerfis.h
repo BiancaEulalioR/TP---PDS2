@@ -12,6 +12,7 @@ class GerenciadorPerfis{
     void apagaPerfil(int id, std::string usuario);
     bool verificaPerfil(std::string usuario, std::string senha);
     Perfil* buscaPorUsuario(std::string usuario);
+    Perfil* buscaPorID(int id); 
     std::string codificador(std::string senha);
     std::string decodificador(std::string senha);
 

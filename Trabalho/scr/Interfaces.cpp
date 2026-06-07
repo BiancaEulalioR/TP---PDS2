@@ -30,14 +30,14 @@ void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& acesso, 
                         std::cout << "Bem vindo!" << std::endl; 
                     }
                     else{
-                        std::cout << "Usuário ou senha incorretos." << std::endl; 
+                        std::cout << "Usuario ou senha incorretos." << std::endl; 
                         int opcao;
                         do{
                             std::cout << "1.Tentar novamente" << std::endl;
                             std::cout << "2.Voltar ao menu" << std::endl;
                             std::cin >> opcao;
                             if(opcao != 1 && opcao != 2)
-                                std::cout << "Opção invalida! Tente novamente." << std::endl;
+                                std::cout << "Opcao invalida! Tente novamente." << std::endl;
                         } while(opcao != 1 && opcao != 2);
                         aux1 = opcao;
                     }
