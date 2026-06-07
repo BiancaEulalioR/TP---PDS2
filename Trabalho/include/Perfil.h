@@ -12,6 +12,7 @@ class Perfil{
     std::string getBio() const;
     std::string getTelefone() const;
     std::string getEmail() const;
+    int getidu() const;
 
     void setNome(std::string nome);
     void setSenha(std::string senha);
@@ -19,6 +20,8 @@ class Perfil{
     void setTelefone(std::string telefone);
     void setEmail(std::string email);
     void setUsuario(std::string usuario);
+    void setidu(int id);
+    
     private:
     //dados
     std::string nome_;
@@ -27,5 +30,6 @@ class Perfil{
     std::string telefone_;
     std::string email_;
     std::string usuario_;
+    int idu;
 };
 #endif

@@ -2,34 +2,37 @@
 #define EVENTO_H
 
 #include <string>
-#include <vector>
+
 #include "Perfil.h"
 #include "Post.h"
 
-class Evento {
+class Evento : public Post {
         private:
 
-            std::string _textoEvento; //Evento a ser inserido
-            std::string _contato; //Informações de contato
-            Perfil organizador; //Perfil do organizador do evento
-            Post post; //Para incluir curtidas e comentários
-            std::vector<Evento> _listaEvento; // Para inserir os eventos cadastrados
+            std::string textoEvento_; //Evento a ser inserido
+            std::string contato_; //Informações de contato
+            int idCont_;
+            Perfil organizador_; //Perfil do organizador do evento
 
         public:
             Evento(); //Construtor 
+            Evento(int id, const std::string& textoEvento, const std::string& contato,
+                                    const Perfil& organizador);
 
             //Getters
-            std::string getTextoEvento();
-            std::string getContato();
-            Perfil getOrganizador();
-            Post getPost();
+            int getId() const;
+            std::string getTextoEvento() const;
+            std::string getContato() const;
+            Perfil getOrganizador() const;
+            Perfil getPerfil() const;
 
             //Metodos
-            void criarEvento(std::string textoEvento, std::string contato, Perfil organizador);
-            void editarContato(std::string novoContato);
-            void editarOrganizador(Perfil novoOrganizador);
-            void editarEvento(std::string novoTexto);
-            void excluirEvento(std::string textoEvento);
+            void editarContato(const std::string& novoContato);
+            void editarOrganizador(const Perfil& novoOrganizador);
+            void editarEvento(const std::string& novoTexto);
+            void apagarEvento();
+
+            void idContador() override;
 
 };
 

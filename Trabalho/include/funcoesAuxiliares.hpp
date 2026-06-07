@@ -51,3 +51,10 @@ void apagarPost(std::map<ch, val> &conjunto, ch chave)
     }
     conjunto.erase(chave);
 }
+
+template <typename ch>
+void imprimirElementosComId(const std::map<ch, std::string> &conjunto) {
+    
+    for (const auto &i : conjunto)  {
+        std::cout << "ID: " << i.first << " - " << i.second << std::endl;   }
+}
