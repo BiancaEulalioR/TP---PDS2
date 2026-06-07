@@ -299,7 +299,7 @@ void exibirEventos(std::map<int, Evento>& postDeEvento_){
                 postDeEvento_[id] = novoEvento;
 
                 std::cout << "Evento publicado!" << std::endl;
-                std::cout << "Pressione enter para voltar." << std::endl;
+                std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
                 std::cin.get();
             break;  }
 
