@@ -1,6 +1,6 @@
 #include "GerenciadorPerfis.h"
 
-    void GerenciadorPerfis::criaPerfil(std::string nome, std::string usuario, std::string senha, int id, 
+    void GerenciadorPerfis::criaPerfil(std::string nome, std::string usuario, std::string senha, 
                         std::string bio, std::string telefone, std::string email){
                             Perfil novoPerfil;
                             novoPerfil.setNome(nome);
@@ -9,7 +9,10 @@
                             novoPerfil.setBio(bio);
                             novoPerfil.setTelefone(telefone);
                             novoPerfil.setEmail(email);
+                            novoPerfil.setidu(id_);
                             perfis_[id_] = novoPerfil;
+                            IDUsuario_[usuario] = id_;
+                            id_++;
                         }
 
     void GerenciadorPerfis::editarPerfil(int id, std::string parametro, std::string novo){
@@ -18,8 +21,11 @@
         if(it != perfis_.end()){
             if(parametro=="nome")
                 it->second.setNome(novo);
-            if(parametro=="usuario")
-                it->second.setUsuario(novo);
+            if(parametro=="usuario"){
+                IDUsuario_.erase(it->second.getUsuario()); 
+                IDUsuario_[novo] = id;                     
+                it->second.setUsuario(novo);   
+            }
             if(parametro=="senha")
                 it->second.setSenha(codificador(novo));
             if(parametro=="bio")
@@ -35,20 +41,20 @@
      void GerenciadorPerfis::apagaPerfil(int id, std::string usuario){
          auto it = perfis_.find(id);
 
-         if(it != perfis_.end())
+         if(it != perfis_.end()){
+            IDUsuario_.erase(it->second.getUsuario());
             perfis_.erase(it);
+         }
      }
 
     
-     bool GerenciadorPerfis::verificaPerfil(int id, std::string usuario, std::string senha){
-        auto it = perfis_.find(id);
-
-        if(it != perfis_.end()){
-            if((it->second.getUsuario() == usuario)&&(decodificador(it->second.getSenha()) == senha))
-                return true;
-            else return false;
-        }
-        return false;
+     bool GerenciadorPerfis::verificaPerfil(std::string usuario, std::string senha){
+        Perfil* p;
+        p = buscaPorUsuario(usuario);
+        if(p==nullptr) return false;
+        if((p->getUsuario()==usuario)&&(decodificador(p->getSenha())==senha)){
+            return true;
+        } else return false;
      }
 
 
@@ -64,6 +70,13 @@
         return senha;
     }
 
+    Perfil* GerenciadorPerfis::buscaPorUsuario(std::string usuario){
+        auto it = IDUsuario_.find(usuario);
+        if(it!=IDUsuario_.end()){
+        int id = it->second;
+        return &perfis_[id];
+        } 
+        return nullptr;
+    }
 
 
-//#todo fazer função para buscar perfil

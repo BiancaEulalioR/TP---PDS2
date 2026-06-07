@@ -22,21 +22,15 @@ void main()
 
     // criação de um perfil
 
-    int aux1, aux2 = 0, id = 0;
-    std::string n, u, s, b, t, e;
+    int aux1, acesso = 0, id = 0;
+    std::string nome, usuario, senha, bio, telefone, email;
     GerenciadorPerfis gerenciador_;
 
-    //Necessário adicionar algo defensivo caso o usuário digite algo além de 1 ou 2
-    std::cout << "Qual ação deseja realizar: " << std::endl;
-    std::cout << "1.Criar Perfil " << std::endl
-              << "2.Entrar " << std::endl;
-    std::cin >> aux1;
-
     while (1) {
-        exibirMenuInicial(gerenciador_, aux1, aux2, id, n, u, s, b, t, e);
+        exibirMenuInicial(gerenciador_, aux1, acesso, id, nome, usuario, senha, bio, telefone, email);
 
-        while(aux2)
-            exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, aux2);
+        while(acesso)
+            exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso);
 
     }
 

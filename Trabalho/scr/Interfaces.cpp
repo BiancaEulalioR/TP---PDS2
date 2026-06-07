@@ -5,45 +5,76 @@
 #include "Interfaces.h"
 #include "funcoesAuxiliares.hpp"
 
-void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, int& id, std::string& n, 
-                        std::string& u, std::string& s, std::string& b, std::string& t, std::string& e){
-    
-    switch (aux1) {
-        case 1: {
-            std::cout << "E-mail: " << std::endl;
-            std::cin >> e;
-            std::cout << "Nome completo: " << std::endl;
-            std::cin >> n;
-            std::cout << "Nome de usuario: " << std::endl;
-            std::cin >> u;
-            std::cout << "Senha: " << std::endl;
-            std::cin >> s;
-            std::cout << "Biografia: " << std::endl;
-            std::cin >> b;
-            std::cout << "Telefone: " << std::endl;
-            std::cin >> t;
-            gerenciador_.criaPerfil(n, u, s, id, b, t, e);
-            id++;
-            aux2 = 1;
-            break; }
+void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& acesso, int& id, std::string& nome, 
+                        std::string& usuario, std::string& senha, std::string& bio, std::string& telefone, 
+                        std::string& email){
 
-        case 2: {
-            std::cout << "Nome de usuario: " << std::endl;
-            std::cin >> u;
-            std::cout << "Senha: " << std::endl;
-            std::cin >> s;
-            if (gerenciador_.verificaPerfil(id, u, s)) {
-                aux2 = 1;
-                std::cout << "Bem vindo!" << std::endl; }
-            else
-                std::cout << "Perfil nao encontrado."; 
+    do{
+        std::cout << "Qual ação deseja realizar: " << std::endl;
+        std::cout << "1.Entrar " << std::endl
+                  << "2.Criar Perfil " << std::endl;
+        std::cin >> aux1;
+
+        switch (aux1) {
+        
+            case 1: {
+                do{
+                    std::cout << "Nome de usuario: " << std::endl;
+                    std::cin >> usuario;
+                    std::cout << "Senha: " << std::endl;
+                    std::cin >> senha;
+                    if (gerenciador_.verificaPerfil(usuario, senha)) {
+                        acesso = 1;
+                        Perfil* p = gerenciador_.buscaPorUsuario(usuario);
+                        id = p->getidu();
+                        std::cout << "Bem vindo!" << std::endl; 
+                    }
+                    else{
+                        std::cout << "Usuário ou senha incorretos." << std::endl; 
+                        int opcao;
+                        do{
+                            std::cout << "1.Tentar novamente" << std::endl;
+                            std::cout << "2.Voltar ao menu" << std::endl;
+                            std::cin >> opcao;
+                            if(opcao != 1 && opcao != 2)
+                                std::cout << "Opção invalida! Tente novamente." << std::endl;
+                        } while(opcao != 1 && opcao != 2);
+                        aux1 = opcao;
+                    }
+                 } while(acesso != 1 && aux1 != 2);
+                    aux1 = 0;
+                    break;
             }   
-    }
+
+            case 2: {
+                std::cout << "E-mail: " << std::endl;
+                std::cin >> email;
+                std::cout << "Nome completo: " << std::endl;
+                std::cin >> nome;
+                std::cout << "Nome de usuario: " << std::endl;
+                std::cin >> usuario;
+                std::cout << "Senha: " << std::endl;
+                std::cin >> senha;
+                std::cout << "Telefone: " << std::endl;
+                std::cin >> telefone;
+                bio = " ";
+                gerenciador_.criaPerfil(nome, usuario, senha, bio, telefone, email);
+                Perfil *p = gerenciador_.buscaPorUsuario(usuario);
+                id = p->getidu();
+                acesso = 1;
+                std::cout << "Perfil criado com sucesso! Bem vindo!" << std::endl;
+                break; 
+            }
+
+            default:
+                std::cout << "Opção invalida! Tente novamente." << std::endl;
+        }
+    }while(acesso!=1);
 
 }
 
 void exibirMenuAbas(std::map<int, Spotted>& postDeSpotted_, std::map<int, Evento>& postDeEvento_,
-    std::map<int, Servico>& postDeServico_, std::map<int, Oportunidades>& postDeOportunidade_, int& aux2){
+    std::map<int, Servico>& postDeServico_, std::map<int, Oportunidades>& postDeOportunidade_, int& acesso){
         int aux3 = 0;
         std::cout << "Qual aba deseja acessar: " << std::endl;
         std::cout << "1.Spotted" << std::endl;
@@ -71,7 +102,7 @@ void exibirMenuAbas(std::map<int, Spotted>& postDeSpotted_, std::map<int, Evento
                 exibirInfoUsuario(); //Necessário implementar após a criação do case
             break; }
             case 6: {
-                aux2 = 0;
+                acesso = 0;
             break; }
             default: {
                 std::cout << "Opcao nao encontrada. Tente novamente." << std::endl;

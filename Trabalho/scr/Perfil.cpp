@@ -24,6 +24,10 @@
         return email_;
     }
 
+    int Perfil::getidu() const{
+        return idu;
+    }
+
 
 // Setters
     void Perfil::setNome(std::string nome){
@@ -48,4 +52,8 @@
 
     void Perfil::setUsuario(std::string usuario){
         usuario_ = usuario;
+    }
+
+    void Perfil::setidu(int id){
+        idu = id;
     }
