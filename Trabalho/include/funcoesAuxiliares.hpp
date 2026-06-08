@@ -3,11 +3,13 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <set>
 #include "Servico.h"
 
 // Funcoes normais: ---------------------------------------------------------------------
 
 void carregarServicosSalvos(std::map<int, Servico> &servicos_);
+bool verificaNumeroDeTelefone(std::string num);
 
 //---------------------------------------------------------------------------------------
 // Funcoes com template:-----------------------------------------------------------------
@@ -53,8 +55,11 @@ void apagarPost(std::map<ch, val> &conjunto, ch chave)
 }
 
 template <typename ch>
-void imprimirElementosComId(const std::map<ch, std::string> &conjunto) {
-    
-    for (const auto &i : conjunto)  {
-        std::cout << "ID: " << i.first << " - " << i.second << std::endl;   }
+void imprimirElementosComId(const std::map<ch, std::string> &conjunto)
+{
+
+    for (const auto &i : conjunto)
+    {
+        std::cout << "ID: " << i.first << " - " << i.second << std::endl;
+    }
 }

@@ -1,18 +1,24 @@
 #include "Servico.h"
 
+// Construtores:
 Servico::Servico() {}
 
-Servico::Servico(std::string descricao, int num)
+Servico::Servico(std::string descricao, int num, int idServi, int idPerf, Perfil perf)
 {
     descricaoDoServico_ = descricao;
     numeroContato_ = num;
+    idDeArmazenamento_ = idServi;
+    idDoPerfilAssociado_ = idPerf;
+    perfilAssociadoS_ = perf;
 }
 
+// Destrutor:
 Servico::~Servico()
 {
     descricaoDoServico_.clear();
 }
 
+// Getters:
 std::string Servico::getDescricaoDoServico() const
 {
     return descricaoDoServico_;
@@ -23,6 +29,22 @@ int Servico::getNumeroContato() const
     return numeroContato_;
 }
 
+int Servico::getIdServico() const
+{
+    return idDeArmazenamento_;
+}
+
+int Servico::getIdPerfilAssociado() const
+{
+    return idDoPerfilAssociado_;
+}
+
+const Perfil &Servico::getPerfilAssociado() const
+{
+    return perfilAssociadoS_;
+}
+
+// Setters:
 void Servico::setDescricaoDoServico(std::string descricaoL)
 {
     descricaoDoServico_ = descricaoL;
@@ -33,12 +55,22 @@ void Servico::setNumeroContato(int numL)
     numeroContato_ = numL;
 }
 
-// Aqui, os parametros de "editarDescricao" sao obtidos com cin, diretamente do usario, (na main);
-// Ela substitui a parte do texto "selecionada" pelo usuario por outra substring que ele digita (cin na main)
-// Unica ressalva: essa funcao vai substituir a primeira ocorrencia do trecho dado na string "descricaoDoServico",
-// ou seja, se a pessoa quiser editar um trecho (repetido, por exemplo) em sua segunda ou enesima ocorrencia
-// isso nao sera possivel. A edicao nao ocorrera da forma esperada... A nao ser que lhe fosse pedido para
-// selecionar um trecho maior do texto.
+void Servico::setIdServico(int novoId)
+{
+    idDeArmazenamento_ = novoId;
+}
+
+void Servico::setIdPerfilAssociado(int novoIdPerfil)
+{
+    idDoPerfilAssociado_ = novoIdPerfil;
+}
+
+void Servico::setPerfilAssociado(Perfil novoPerfilAssociado)
+{
+    perfilAssociadoS_ = novoPerfilAssociado;
+}
+
+// Outros Metodos:
 void Servico::editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto)
 {
     numeroCaracteres = ParteDoTexto.size();
