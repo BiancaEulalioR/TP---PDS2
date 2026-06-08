@@ -16,7 +16,6 @@ void main()
     std::map<int, Evento> postDeEvento_;
     std::map<int, Oportunidades> postDeOportunidade_;
     std::map<int, Servico> postDeServico_;
-    std::map<int, Perfil> perfis_;
 
     // lendo os posts e perfis ja salvos de outras vezes em que o programa foi aberto:
 
@@ -26,12 +25,11 @@ void main()
     std::string nome, usuario, senha, bio, telefone, email;
     GerenciadorPerfis gerenciador_;
 
-    while (1) {
+    while (1)
+    {
         exibirMenuInicial(gerenciador_, aux1, acesso, id, nome, usuario, senha, bio, telefone, email);
 
-        while(acesso)
+        while (acesso)
             exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso);
-
     }
-
 }
