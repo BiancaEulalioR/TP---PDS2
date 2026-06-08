@@ -27,11 +27,3 @@ void carregarServicosSalvos(std::map<int, Servico> &servicos_)
         }
     }
 }
-
-bool verificaNumeroDeTelefone(std::string num)
-{
-    if (num.size() == 11)
-    {
-        std::string ddd = "" + num[0] + num[1];
-    }
-}
