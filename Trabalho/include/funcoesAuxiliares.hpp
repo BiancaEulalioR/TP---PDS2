@@ -9,7 +9,6 @@
 // Funcoes normais: ---------------------------------------------------------------------
 
 void carregarServicosSalvos(std::map<int, Servico> &servicos_);
-bool verificaNumeroDeTelefone(std::string num);
 
 //---------------------------------------------------------------------------------------
 // Funcoes com template:-----------------------------------------------------------------
