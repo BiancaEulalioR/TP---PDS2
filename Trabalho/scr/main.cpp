@@ -30,6 +30,6 @@ void main()
         exibirMenuInicial(gerenciador_, aux1, acesso, id, nome, usuario, senha, bio, telefone, email);
 
         while (acesso)
-            exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso);
+            exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso, id);
     }
 }

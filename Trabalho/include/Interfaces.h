@@ -15,7 +15,7 @@ void exibirMenuInicial(GerenciadorPerfis& gerenciador_, int& aux1, int& aux2, in
                         std::string& usuario, std::string& senha, std::string& bio, std::string& telefone, std::string& email);
 
 void exibirMenuAbas(std::map<int, Spotted>& postDeSpotted_, std::map<int, Evento>& postDeEvento_,
-    std::map<int, Servico>& postDeServico_, std::map<int, Oportunidades>& postDeOportunidade_, int& aux2); 
+    std::map<int, Servico>& postDeServico_, std::map<int, Oportunidades>& postDeOportunidade_, int& aux2, const int id); 
 
 
 void exibirSpotted(std::map<int, Spotted>& postDeSpotted_);
