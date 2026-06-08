@@ -255,10 +255,22 @@ void exibirMenuAbas(std::map<int, Spotted>& postDeSpotted_, std::map<int, Evento
         int idSpotted4;
         std::cin >> idSpotted4;
         Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
+        try{
+
+        if (spottedSelecionado4.getLikes() == 0) {
+        throw std::runtime_error("Erro: o numero de curtidas e nulo.");
+        }
 
         spottedSelecionado4.removerLike();
         std::cout << "Like removido!" << std::endl;
         std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
+
+        
+        } catch (const std::runtime_error& e) {
+        std::cout << "Aviso: " << e.what() << std::endl; 
+        }
+        
+
         std::cin.ignore(); // limpa buffer
         std::cin.get(); // espera o enter
     break;// volta ao menu
