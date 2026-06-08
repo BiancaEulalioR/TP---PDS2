@@ -122,20 +122,55 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
             std::cout << "likes: " << it.second.getLikes() << std::endl;
             std::cout << "Comentarios: " << it.second.getComments() << std::endl;
         }
+     }
     }
-    int opcao = 0;
-    std::cout << "para onde deseja prosseguir?" << std::endl;
-    std::cout << "1. Ver comentarios;" << std::endl;
-    std::cout << "2. Fazer comentario" << std::endl;
-    std::cout << "3. Curtir Spotted" << std::endl;
-    std::cout << "4. Remover comentario" << std::endl;
-    std::cout << "5. Remover curtida" << std::endl;
-    std::cout << "6. Publicar Spotted" << std::endl;
-    std::cout << "7. Remover Spotted" << std::endl;
-    std::cin >> opcao;
-    
-    switch (opcao) {
+    int opcaoSpotted = 0;
+     while(opcaoSpotted != 10){
+        std::cout << "=== Spotted ===" << std::endl;
+        std::cout << "1. Ver spotteds publicados" << std::endl;
+        std::cout << "2. Publicar spotted" << std::endl;
+        std::cout << "3. Visualizar comentarios" << std::endl;
+        std::cout << "4. Publicar comentario em spotted" << std::endl;
+        std::cout << "5. Remover comentario de spotted" << std::endl;
+        std::cout << "6. Visualizar curtidas" << std::endl;
+        std::cout << "7. Curtir spotted" << std::endl;
+        std::cout << "8. Remover curtida de spotted" << std::endl;
+        std::cout << "9. Voltar ao menu principal" << std::endl;
+        std::cout << "10. Remover spotted" << std::endl;
+        std::cin >> opcaoSpotted;
+           
+    switch (opcaoSpotted) {
     case 1:
+    {
+    void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
+    std::cout << "=== SPOTTED ===" << std::endl;
+    for (auto &it : postDeSpotted_) {
+
+        std::cout << "SPOTTED: " << it.first << std::endl;
+        for (auto &i : it.second.listarPosts()){
+
+            std::cout << "Post ID: " << i.first << " | Conteudo: " << i.second << std::endl;
+            std::cout << "likes: " << it.second.getLikes() << std::endl;
+            std::cout << "Comentarios: " << it.second.getComments() << std::endl;
+          }
+         }
+        }
+       }
+    case 2:
+        {
+        std::cout <<"Digite o que gostaria de publicar: " << std::endl;
+        Spotted novoSpotted;
+        std::string spotted;
+        std::cin >> spotted;
+
+        novoSpotted.criarPost(spotted);
+
+        std::cout << "Spotted publicado. Pressione Enter para voltar." << std::endl;
+        std::cin.ignore(); // limpa buffer
+        std::cin.get(); // espera o enter
+        break;// volta ao menu
+        }   
+    case 3:
     {
         std::cout << "Deseja ver os comentarios de qual spotted?(digite o id)" << std::endl;
         int idSpotted;
@@ -149,8 +184,8 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
         std::cin.get();
     break;
     } 
-                
-    case 2:
+            
+    case 4:
     {
         std::cout << "Em qual post de Spotted deseja deixar um comentario?(digite o id)" << std::endl;
         int idSpotted1;
@@ -174,8 +209,21 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
         std::cin.get(); // espera o enter
     break;// volta ao menu
     }
+    case 5:
+    {
+        std::cout << "Em qual post de Spotted deseja remover o comentario? (digite o id)" << std::endl;
+        int idSpotted3;
+        std::cin >> idSpotted3;
+        Spotted &spottedSelecionado3 = acharPost(postDeSpotted_, idSpotted3);
     
-    case 3:
+        spottedSelecionado3.removerComment(idSpotted3);
+        std::cout << "Comentario removido. Pressione Enter para voltar." << std::endl;
+        std::cin.ignore(); // limpa buffer
+        std::cin.get(); // espera o enter
+    break;// volta ao menu
+            
+    }
+    case 7:
     {
         std::cout << "Em qual post de Spotted deseja deixar um like? (digite o id)" << std::endl;
         int idSpotted2;
@@ -189,22 +237,9 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
     break;// volta ao menu
     }
     
-    case 4:
-    {
-        std::cout << "Em qual post de Spotted deseja remover o comentario? (digite o id)" << std::endl;
-        int idSpotted3;
-        std::cin >> idSpotted3;
-        Spotted &spottedSelecionado3 = acharPost(postDeSpotted_, idSpotted3);
     
-        spottedSelecionado3.removerComment(idSpotted3);
-        std::cout << "Comentario removido. Pressione Enter para voltar." << std::endl;
-        std::cin.ignore(); // limpa buffer
-        std::cin.get(); // espera o enter
-    break;// volta ao menu
-                    
-    }
     
-    case 5:
+    case 8:
     {
         std::cout << "De qual post de Spotted deseja remover o like? (digite o id)" << std::endl;
         int idSpotted4;
@@ -217,22 +252,9 @@ void exibirSpotted(std::map<int, Spotted>& postDeSpotted_){
         std::cin.get(); // espera o enter
     break;// volta ao menu
     }
-    case 6:
-        {
-        std::cout <<"Digite o que gostaria de publicar: " << std::endl;
-        Spotted novoSpotted;
-        std::string spotted;
-        std::cin >> spotted;
-
-        novoSpotted.criarPost(spotted);
-
-        std::cout << "Spotted publicado. Pressione Enter para voltar." << std::endl;
-        std::cin.ignore(); // limpa buffer
-        std::cin.get(); // espera o enter
-        break;// volta ao menu
-        }
+    
                 
-    case 7:
+    case 10:
         {
         std::cout << "Qual post de Spotted deseja remover? (digite o id)" << std::endl;
         int idSpotted6;
