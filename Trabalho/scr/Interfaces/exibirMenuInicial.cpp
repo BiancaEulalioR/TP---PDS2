@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+
+#include "Evento.h"
+#include "Interfaces.h"
+#include "funcoesAuxiliares.hpp"
+#include "Tratamentoerros.hpp"
+
+void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, int &id, std::string &nome,
+                       std::string &usuario, std::string &senha, std::string &bio, std::string &telefone,
+                       std::string &email)
+{
+
+    do
+    {
+        std::cout << "Qual ação deseja realizar: " << std::endl;
+        std::cout << "1.Entrar " << std::endl
+                  << "2.Criar Perfil " << std::endl;
+        lerValor(aux1); // progdefensiva
+
+        switch (aux1)
+        {
+
+        case 1:
+        {
+            do
+            {
+                std::cout << "Nome de usuario: " << std::endl;
+                std::cin >> usuario;
+                std::cout << "Senha: " << std::endl;
+                std::cin >> senha;
+                if (gerenciador_.verificaPerfil(usuario, senha))
+                {
+                    acesso = 1;
+                    Perfil *p = gerenciador_.buscaPorUsuario(usuario);
+                    id = p->getidu();
+                    std::cout << "Bem vindo!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "Usuario ou senha incorretos." << std::endl;
+                    int opcao;
+                    do
+                    {
+                        std::cout << "1.Tentar novamente" << std::endl;
+                        std::cout << "2.Voltar ao menu" << std::endl;
+                        lerValor(opcao); // progdefensiva
+                        if (opcao != 1 && opcao != 2)
+                            std::cout << "Opcao invalida! Tente novamente." << std::endl;
+                    } while (opcao != 1 && opcao != 2);
+                    aux1 = opcao;
+                }
+            } while (acesso != 1 && aux1 != 2);
+            aux1 = 0;
+            break;
+        }
+
+        case 2:
+        {
+            std::cout << "E-mail: " << std::endl;
+            std::cin >> email;
+            std::cout << "Nome completo: " << std::endl;
+            std::cin >> nome;
+            std::cout << "Nome de usuario: " << std::endl;
+            std::cin >> usuario;
+            std::cout << "Senha: " << std::endl;
+            std::cin >> senha;
+            std::cout << "Telefone: " << std::endl;
+            std::cin >> telefone;
+            bio = " ";
+            gerenciador_.criaPerfil(nome, usuario, senha, bio, telefone, email);
+            Perfil *p = gerenciador_.buscaPorUsuario(usuario);
+            id = p->getidu();
+            acesso = 1;
+            std::cout << "Perfil criado com sucesso! Bem vindo!" << std::endl;
+            break;
+        }
+
+        default:
+            std::cout << "Opção invalida! Tente novamente." << std::endl;
+        }
+    } while (acesso != 1);
+}
