@@ -4,6 +4,7 @@
 #include "Evento.h"
 #include "Interfaces.h"
 #include "funcoesAuxiliares.hpp"
+#include "Tratamentoerros.hpp"
 
 void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, int &id, std::string &nome,
                        std::string &usuario, std::string &senha, std::string &bio, std::string &telefone,
@@ -15,7 +16,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
         std::cout << "Qual ação deseja realizar: " << std::endl;
         std::cout << "1.Entrar " << std::endl
                   << "2.Criar Perfil " << std::endl;
-        std::cin >> aux1;
+        lerValor(aux1); // progdefensiva
 
         switch (aux1)
         {
@@ -43,7 +44,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
                     {
                         std::cout << "1.Tentar novamente" << std::endl;
                         std::cout << "2.Voltar ao menu" << std::endl;
-                        std::cin >> opcao;
+                        lerValor(opcao); // progdefensiva
                         if (opcao != 1 && opcao != 2)
                             std::cout << "Opcao invalida! Tente novamente." << std::endl;
                     } while (opcao != 1 && opcao != 2);
@@ -94,7 +95,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         std::cout << "4.Serviços" << std::endl;
         std::cout << "5.Informações do usuario" << std::endl;
         std::cout << "6.Configuracoes" << std::endl;
-        std::cin >> aux3;
+        lerValor(aux3); //progdefensiva
 
         switch (aux3)
         {
@@ -154,7 +155,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         std::cout << "8. Remover curtida de spotted" << std::endl;
         std::cout << "9. Remover spotted" << std::endl;
         std::cout << "10. Voltar ao menu principal" << std::endl;
-        std::cin >> opcaoSpotted;
+        lerValor(opcaoSpotted); //progdefensiva
 
         switch (opcaoSpotted)
         {
@@ -196,7 +197,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted;
-            std::cin >> idSpotted;
+            lerValor(idSpotted); //progdefensiva
             Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
             std::cout << "Comentarios: " << std::endl;
             imprimirElementos(spottedSelecionado.listarComments());
@@ -211,7 +212,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted1;
-            std::cin >> idSpotted1;
+            lerValor (idSpotted1); //progdefensiva
             Spotted &spottedSelecionado1 = acharPost(postDeSpotted_, idSpotted1);
             std::string novoComentarioSpotted;
             std::cout << "Digite o comentario:" << std::endl;
@@ -236,7 +237,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted3;
-            std::cin >> idSpotted3;
+            lerValor (idSpotted3); //progdefensiva
 
             Spotted &spottedSelecionado3 = acharPost(postDeSpotted_, idSpotted3);
             const auto &comentarios = spottedSelecionado3.listarComments();
@@ -260,7 +261,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             std::cout << "Digite o ID do comentario:" << std::endl;
 
             int idSpottedComment;
-            std::cin >> idSpottedComment;
+            lerValor (idSpottedComment);//progdefensiva
 
             spottedSelecionado3.removerComment(idSpottedComment);
             std::cout << "Comentario removido!" << std::endl;
@@ -273,7 +274,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted2;
-            std::cin >> idSpotted2;
+            lerValor  (idSpotted2); //progdefensiva
             Spotted &spottedSelecionado2 = acharPost(postDeSpotted_, idSpotted2);
 
             spottedSelecionado2.inserirLike();
@@ -287,7 +288,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted4;
-            std::cin >> idSpotted4;
+            lerValor(idSpotted4); //progdefensiva
             Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
             try
             {
@@ -315,7 +316,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted6;
-            std::cin >> idSpotted6;
+            lerValor (idSpotted6);//progdefensiva
 
             Spotted &spottedSelecionado5 = acharPost(postDeSpotted_, idSpotted6);
             spottedSelecionado5.apagarPost(idSpotted6);
@@ -353,7 +354,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
         std::cout << "9. Curtir evento" << std::endl;
         std::cout << "10. Remover curtida de evento" << std::endl;
         std::cout << "11. Voltar ao menu principal" << std::endl;
-        std::cin >> opcaoEvento;
+        lerValor(opcaoEvento); //progdefensiva
 
         switch (opcaoEvento)
         {
@@ -407,7 +408,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
 
             if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
@@ -430,7 +431,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
 
             if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
@@ -443,7 +444,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
                 std::cout << "1. Editar contato de evento" << std::endl;
                 std::cout << "2. Editar texto do evento" << std::endl;
                 std::cout << "3. Voltar ao menu de eventos" << std::endl;
-                std::cin >> opcaoEditarEvento;
+                lerValor(opcaoEditarEvento); //progdefensiva
 
                     switch (opcaoEditarEvento)
                     {
@@ -496,7 +497,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
             std::cout << "Comentarios:" << std::endl;
@@ -515,7 +516,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
             std::string comentarioEvento;
             std::cout << "Digite o comentario: " << std::endl;
@@ -541,7 +542,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
             std::cout << "Comentarios:" << std::endl;
@@ -549,7 +550,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
             int idComentario;
-            std::cin >> idComentario;
+            lerValor(idComentario); //progdefensiva
 
             const std::map<int, std::pair<Perfil, std::string>> &comentariosEvento = eventoSelecionado.listarComments();
             std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarComentEvento = comentariosEvento.find(idComentario);
@@ -582,7 +583,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
             std::cout << "Numero de curtidas do post selecionado:" << eventoSelecionado.getLikes() << std::endl;
@@ -599,7 +600,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
             if(eventoSelecionado.inserirLike(usuarioLogado) == true)
@@ -621,7 +622,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do evento: " << std::endl;
 
             int idEvento;
-            std::cin >> idEvento;
+            lerValor(idEvento); //progdefensiva
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
             if(eventoSelecionado.removerLike(usuarioLogado) == true)
@@ -673,7 +674,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
         std::cout << "8. Remover curtida" << std::endl;
         std::cout << "9. Voltar ao menu principal" << std::endl;
 
-        std::cin >> opcao;
+        lerValor(opcao); //progdefensiva
 
         switch (opcao)
         {
@@ -740,7 +741,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
 
             Oportunidades &opSelecionada =
                 acharPost(postDeOportunidade_, idOp);
@@ -761,7 +762,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
             Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
             std::string comentario;
@@ -789,7 +790,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
 
             Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
@@ -800,7 +801,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idComentario;
 
             std::cout << "Digite o id do comentario que deseja remover:" << std::endl;
-            std::cin >> idComentario;
+            lerValor(idComentario); //progdefensiva
 
             opSelecionada.removerComment(idComentario);
 
@@ -818,7 +819,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
 
             Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
@@ -836,7 +837,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
 
             Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
@@ -857,7 +858,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_)
             int idOp;
 
             std::cout << "Digite o id da oportunidade:" << std::endl;
-            std::cin >> idOp;
+            lerValor(idOp); //progdefensiva
 
             Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
@@ -900,7 +901,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     std::cout << "9. Remover servico;" << std::endl;
     std::cout << "10. Ver informacoes de contato de um servico;" << std::endl;
     std::cout << "11. Voltar ao menu principal." << std::endl;
-    std::cin >> opcao;
+    lerValor(opcao); //progdefensiva
 
     switch (opcao)
     {
@@ -944,7 +945,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "Deseja ver os comentarios de qual post de servico?(digite o id)" << std::endl;
         int idserv;
-        std::cin >> idserv;
+        lerValor(idserv); //progdefensiva
         Servico &servicoSelecionado = acharPost(postDeServico_, idserv);
         std::cout << "Comentarios: " << std::endl;
         imprimirElementos(servicoSelecionado.listarComments());
@@ -958,7 +959,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "Em qual post de Servico deseja deixar um comentario?(digite o id)" << std::endl;
         int idserv1;
-        std::cin >> idserv1;
+        lerValor(idserv1); //progdefensiva
         Servico &servicoSelecionado1 = acharPost(postDeServico_, idserv1);
         std::string novoComentario;
         std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
@@ -982,7 +983,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "De qual servico deseja ver as informacoes de contato?(digite o id)" << std::endl;
         int idserv2;
-        std::cin >> idserv2;
+        lerValor(idserv2); //progdefensiva
         Servico &servicoSelecionado2 = acharPost(postDeServico_, idserv2);
         std::string nomeDoPrestador = (servicoSelecionado2.getPerfil()).getUsuario();
         std::cout << "Usuario que postou esse servico: " << nomeDoPrestador << std::endl;
@@ -1013,7 +1014,7 @@ void exibirInfoUsuario(Perfil &perfil)
         std::cout << "3.Editar biografia" << std::endl;
         std::cout << "4.Editar nome de usuario" << std::endl;
         std::cout << "5.Retornar ao menu principal" << std::endl;
-        std::cin >> opcao;
+        lerValor(opcao); //progdefensiva
 
         switch(opcao){
             case 1: {
@@ -1076,7 +1077,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
         std::cout << "2.Apagar conta" << std::endl;
         std::cout << "3.Sair da conta" << std::endl;
         std::cout << "4.Retornar ao menu principal" << std::endl;
-        std::cin >> opcao;
+        lerValor(opcao); //progdefensiva
 
         switch(opcao){
             case 1:
@@ -1093,7 +1094,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                 while(opcao2 != 1 && opcao2 != 2){
                     std::cout << "Tem certeza que deseja apagar a sua conta, é um caminho sem volta!" << std::endl;
                     std::cout << "1.Confirmar" << std::endl << "2.Cancelar" << std::endl;
-                    std::cin >> opcao2;
+                    lerValor(opcao2); //progdefensiva;
                     if(opcao2 != 1 && opcao2 != 2)
                     std::cout << "Opcao invalida tente novamente" << std::endl;
                 }

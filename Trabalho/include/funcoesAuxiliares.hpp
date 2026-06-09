@@ -6,6 +6,7 @@
 #include <set>
 #include "Servico.h"
 #include "Perfil.h"
+#include <stdexcept>
 
 // Funcoes normais: ---------------------------------------------------------------------
 
@@ -18,19 +19,10 @@ template <typename ch, typename val>
 val &acharPost(const std::map<ch, val> &conjunto, ch idEscolhido)
 {
     auto procurado = conjunto.find(idEscolhido);
-    if (procurado != conjunto.end())
-        return procurado->second;
-    else
-    {
-        do
-        {
-            std::cout << "Não encontrado. Digite novamente: ";
-            std::cin.ignore();
-            std::cin >> idEscolhido;
-            procurado = conjunto.find(idEscolhido);
-        } while (procurado == conjunto.end());
-        return procurado->second;
+    if (procurado == conjunto.end()){
+        throw std::invalid_argument("ID nao encontrado.");
     }
+        return procurado->second;
 }
 
 template <typename ch>
