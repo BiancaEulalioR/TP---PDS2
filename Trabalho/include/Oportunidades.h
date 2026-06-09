@@ -29,8 +29,9 @@ public:
     Perfil getPerfil() const;
 
     // Edita os dados da oportunidade
-    // Pré-condição: só pode ser feita a edição se o usuario for o dono
     void editarOportunidade(const std::string &novaDescricao, const std::string &novoContato);
+    void setContato(const std::string& novoContato);
+    void setDescricao(const std::string& novaDescricao);
     // método para apagar a oportunidade
     void apagarOportunidade();
 };

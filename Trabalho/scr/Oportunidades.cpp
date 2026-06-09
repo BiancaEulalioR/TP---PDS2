@@ -45,6 +45,14 @@ void Oportunidades::editarOportunidade(const std::string& novaDescricao,
     contato_ = novoContato;
 }
 
+void Oportunidades::setContato(const std::string& novoContato) {
+    contato_ = novoContato;
+}
+
+void Oportunidades::setDescricao(const std::string& novaDescricao) {
+    descricao_ = novaDescricao;
+}
+
 void Oportunidades::apagarOportunidade(){
 
     descricao_ = "";
