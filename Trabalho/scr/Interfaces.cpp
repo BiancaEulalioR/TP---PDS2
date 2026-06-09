@@ -83,55 +83,56 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
 
 void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento> &postDeEvento_,
                     std::map<int, Servico> &postDeServico_, std::map<int, Oportunidades> &postDeOportunidade_, 
-                    const Perfil& usuarioLogado, int &acesso, const int id)
+                     Perfil& usuarioLogado, int &acesso, const int id, GerenciadorPerfis& gerenciador_)
 {
-    int aux3 = 0;
-    std::cout << "Qual aba deseja acessar: " << std::endl;
-    std::cout << "1.Spotted" << std::endl;
-    std::cout << "2.Eventos" << std::endl;
-    std::cout << "3.Oportunidades" << std::endl;
-    std::cout << "4.Serviços" << std::endl;
-    std::cout << "5.Informações do usuario" << std::endl;
-    std::cout << "6.Sair do perfil";
-    std::cin >> aux3;
+    while(acesso){
+        int aux3 = 0;
+        std::cout << "Qual aba deseja acessar: " << std::endl;
+        std::cout << "1.Spotted" << std::endl;
+        std::cout << "2.Eventos" << std::endl;
+        std::cout << "3.Oportunidades" << std::endl;
+        std::cout << "4.Serviços" << std::endl;
+        std::cout << "5.Informações do usuario" << std::endl;
+        std::cout << "6.Configuracoes" << std::endl;
+        std::cin >> aux3;
 
-    switch (aux3)
-    {
-    case 1:
-    {
-        exibirSpotted(postDeSpotted_);
-        break;
-    }
-    case 2:
-    {
-        exibirEventos(postDeEvento_, usuarioLogado);
-        break;
-    }
-    case 3:
-    {
-        exibirOportunidades(postDeOportunidade_);
-        break;
-    }
-    case 4:
-    {
-        exibirServicos(postDeServico_);
-        break;
-    }
-    case 5:
-    {
-        exibirInfoUsuario(); // Necessário implementar após a criação do case
-        break;
-    }
-    case 6:
-    {
-        acesso = 0;
-        break;
-    }
-    default:
-    {
-        std::cout << "Opcao nao encontrada. Tente novamente." << std::endl;
-        break;
-    }
+        switch (aux3)
+        {
+        case 1:
+        {
+            exibirSpotted(postDeSpotted_);
+            break;
+        }
+        case 2:
+        {
+            exibirEventos(postDeEvento_, usuarioLogado);
+            break;
+        }
+        case 3:
+        {
+            exibirOportunidades(postDeOportunidade_);
+            break;
+        }
+        case 4:
+        {
+            exibirServicos(postDeServico_);
+            break;
+        }
+        case 5:
+        {
+            exibirInfoUsuario(usuarioLogado); // Necessário implementar após a criação do case
+            break;
+        }
+        case 6:
+        {
+            configuracoes(usuarioLogado, gerenciador_, acesso);
+        }
+        default:
+        {
+            std::cout << "Opcao nao encontrada. Tente novamente." << std::endl;
+            break;
+        }
+        }
     }
 }
 
@@ -334,7 +335,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
     }
 }
 //--------------------------------------EVENTOS----------------------------------------------------------
-void exibirEventos(std::map<int, Evento> &postDeEvento_, const Perfil& usuarioLogado)
+void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 {
     int opcaoEvento = 0;
 
@@ -965,5 +966,115 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
 //------------------------------INFORMAÇÕES DO USUÁRIO----------------------------------------------------------
 void exibirInfoUsuario(Perfil &perfil)
 {
-    // a ser implementado ainda
+    int opcao = 0;
+    while(opcao!=5){
+        std::cout << "===PERFIL===" << std::endl;
+        std::cout << "1.Exibir Informações do perfil" << std::endl;
+        std::cout << "2.Adicionar biografia" << std::endl;
+        std::cout << "3.Editar biografia" << std::endl;
+        std::cout << "4.Editar nome de usuario" << std::endl;
+        std::cout << "5.Retornar ao menu principal" << std::endl;
+        std::cin >> opcao;
+
+        switch(opcao){
+            case 1: {
+                std::cout << "Informações do perfil:" << std::endl;
+                std::cout << perfil.getNome() << std::endl;
+                std::cout << perfil.getUsuario() << std::endl;
+                std::cout << perfil.getBio() << std::endl;
+                break;
+            }
+            case 2:{
+                std::cout << "Informe a bio que deseja adicionar" << std::endl;
+                std::string biotemp;
+                std::getline(std::cin, biotemp);
+                perfil.setBio(biotemp);
+                std::cout << "Bio adicionada com sucesso" << std::endl;
+                break;
+            }
+            case 3:
+            {
+                std::string biotemp;
+                std::cout << "Biografia atual: " << std::endl;
+                std::cout << perfil.getBio() << std::endl;
+                std::cout << "Informe a nova bio: " << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, biotemp);
+                perfil.setBio(biotemp);
+                std::cout << "Bio alterada com sucesso" << std::endl;
+                break;
+            }
+            case 4: 
+            {
+                std::string usuariotemp;
+                std::cout << "Nome de usuario atual: " << std::endl;
+                std::cout << perfil.getUsuario() << std::endl;
+                std::cout << "Informe o novo nome de usuario" << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, usuariotemp);
+                perfil.setUsuario(usuariotemp);
+                std::cout << "Nome de usuario alterado com sucesso!" << std::endl;
+                break;
+            }
+            case 5:
+            break;
+
+            default: {
+                std::cout << "Opcao invalida, tente novamente" << std::endl;
+                break;
+            }
+        }
+    }
+
+}
+
+//------------------------------CONFIGURAÇÕES---------------------------------------------------------------------
+void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso){
+    int opcao = 0;
+    while(opcao!=4){
+        std::cout << "===CONFIGURACOES===" << std::endl;
+        std::cout << "1.Exibir informacoes de perfil" << std::endl;
+        std::cout << "2.Apagar conta" << std::endl;
+        std::cout << "3.Sair da conta" << std::endl;
+        std::cout << "4.Retornar ao menu principal" << std::endl;
+        std::cin >> opcao;
+
+        switch(opcao){
+            case 1:
+            {
+                std::cout << "Informacoes do usuario:" << std::endl;
+                std::cout << perfil.getEmail() << std::endl;
+                std::cout << perfil.getNome() << std::endl;
+                std::cout << perfil.getTelefone() << std::endl;
+                break;
+            }
+            case 2:
+            {
+                int opcao2 = 0;
+                while(opcao2 != 1 && opcao2 != 2){
+                    std::cout << "Tem certeza que deseja apagar a sua conta, é um caminho sem volta!" << std::endl;
+                    std::cout << "1.Confirmar" << std::endl << "2.Cancelar" << std::endl;
+                    std::cin >> opcao2;
+                    if(opcao2 != 1 && opcao2 != 2)
+                    std::cout << "Opcao invalida tente novamente" << std::endl;
+                }
+                    if(opcao2==1){
+                        gerenciador_.apagaPerfil(perfil.getidu(), perfil.getUsuario());
+                        acesso = 0;
+                        opcao = 4;
+                    }
+                    break; 
+            }
+            case 3:
+            {
+                acesso = 0;
+                opcao = 4;
+                break;
+            }         
+            case 4:{
+                opcao = 4;
+                break;
+            }      
+        }
+    }
 }

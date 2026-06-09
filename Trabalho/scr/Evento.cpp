@@ -2,7 +2,7 @@
 
 Evento::Evento() : idCont_(0), textoEvento_(""), contato_("") {}
 
-Evento::Evento(const std::string& textoEvento, const std::string& contato, const Perfil& organizador, 
+Evento::Evento(const std::string& textoEvento, const std::string& contato,  Perfil& organizador, 
         const Perfil& usuario) : idCont_(id), textoEvento_(textoEvento), contato_(contato), organizador_(organizador), 
         perfilAssociadoEvento_(usuario) {}
             // perfilAssociado_ inicializado com usuario (ajustar após verificação de perfis)
