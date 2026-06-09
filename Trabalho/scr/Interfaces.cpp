@@ -602,8 +602,12 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cin >> idEvento;
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            eventoSelecionado.inserirLike();
-            std::cout << "Curtida registrada." << std::endl;
+            if(eventoSelecionado.inserirLike(usuarioLogado) == true)
+                std::cout << "Curtida registrada." << std::endl;
+
+            else
+                std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+
             std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
 
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
@@ -620,8 +624,12 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cin >> idEvento;
             Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            eventoSelecionado.removerLike();
-            std::cout << "Curtida removida." << std::endl;
+            if(eventoSelecionado.removerLike(usuarioLogado) == true)
+                std::cout << "Curtida removida." << std::endl;
+            
+            else
+                std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+
             std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
 
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;

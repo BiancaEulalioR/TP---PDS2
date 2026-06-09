@@ -7,23 +7,25 @@ Post::Post()
   qtdComments = 0;
 }
 
-void Post::inserirLike(Perfil& autor){
+bool Post::inserirLike(Perfil& autor){
   if(likes.find(autor.getidu()) == likes.end()){
     likes.insert(autor.getidu());
+    return true;
   }
 
   else{
-    std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+    return false;
   }
 }
 
-void Post::removerLike(Perfil& autor){
+bool Post::removerLike(Perfil& autor){
   if(likes.find(autor.getidu()) != likes.end()){
     likes.erase(autor.getidu());
+    return  true;
   }
 
   else{
-    std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+    return false;
   }
 }
 

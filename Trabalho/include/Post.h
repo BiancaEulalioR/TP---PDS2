@@ -19,8 +19,8 @@ public:
 
     Post();
 
-    void inserirLike(Perfil& autor);
-    void removerLike(Perfil& autor);
+    bool inserirLike(Perfil& autor);
+    bool removerLike(Perfil& autor);
 
     void inserirComment(Perfil& autor, std::string comment);
     void removerComment(int id);
