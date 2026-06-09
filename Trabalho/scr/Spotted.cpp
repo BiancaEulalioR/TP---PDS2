@@ -5,14 +5,17 @@
     Spotted::Spotted() : idCont_(0), spotted_() {}
 
     Spotted::Spotted(std::string spotted_, Perfil& usuario) : idCont_(id), 
-    perfilAssociadoEvento_(usuario){}
+    perfilAssociadoSpotted_(usuario){}
         
 
-    void Spotted::apagarPost(int indice){
-    lista.erase(indice);
-    //adicionar verificação de índice
+    std::string Spotted::getSpotted(){
+    return spotted_;
     }
+
+    void Spotted::apagarPost(){
+    spotted_ = "";
+    }
+    Perfil Spotted::getPerfil() const{
+    return perfilAssociadoSpotted_; }
     
-    const std::map<int, std::string>& Spotted::listarPosts(){
-    return lista; //cout no main
-    }
+
