@@ -36,8 +36,4 @@ public:
     void setIdServico(int novoId);
     void setIdPerfilAssociado(int novoIdPerfil);
     void setPerfilAssociado(Perfil novoPerfilAssociado);
-
-    // 5. Metodos:
-    void editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto);
-    void reescreverDescricao(std::string novaDescricao);
 };
