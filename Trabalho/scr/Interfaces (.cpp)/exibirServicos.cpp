@@ -254,9 +254,52 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
 
         std::cout << "Numero de curtidas do post de servico selecionado: " << servicoSelecionado.getLikes() << std::endl;
         exibirUsuariosQueCurtiram(postDeServico_, idServico, gerenciador_);
+
         std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
         std::cin.ignore();
         std::cin.get();
+    }
+    case 9:
+    {
+        std::cout << "Digite o ID do servico: " << std::endl;
+
+        int idServico;
+        lerValor(idServico); // progdefensiva
+        Servico &servicoSelecionado = acharPost(postDeServico_, idServico);
+
+        if (servicoSelecionado.inserirLike(usuarioLogado) == true)
+            std::cout << "Curtida registrada." << std::endl;
+
+        else
+            std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+
+        std::cout << "Numero de curtidas atual:" << servicoSelecionado.getLikes() << std::endl;
+
+        std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
+        std::cin.ignore();
+        std::cin.get();
+        break;
+    }
+    case 10:
+    {
+        std::cout << "Digite o ID do servico: " << std::endl;
+
+        int idServico;
+        lerValor(idServico); // progdefensiva
+        Servico &servicoSelecionado = acharPost(postDeServico_, idServico);
+
+        if (servicoSelecionado.removerLike(usuarioLogado) == true)
+            std::cout << "Curtida removida." << std::endl;
+
+        else
+            std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+
+        std::cout << "Numero de curtidas atual:" << servicoSelecionado.getLikes() << std::endl;
+
+        std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
+        std::cin.ignore();
+        std::cin.get();
+        break;
     }
     case 11:
     {
