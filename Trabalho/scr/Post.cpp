@@ -18,9 +18,9 @@ void Post::removerLike()
   likes -= 1;
 }
 
-void Post::inserirComment(std::string comment)
+void Post::inserirComment(Perfil& autor, std::string comment)
 {
-  comments[idCont] = comment;
+  comments[idCont] = std::make_pair(autor,comment);
   idCont++; //aumenta o índice do próximo comentário
   qtdComments++;
 }
@@ -42,7 +42,7 @@ void Post::idContador()
 int Post::getComments(){
   return qtdComments;
 }
-const std::map<int, std::string> &Post::listarComments()
+const std::map<int, std::pair<Perfil, std::string>>& listarComments()
 {
   return comments;
 }

@@ -357,6 +357,8 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
         switch (opcaoEvento)
         {
+
+        // Ver eventos publicados
         case 1:
         {
 
@@ -377,6 +379,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Publicar evento
         case 2:
         {
             std::string texto_evento, contato_evento;
@@ -389,7 +392,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o texto do evento a ser publicado:" << std::endl;
             std::getline(std::cin, texto_evento);
 
-            Evento novoEvento(texto_evento, contato_evento, Perfil(), usuarioLogado);
+            Evento novoEvento(texto_evento, contato_evento, usuarioLogado);
             postDeEvento_[id] = novoEvento;
 
             std::cout << "Evento publicado!" << std::endl;
@@ -398,6 +401,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Apagar evento
         case 3:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -420,6 +424,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Editar evento
         case 4:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -485,6 +490,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Visualizar comentários
         case 5:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -503,6 +509,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Publicar comentários
         case 6:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -521,13 +528,14 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
                 std::getline(std::cin, comentarioEvento);
             }
 
-            eventoSelecionado.inserirComment(comentarioEvento);
+            eventoSelecionado.inserirComment(usuarioLogado, comentarioEvento);
             std::cout << "Comentário publicado." << std::endl;
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.get();
             break;
         }
 
+        // Apagar comentários
         case 7:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -542,15 +550,33 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
             int idComentario;
             std::cin >> idComentario;
-            eventoSelecionado.removerComment(idComentario);
 
-            std::cout << "Comentario removido." << std::endl;
+            const std::map<int, std::pair<Perfil, std::string>> &comentariosEvento = eventoSelecionado.listarComments();
+            std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarComentEvento = comentariosEvento.find(idComentario);
+
+            if(verificarComentEvento != comentariosEvento.end()){
+
+                if(verificarComentEvento -> second.first.getidu() == usuarioLogado.getidu()){
+
+                    eventoSelecionado.removerComment(idComentario);
+                    std::cout << "Comentario removido com sucesso." << std::endl;
+                }
+
+                else {
+                    std::cout << "Voce nao possui permissao para apagar esse comentario" << std::endl;
+                }
+            }
+
+            else
+                std::cout << "Comentario nao encontrado." << std::endl;
+
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
 
+        // Visualizar curtidas
         case 8:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -567,6 +593,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Curtir
         case 9:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
@@ -585,6 +612,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Remover curtida
         case 10: {
             std::cout << "Digite o ID do evento: " << std::endl;
 
@@ -602,9 +630,12 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
+        // Sair
         case 11: {
         break;  }
 
+
+        // Tratamento de exceção
         default:
         {
             std::cout << "Opcao digitada invalida. Tente novamente digitando um numero entre 1 e 9." << std::endl;

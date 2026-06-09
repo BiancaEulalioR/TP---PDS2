@@ -54,11 +54,12 @@ void apagarPost(std::map<ch, val> &conjunto, ch chave)
 }
 
 template <typename ch>
-void imprimirElementosComId(const std::map<ch, std::string> &conjunto)
+void imprimirElementosComId(const std::map<ch, std::pair<Perfil, std::string>> &conjunto)
 {
-
     for (const auto &i : conjunto)
     {
-        std::cout << "ID: " << i.first << " - " << i.second << std::endl;
+        std::cout << "ID: " << i.first << " - " 
+                  << i.second.first.getUsuario() << ": " 
+                  << i.second.second << std::endl;
     }
 }
