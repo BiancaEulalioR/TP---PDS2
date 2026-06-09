@@ -12,8 +12,7 @@ private:
     int likes;
     int idCont; //chave do map
     int qtdComments;
-    std::map<int, std::string> comments;
-    
+    std::map<int, std::pair<Perfil, std::string>> comments;
 
 public:
 
@@ -22,14 +21,14 @@ public:
     void inserirLike();
     void removerLike();
 
-    void inserirComment(std::string comment);
+    void inserirComment(std::string comment, const Perfil& autor);
     void removerComment(int id);
 
     int getLikes();
     int getComments();
 
     virtual void idContador();
-    const std::map<int, std::string> &listarComments();
+    const std::map<int, std::pair<Perfil, std::string>>& listarComments();
 };
 
 #endif
