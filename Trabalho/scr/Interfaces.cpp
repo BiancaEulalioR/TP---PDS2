@@ -1036,7 +1036,8 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
 }
 
 //--------------------------------------BUSCAR------------------------------------------------------------------
-void exibirAbaBuscar(GerenciadorPerfis& gerenciador_)
+void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& postDeEvento_, std::map<int, 
+                    Oportunidades>& postDeOportunidade_, std::map<int, Servico>& postDeServico_)
 {
     int opcaoBuscar = 0;
 
