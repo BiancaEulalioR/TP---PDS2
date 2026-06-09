@@ -16,3 +16,22 @@ void lerValor(T& valor)
         std::cout << "Entrada invalida. Digite novamente: ";
     }
 }
+template <typename C> 
+void deixarCurtida(C& valor){
+            try
+            {
+             
+                if (valor.getLikes() == 0)
+                {
+                    throw std::runtime_error("O nao post tem curtidas.");
+                }
+
+                valor.removerLike();
+                std::cout << "Like removido!" << std::endl;
+                std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
+            }
+            catch (const std::runtime_error &e)
+            {
+                std::cout << "Erro: " << e.what() << std::endl;
+            }
+}

@@ -267,7 +267,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
 
             if (comentarios.empty())
             {
-                std::cout << "  [Nenhum comentario neste post ainda]" << std::endl;
+                std::cout << " O post nao tem comentarios" << std::endl;
             }
             else
             {
@@ -315,29 +315,14 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted4;
             lerValor(idSpotted4); //progdefensiva
+
             Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
-            try
-            {
-
-                if (spottedSelecionado4.getLikes() == 0)
-                {
-                    throw std::runtime_error("Erro: o numero de curtidas e nulo.");
-                }
-
-                spottedSelecionado4.removerLike();
-                std::cout << "Like removido!" << std::endl;
-                std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
-            }
-            catch (const std::runtime_error &e)
-            {
-                std::cout << "Aviso: " << e.what() << std::endl;
-            }
-
+            deixarCurtida(spottedSelecionado4);
+            
             std::cin.ignore(); // limpa buffer
             std::cin.get();    // espera o enter
-            break;             // volta ao menu
+            break;           
         }
-
         case 9:
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
