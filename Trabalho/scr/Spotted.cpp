@@ -2,14 +2,11 @@
 #include "Spotted.h"
 
 
-    Spotted::Spotted() : Post() {
-        idCont_ = 0;
-     }
+    Spotted::Spotted() : idCont_(0), spotted_() {}
 
-    void Spotted::criarPost(std::string spotted_){
-    lista[idCont_] = spotted_;
-    idCont_++;
-    }
+    Spotted::Spotted(std::string spotted_, Perfil& usuario) : idCont_(id), 
+    perfilAssociadoEvento_(usuario){}
+        
 
     void Spotted::apagarPost(int indice){
     lista.erase(indice);

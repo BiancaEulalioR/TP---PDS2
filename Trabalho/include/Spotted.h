@@ -3,12 +3,14 @@
 
 #include <string>
 #include <map>
+#include "Perfil.h"
 #include "Post.h"
 
 
     class Spotted : public Post {
     private:
     //dados
+    std::string spotted_; //texto do spotted
     std::map <int ,std::string> lista;
     int idCont_; //chave do map
     
@@ -17,7 +19,7 @@
 
     Spotted(); 
 
-    void criarPost(std::string spotted_);
+    Spotted(std::string spotted_, Perfil& usuario);
     void apagarPost(int indice);
     const std::map<int, std::string>& listarPosts();  
     };
