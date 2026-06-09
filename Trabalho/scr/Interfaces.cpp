@@ -371,8 +371,8 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
         std::cout << "=== EVENTOS ===" << std::endl;
         std::cout << "1. Ver eventos publicados" << std::endl;
         std::cout << "2. Publicar evento" << std::endl;
-        std::cout << "3. Apagar evento" << std::endl;
-        std::cout << "4. Editar evento" << std::endl;
+        std::cout << "3. Editar evento" << std::endl;
+        std::cout << "4. Apagar evento" << std::endl;
         std::cout << "5. Visualizar comentários" << std::endl;
         std::cout << "6. Publicar comentario em evento" << std::endl;
         std::cout << "7. Remover comentario de evento" << std::endl;
@@ -428,31 +428,8 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
             break;
         }
 
-        // Apagar evento
-        case 3:
-        {
-            std::cout << "Digite o ID do evento: " << std::endl;
-
-            int idEvento;
-            lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
-
-            if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
-            postDeEvento_.erase(idEvento);
-            std::cout << "Evento removido com sucesso." << std::endl;
-            }
-
-            else
-                std::cout << "Voce nao possui permissao para apagar esse evento." << std::endl;
-
-            std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
-            std::cin.ignore();
-            std::cin.get();
-            break;
-        }
-
         // Editar evento
-        case 4:
+        case 3:
         {
             std::cout << "Digite o ID do evento: " << std::endl;
 
@@ -510,6 +487,29 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             else
                 std::cout << "Voce nao possui permissao para editar esse evento." << std::endl;
+
+            std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
+            std::cin.ignore();
+            std::cin.get();
+            break;
+        }
+
+        // Apagar evento
+        case 4:
+        {
+            std::cout << "Digite o ID do evento: " << std::endl;
+
+            int idEvento;
+            lerValor(idEvento); //progdefensiva
+            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
+
+            if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
+            postDeEvento_.erase(idEvento);
+            std::cout << "Evento removido com sucesso." << std::endl;
+            }
+
+            else
+                std::cout << "Voce nao possui permissao para apagar esse evento." << std::endl;
 
             std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
             std::cin.ignore();
@@ -1036,10 +1036,9 @@ void exibirInfoUsuario(Perfil &perfil)
     while(opcao!=5){
         std::cout << "===PERFIL===" << std::endl;
         std::cout << "1.Exibir Informações do perfil" << std::endl;
-        std::cout << "2.Adicionar biografia" << std::endl;
-        std::cout << "3.Editar biografia" << std::endl;
-        std::cout << "4.Editar nome de usuario" << std::endl;
-        std::cout << "5.Retornar ao menu principal" << std::endl;
+        std::cout << "2.Editar biografia" << std::endl;
+        std::cout << "3.Editar nome de usuario" << std::endl;
+        std::cout << "4.Retornar ao menu principal" << std::endl;
         lerValor(opcao); //progdefensiva
 
         switch(opcao){
@@ -1050,15 +1049,8 @@ void exibirInfoUsuario(Perfil &perfil)
                 std::cout << perfil.getBio() << std::endl;
                 break;
             }
-            case 2:{
-                std::cout << "Informe a bio que deseja adicionar" << std::endl;
-                std::string biotemp;
-                std::getline(std::cin, biotemp);
-                perfil.setBio(biotemp);
-                std::cout << "Bio adicionada com sucesso" << std::endl;
-                break;
-            }
-            case 3:
+
+            case 2:
             {
                 std::string biotemp;
                 std::cout << "Biografia atual: " << std::endl;
@@ -1070,7 +1062,7 @@ void exibirInfoUsuario(Perfil &perfil)
                 std::cout << "Bio alterada com sucesso" << std::endl;
                 break;
             }
-            case 4: 
+            case 3: 
             {
                 std::string usuariotemp;
                 std::cout << "Nome de usuario atual: " << std::endl;
@@ -1082,7 +1074,7 @@ void exibirInfoUsuario(Perfil &perfil)
                 std::cout << "Nome de usuario alterado com sucesso!" << std::endl;
                 break;
             }
-            case 5:
+            case 4:
             break;
 
             default: {
@@ -1100,9 +1092,10 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
     while(opcao!=4){
         std::cout << "===CONFIGURACOES===" << std::endl;
         std::cout << "1.Exibir informacoes de perfil" << std::endl;
-        std::cout << "2.Apagar conta" << std::endl;
-        std::cout << "3.Sair da conta" << std::endl;
-        std::cout << "4.Retornar ao menu principal" << std::endl;
+        std::cout << "2.Editar informacoes de perfil" << std::cout; // Implementar aindaaaaa
+        std::cout << "3.Apagar conta" << std::endl;
+        std::cout << "4.Sair da conta" << std::endl;
+        std::cout << "5.Retornar ao menu principal" << std::endl;
         lerValor(opcao); //progdefensiva
 
         switch(opcao){
@@ -1114,6 +1107,55 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                 std::cout << perfil.getTelefone() << std::endl;
                 break;
             }
+
+            case 2:
+            {
+                int opcaoEditarPerfil = 0;
+
+                while (opcaoEditarPerfil){
+                    std::cout << "O que deseja editar?" << std::endl;
+                    std::cout << "1. E-mail" << std::endl;
+                    std::cout << "2. Telefone" << std::endl;
+                    std::cout << "3. Usuário" << std::endl;
+                    std::cout << "4. Senha" << std::endl;
+                    std::cout << "5. Voltar ao menu de configuracoes" << std::endl;
+                    lerValor(opcaoEditarPerfil); //progdefensiva
+
+                    switch(opcaoEditarPerfil){
+                        case 1:
+                        {
+
+                        }
+
+                        case 2:
+                        {
+                            
+                        }
+
+                        case 3:
+                        {
+                            
+                        }
+
+                        case 4:
+                        {
+                            
+                        }
+
+                        case 5:
+                        {
+                            break;
+                        }
+
+                        default:
+                        {
+                            std::cout << "Opcao invalida, tente novamente." << std::endl;
+                            break;
+                        }
+                    }
+                }
+            }
+
             case 2:
             {
                 int opcao2 = 0;
@@ -1141,6 +1183,10 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                 opcao = 4;
                 break;
             }      
+            default:{
+                std::cout << "Opcao invalida, tente novamente." << std::endl;
+                break;
+            }
         }
     }
 }
