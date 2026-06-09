@@ -27,6 +27,9 @@ void exibirOportunidades(std::map<int, Oportunidades>& postDeOportunidade_);
 
 void exibirServicos(std::map<int, Servico>& postDeServico_);
 
+void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& postDeEvento_, std::map<int, 
+                    Oportunidades>& postDeOportunidade_, std::map<int, Servico>& postDeServico_);
+
 void exibirInfoUsuario(Perfil& perfil);
 
 void configuracoes(Perfil& perfil, GerenciadorPerfis& gerenciador_, int &acesso);
