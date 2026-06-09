@@ -319,6 +319,8 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             Spotted &spottedSelecionado4 = acharPost(postDeSpotted_, idSpotted4);
             deixarCurtida(spottedSelecionado4);
             
+            std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
+
             std::cin.ignore(); // limpa buffer
             std::cin.get();    // espera o enter
             break;           

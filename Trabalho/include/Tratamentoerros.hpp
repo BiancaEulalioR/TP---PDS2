@@ -28,7 +28,7 @@ void deixarCurtida(C& valor){
 
                 valor.removerLike();
                 std::cout << "Like removido!" << std::endl;
-                std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
+            
             }
             catch (const std::runtime_error &e)
             {
