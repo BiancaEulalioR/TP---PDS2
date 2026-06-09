@@ -23,7 +23,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     std::cout << "9. Remover servico;" << std::endl;
     std::cout << "10. Ver informacoes de contato de um servico;" << std::endl;
     std::cout << "11. Voltar ao menu principal." << std::endl;
-    lerValor(opcao); //progdefensiva
+    lerValor(opcao); // progdefensiva.
 
     switch (opcao)
     {
@@ -67,7 +67,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "Deseja ver os comentarios de qual post de servico?(digite o id)" << std::endl;
         int idserv;
-        lerValor(idserv); //progdefensiva
+        lerValor(idserv); // progdefensiva
         Servico &servicoSelecionado = acharPost(postDeServico_, idserv);
         std::cout << "Comentarios: " << std::endl;
         imprimirElementos(servicoSelecionado.listarComments());
@@ -81,7 +81,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "Em qual post de Servico deseja deixar um comentario?(digite o id)" << std::endl;
         int idserv1;
-        lerValor(idserv1); //progdefensiva
+        lerValor(idserv1); // progdefensiva
         Servico &servicoSelecionado1 = acharPost(postDeServico_, idserv1);
         std::string novoComentario;
         std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
@@ -105,7 +105,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_)
     {
         std::cout << "De qual servico deseja ver as informacoes de contato?(digite o id)" << std::endl;
         int idserv2;
-        lerValor(idserv2); //progdefensiva
+        lerValor(idserv2); // progdefensiva
         Servico &servicoSelecionado2 = acharPost(postDeServico_, idserv2);
         std::string nomeDoPrestador = (servicoSelecionado2.getPerfil()).getUsuario();
         std::cout << "Usuario que postou esse servico: " << nomeDoPrestador << std::endl;
