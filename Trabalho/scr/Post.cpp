@@ -3,19 +3,28 @@
 
 Post::Post()
 {
-  likes = 0;
   idCont = 0; // chave do map comments
   qtdComments = 0;
 }
 
-void Post::inserirLike()
-{
-  likes += 1;
+void Post::inserirLike(Perfil& autor){
+  if(likes.find(autor.getidu()) == likes.end()){
+    likes.insert(autor.getidu());
+  }
+
+  else{
+    std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+  }
 }
 
-void Post::removerLike()
-{
-  likes -= 1;
+void Post::removerLike(Perfil& autor){
+  if(likes.find(autor.getidu()) != likes.end()){
+    likes.erase(autor.getidu());
+  }
+
+  else{
+    std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+  }
 }
 
 void Post::inserirComment(Perfil& autor, std::string comment)
@@ -31,18 +40,21 @@ void Post::removerComment(int id)
   qtdComments--;
 }
 
-int Post::getLikes()
+size_t Post::getLikes()
 {
-  return likes;
+  return likes.size();
 }
+
 void Post::idContador()
 {
   idCont++;
 }
+
 int Post::getComments(){
   return qtdComments;
 }
-const std::map<int, std::pair<Perfil, std::string>>& listarComments()
+
+const std::map<int, std::pair<Perfil, std::string>>& Post::listarComments()
 {
   return comments;
 }
