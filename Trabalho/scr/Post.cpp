@@ -18,7 +18,7 @@ void Post::removerLike()
   likes -= 1;
 }
 
-void Post::inserirComment(std::string comment, const Perfil& autor)
+void Post::inserirComment(Perfil& autor, std::string comment)
 {
   comments[idCont] = std::make_pair(autor,comment);
   idCont++; //aumenta o índice do próximo comentário

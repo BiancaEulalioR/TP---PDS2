@@ -21,7 +21,7 @@ public:
     void inserirLike();
     void removerLike();
 
-    void inserirComment(std::string comment, const Perfil& autor);
+    void inserirComment(Perfil& autor, std::string comment);
     void removerComment(int id);
 
     int getLikes();
