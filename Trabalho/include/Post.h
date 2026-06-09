@@ -3,13 +3,14 @@
 
 #include <string>
 #include <map>
+#include <set>
 #include "Perfil.h"
 
 class Post
 {
 private:
     //dados
-    int likes;
+    std::set<int> likes;
     int idCont; //chave do map
     int qtdComments;
     std::map<int, std::pair<Perfil, std::string>> comments;
@@ -18,13 +19,13 @@ public:
 
     Post();
 
-    void inserirLike();
-    void removerLike();
+    void inserirLike(Perfil& autor);
+    void removerLike(Perfil& autor);
 
     void inserirComment(Perfil& autor, std::string comment);
     void removerComment(int id);
 
-    int getLikes();
+    size_t getLikes();
     int getComments();
 
     virtual void idContador();

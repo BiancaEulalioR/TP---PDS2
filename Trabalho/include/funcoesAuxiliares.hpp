@@ -5,6 +5,7 @@
 #include <fstream>
 #include <set>
 #include "Servico.h"
+#include "Perfil.h"
 
 // Funcoes normais: ---------------------------------------------------------------------
 
