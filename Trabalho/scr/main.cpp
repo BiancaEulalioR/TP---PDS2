@@ -29,7 +29,16 @@ void main()
     {
         exibirMenuInicial(gerenciador_, aux1, acesso, id, nome, usuario, senha, bio, telefone, email);
 
-        while (acesso)
-            exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso, id);
+        while (acesso){
+            Perfil* usuarioLogado =  gerenciador_.buscaPorID(id);
+            if(usuarioLogado != nullptr)
+                exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, acesso, id);
+            
+            else{
+                std::cout << "ERRO 404" << std::endl;
+                acesso = 0;
+            }
+
+        }
     }
 }

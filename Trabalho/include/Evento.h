@@ -11,16 +11,15 @@ class Evento : public Post {
 
             std::string textoEvento_; //Evento a ser inserido
             std::string contato_; //Informações de contato
-            int idCont_;
             Perfil organizador_; //Perfil do organizador do evento
+            Perfil perfilAssociadoEvento_;
 
         public:
             Evento(); //Construtor 
-            Evento(int id, const std::string& textoEvento, const std::string& contato,
-                                    const Perfil& organizador);
+            Evento(const std::string& textoEvento, const std::string& contato,
+                                    const Perfil& organizador, const Perfil& usuario);
 
             //Getters
-            int getId() const;
             std::string getTextoEvento() const;
             std::string getContato() const;
             Perfil getOrganizador() const;
@@ -31,9 +30,6 @@ class Evento : public Post {
             void editarOrganizador(const Perfil& novoOrganizador);
             void editarEvento(const std::string& novoTexto);
             void apagarEvento();
-
-            void idContador() override;
-
 };
 
 #endif // EVENTO_H

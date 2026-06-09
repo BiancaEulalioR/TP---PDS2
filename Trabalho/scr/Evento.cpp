@@ -2,13 +2,11 @@
 
 Evento::Evento() : idCont_(0), textoEvento_(""), contato_("") {}
 
-Evento::Evento(int id, const std::string& textoEvento, const std::string& contato, const Perfil& organizador, 
-        const Perfil& usuario) : idCont_(id), textoEvento_(textoEvento), contato_(contato), organizador_(organizador) {}
+Evento::Evento(const std::string& textoEvento, const std::string& contato, const Perfil& organizador, 
+        const Perfil& usuario) : idCont_(id), textoEvento_(textoEvento), contato_(contato), organizador_(organizador), 
+        perfilAssociadoEvento_(usuario) {}
             // perfilAssociado_ inicializado com usuario (ajustar após verificação de perfis)
 
-
-int Evento::getId() const{
-    return idCont_; }
 
 std::string Evento::getTextoEvento() const{
     return textoEvento_; }
@@ -22,7 +20,7 @@ Perfil Evento::getOrganizador() const{
     return organizador_; }
 
 Perfil Evento::getPerfil() const{
-    return perfilAssociado_; }
+    return perfilAssociadoEvento_; }
 
 
 void Evento::editarContato(const std::string& novoContato){
