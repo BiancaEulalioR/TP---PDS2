@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Evento.h"
+#include "exibirOportunidades.h" 
 #include "Interfaces.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
@@ -36,7 +37,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         }
         case 3:
         {
-            exibirOportunidades(postDeOportunidade_);
+            exibirOportunidades(postDeOportunidade_, usuarioLogado);
             break;
         }
         case 4:
