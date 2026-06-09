@@ -17,7 +17,7 @@ class Evento : public Post {
         public:
             Evento(); //Construtor 
             Evento(const std::string& textoEvento, const std::string& contato,
-                                    const Perfil& organizador,  Perfil& usuario);
+                                     Perfil& organizador,  Perfil& usuario);
 
             //Getters
             std::string getTextoEvento() const;
