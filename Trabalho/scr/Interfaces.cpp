@@ -198,9 +198,18 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
-            std::cout << "Comentarios: " << std::endl;
-            imprimirElementos(spottedSelecionado.listarComments());
+            try
+            {
+                Spotted& spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+
+                std::cout << "Comentarios: " << std::endl;
+                imprimirElementos(spottedSelecionado.listarComments());
+            }
+            catch(const std::invalid_argument& e)
+            {
+                std::cout << e.what() << std::endl;
+            }
+
             std::cout << std::endl;
             std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
             std::cin.ignore();
@@ -213,6 +222,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted1;
             lerValor (idSpotted1); //progdefensiva
+            try{
             Spotted &spottedSelecionado1 = acharPost(postDeSpotted_, idSpotted1);
             std::string novoComentarioSpotted;
             std::cout << "Digite o comentario:" << std::endl;
@@ -227,6 +237,11 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             }
 
             spottedSelecionado1.inserirComment(novoComentarioSpotted);
+            }
+            catch(const std::invalid_argument& e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Comentario publicado!" << std::endl;
             std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
             std::cin.ignore(); // limpa buffer
@@ -275,9 +290,14 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted2;
             lerValor  (idSpotted2); //progdefensiva
+            try{
             Spotted &spottedSelecionado2 = acharPost(postDeSpotted_, idSpotted2);
-
             spottedSelecionado2.inserirLike();
+            }
+            catch(const std::invalid_argument& e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Like publicado!" << std::endl;
             std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
             std::cin.ignore(); // limpa buffer
@@ -318,11 +338,17 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_)
             int idSpotted6;
             lerValor (idSpotted6);//progdefensiva
 
+            try {
             Spotted &spottedSelecionado5 = acharPost(postDeSpotted_, idSpotted6);
             spottedSelecionado5.apagarPost(idSpotted6);
 
             std::cout << "Spotted removido!" << std::endl;
             std::cout << "Pressione enter para voltar para o menu de spotted" << std::endl;
+            }
+            catch(const std::invalid_argument& e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cin.ignore(); // limpa buffer
             std::cin.get();    // espera o enter
             break;             // volta ao menu
