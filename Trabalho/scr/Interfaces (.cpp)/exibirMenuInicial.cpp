@@ -13,7 +13,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
 
     do
     {
-        std::cout << "Qual ação deseja realizar: " << std::endl;
+        std::cout << "Qual acao deseja realizar: " << std::endl;
         std::cout << "1.Entrar " << std::endl
                   << "2.Criar Perfil " << std::endl;
         lerValor(aux1); // progdefensiva
@@ -48,22 +48,27 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
                         if (opcao != 1 && opcao != 2)
                             std::cout << "Opcao invalida! Tente novamente." << std::endl;
                     } while (opcao != 1 && opcao != 2);
-                    aux1 = opcao;
+                    if(opcao != 1) break;
                 }
-            } while (acesso != 1 && aux1 != 2);
+            } while (acesso != 1);
             aux1 = 0;
             break;
         }
 
         case 2:
         {
+            std::cin.ignore();
+
+            std::cout << "=== CRIAR CONTA ===" << std::endl;
+            std::cout << std::endl;
+
             std::cout << "E-mail: " << std::endl;
             std::getline(std::cin, email);
             verificaEmail(email);
             
             std::cout << "Nome completo: " << std::endl;
             std::getline(std::cin, nome);
-            verificaTexto(email);
+            verificaTexto(nome);
              
             std::cout << "Nome de usuario: " << std::endl;
             std::getline(std::cin, usuario);
@@ -94,7 +99,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
         }
 
         default:
-            std::cout << "Opção invalida! Tente novamente." << std::endl;
+            std::cout << "Opcao invalida! Tente novamente." << std::endl;
         }
     } while (acesso != 1);
 }
