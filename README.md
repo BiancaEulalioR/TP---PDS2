@@ -2,11 +2,11 @@
 
 ## Integrantes COMMIT TESTE
 
--Ayla Barcelos 
--Nicole Portes
--Samara Aquino
--Gustavo Henrique
--Bianca Ramos 
+- Ayla Barcelos 
+- Nicole Portes
+- Samara Aquino
+- Gustavo Henrique
+- Bianca Ramos 
 
 
 -------------------------------------------
@@ -76,6 +76,70 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 | **Eventos**  | Criar eventos, editar eventos, informações de contato, apagar eventos               | Perfil, Post |
 | **Oportunidades** | Criar oportunidades, editar oportunidades, informações de contato, apagar oportunidade              | Perfil, Post       |
 | **Serviços** | Criar serviços, editar serviços                                                    | Perfil, Post       |
+
+---
+## Organização - CampusConnect
+
+### Organização das pastas
+- **Compliados/**: Contem o arquivo makefile;
+- **build/**: Contém os arquivos .o gerados durante a compilação;
+- **include/**: Contém os arquivos de cabeçalho (.h e .hpp), onde estão as declarações das classes e fuções utilizadas no programa;
+- **src/**: Contém as implementações dessas classes e funções (arquivos .cpp).
+
+---
+### Arquitetura
+. programa
+├── Compilados/
+│  └── makefile/
+│    └── makefile
+├── build/
+│  └── [arquivos.o]
+├── include/
+│  └── interfaces(.h)/
+|    └── configuracoes.h
+|    └── exibirAbaBuscar.h
+|    └── exibirEventos.h
+|    └── exibirInfoUsuario.h
+|    └── exibirMenuAbas.h
+|    └── exibirMenuInicial.h
+|    └── exibirOportunidades.h
+|    └── exibirServicos.h
+|    └── exibirSpotted.h
+│  └── Evento.h
+│  └── funcoesAuxiliares.hpp
+│  └── GerenciadorPerfis.h
+│  └── funcoesAuxiliares.hpp
+│  └── Oportunidades.h
+│  └── Perfil.h
+│  └── Post.h
+│  └── Servico.h
+│  └── Spotted.h
+│  └── Tratamentoerros.hpp
+└── src/
+│  └── Interfaces(.cpp)/
+|    └── configuracoes.cpp
+|    └── exibirAbaBuscar.cpp
+|    └── exibirEventos.cpp
+|    └── exibirInfoUsuario.cpp
+|    └── exibirMenuAbas.cpp
+|    └── exibirMenuInicial.cpp
+|    └── exibirOportunidades.cpp
+|    └── exibirServicos.cpp
+|    └── exibirSpotted.cpp
+│  └── Evento.cpp
+│  └── funcoesAuxiliares.cpp
+│  └── GerenciadorPerfis.cpp
+│  └── main.cpp
+│  └── Oportunidades.cpp
+│  └── Perfil.cpp
+│  └── Post.cpp
+│  └── Servico.cpp
+│  └── Spotted.cpp
+│  └── Tratamentoerros.cpp
+└── .gitignore
+└── README.md
+
+---
 
 
 
