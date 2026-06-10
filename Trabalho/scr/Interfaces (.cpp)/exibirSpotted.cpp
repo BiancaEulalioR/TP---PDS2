@@ -26,10 +26,11 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         std::cout << "8. Remover curtida de spotted" << std::endl;
         std::cout << "9. Remover spotted" << std::endl;
         std::cout << "10. Voltar ao menu principal" << std::endl;
-        lerValor(opcaoSpotted);
+        lerValor(opcaoSpotted); //progdefensiva
 
         switch (opcaoSpotted)
         {
+         //ver spotteds publicados
         case 1:
         {
            
@@ -48,7 +49,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             break;
         }
         
-
+         //publicar spotted
         case 2:
         {
             std::string spotted;
@@ -67,6 +68,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cin.get();    // espera o enter
             break;             // volta ao menu
         }
+         //visualizar comentarios
         case 3:
         {
              std::cout << "Digite o ID do spotted: " << std::endl;
@@ -112,7 +114,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.get();
             break;         
-        
+        }
         // Apagar comentários
         case 5:
         {
@@ -180,7 +182,8 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cin.get();
             break;
         }
-      
+
+        //curtir
         case 7:
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
@@ -207,6 +210,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cin.get();
             break;           // volta ao menu
         }
+        //remover curtida
         case 8:
         {
            std::cout << "Digite o ID do spotted: " << std::endl;
@@ -236,6 +240,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             break;
 
         }
+        //remover spotted
         case 9:
         {
             std::cout << "Digite o ID do spotted: " << std::endl;
