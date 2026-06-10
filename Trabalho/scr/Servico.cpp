@@ -3,7 +3,7 @@
 // Construtores:
 Servico::Servico() {}
 
-Servico::Servico(std::string descricao, int num, int idServi, int idPerf, Perfil perf)
+Servico::Servico(std::string descricao, std::string num, int idServi, int idPerf, Perfil perf)
 {
     descricaoDoServico_ = descricao;
     numeroContato_ = num;
@@ -24,7 +24,7 @@ std::string Servico::getDescricaoDoServico() const
     return descricaoDoServico_;
 }
 
-int Servico::getNumeroContato() const
+std::string Servico::getNumeroContato() const
 {
     return numeroContato_;
 }
@@ -50,7 +50,7 @@ void Servico::setDescricaoDoServico(std::string descricaoL)
     descricaoDoServico_ = descricaoL;
 }
 
-void Servico::setNumeroContato(int numL)
+void Servico::setNumeroContato(std::string numL)
 {
     numeroContato_ = numL;
 }
@@ -68,4 +68,18 @@ void Servico::setIdPerfilAssociado(int novoIdPerfil)
 void Servico::setPerfilAssociado(Perfil novoPerfilAssociado)
 {
     perfilAssociadoS_ = novoPerfilAssociado;
+}
+
+// Outros Metodos:
+void Servico::editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto)
+{
+    numeroCaracteres = ParteDoTexto.size();
+    size_t indiceEdicao = descricaoDoServico_.find(ParteDoTexto);
+    if (indiceEdicao != std::string::npos)
+        descricaoDoServico_.replace(indiceEdicao, numeroCaracteres, novoTexto);
+}
+
+void Servico::reescreverDescricao(std::string novaDescricao)
+{
+    descricaoDoServico_ = novaDescricao;
 }
