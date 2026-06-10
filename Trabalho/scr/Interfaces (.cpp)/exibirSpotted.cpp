@@ -110,7 +110,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
                 verificaTexto(comentarioSpotted); //progdefensiva
 
                 spottedSelecionado.inserirComment(usuarioLogado, comentarioSpotted);
-                std::cout << "Comentário publicado." << std::endl;
+                std::cout << "Comentario publicado." << std::endl;
             }           
             catch (const std::invalid_argument &e)
             {
@@ -287,3 +287,5 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         }
     }
 }
+
+
