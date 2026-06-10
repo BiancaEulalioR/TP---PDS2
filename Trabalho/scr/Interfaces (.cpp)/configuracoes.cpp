@@ -17,7 +17,6 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
         std::cout << "4.Sair da conta" << std::endl;
         std::cout << "5.Retornar ao menu principal" << std::endl;
         lerValor(opcao); //progdefensiva
-        std::cout << opcao << std::endl;
 
         switch(opcao){
             case 1:
@@ -32,7 +31,6 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
             case 2:
             {
                 int opcaoEditarPerfil = 0;
-                std::cout << "AAAAAAA" << std::endl;
 
                 while (opcaoEditarPerfil!=5){
                     std::cout << "O que deseja editar?" << std::endl;
