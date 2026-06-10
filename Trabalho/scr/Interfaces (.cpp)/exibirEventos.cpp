@@ -2,7 +2,7 @@
 #include <string>
 
 #include "Evento.h"
-#include "Interfaces.h"
+#include "exibirEventos.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
 
@@ -80,58 +80,66 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
+            
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
 
-            if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
-                
-                int opcaoEditarEvento = 0;
-                std::string novoContato, novoTexto;
+                if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
+                    
+                    int opcaoEditarEvento = 0;
+                    std::string novoContato, novoTexto;
 
-                while (opcaoEditarEvento != 3){
-                std::cout << "O que deseja editar?" << std::endl;
-                std::cout << "1. Editar contato de evento" << std::endl;
-                std::cout << "2. Editar texto do evento" << std::endl;
-                std::cout << "3. Voltar ao menu de eventos" << std::endl;
-                lerValor(opcaoEditarEvento); //progdefensiva
+                    while (opcaoEditarEvento != 3){
+                    std::cout << "O que deseja editar?" << std::endl;
+                    std::cout << "1. Editar contato de evento" << std::endl;
+                    std::cout << "2. Editar texto do evento" << std::endl;
+                    std::cout << "3. Voltar ao menu de eventos" << std::endl;
+                    lerValor(opcaoEditarEvento); //progdefensiva
 
-                    switch (opcaoEditarEvento)
-                    {
-                        case 1:
+                        switch (opcaoEditarEvento)
                         {
-                            std::cout << "Digite o novo contato:" << std::endl;
-                            std::cin.ignore();
-                            std::getline(std::cin, novoContato);
-                            eventoSelecionado.editarContato(novoContato);
-                            std::cout << "Contato atualizado com sucesso." << std::endl;
-                            break;
-                        }
+                            case 1:
+                            {
+                                std::cout << "Digite o novo contato:" << std::endl;
+                                std::cin.ignore();
+                                std::getline(std::cin, novoContato);
+                                eventoSelecionado.editarContato(novoContato);
+                                std::cout << "Contato atualizado com sucesso." << std::endl;
+                                break;
+                            }
 
-                        case 2:
-                        {
-                            std::cout << "Digite o novo evento:" << std::endl;
-                            std::cin.ignore();
-                            std::getline(std::cin, novoTexto);
-                            eventoSelecionado.editarEvento(novoTexto);
-                            std::cout << "Evento atualizado com sucesso." << std::endl;
-                            break;
-                        }
+                            case 2:
+                            {
+                                std::cout << "Digite o novo evento:" << std::endl;
+                                std::cin.ignore();
+                                std::getline(std::cin, novoTexto);
+                                eventoSelecionado.editarEvento(novoTexto);
+                                std::cout << "Evento atualizado com sucesso." << std::endl;
+                                break;
+                            }
 
-                        case 3:
-                        {
-                            break;
-                        }
+                            case 3:
+                            {
+                                break;
+                            }
 
-                        default:
-                        {
-                            std::cout << "Opcao invalida. Tente novamente digitando um numero de 1 a 3." << std::endl;
-                            break;
+                            default:
+                            {
+                                std::cout << "Opcao invalida. Tente novamente digitando um numero de 1 a 3." << std::endl;
+                                break;
+                            }
                         }
-                    }
                 }
             }
 
             else
                 std::cout << "Voce nao possui permissao para editar esse evento." << std::endl;
+            }
+
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
 
             std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
             std::cin.ignore();
@@ -146,15 +154,22 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
 
-            if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
-            postDeEvento_.erase(idEvento);
-            std::cout << "Evento removido com sucesso." << std::endl;
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);   
+
+                if(eventoSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
+                postDeEvento_.erase(idEvento);
+                std::cout << "Evento removido com sucesso." << std::endl;
+                }
+
+                else
+                    std::cout << "Voce nao possui permissao para apagar esse evento." << std::endl;
             }
-
-            else
-                std::cout << "Voce nao possui permissao para apagar esse evento." << std::endl;
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
 
             std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
             std::cin.ignore();
@@ -169,10 +184,19 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            std::cout << "Comentarios:" << std::endl;
-            imprimirElementosComId(eventoSelecionado.listarComments());
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
+
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(eventoSelecionado.listarComments());
+            }
+
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
+
 
             std::cout << "Pressione enter para voltar." << std::endl;
             std::cin.ignore();
@@ -186,22 +210,30 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
         {
             std::cout << "Digite o ID do evento: " << std::endl;
 
-            int idEvento;
-            lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
-            std::string comentarioEvento;
-            std::cout << "Digite o comentario: " << std::endl;
-            std::cin.ignore();
-            std::getline(std::cin, comentarioEvento);
+                int idEvento;
+                lerValor(idEvento); //progdefensiva
 
-            while (comentarioEvento.empty())
-            {
-                std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
+                std::string comentarioEvento;
+                std::cout << "Digite o comentario: " << std::endl;
+                std::cin.ignore();
                 std::getline(std::cin, comentarioEvento);
+
+                while (comentarioEvento.empty())
+                {
+                    std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
+                    std::getline(std::cin, comentarioEvento);
+                }
+
+                eventoSelecionado.inserirComment(usuarioLogado, comentarioEvento);
+                std::cout << "Comentario publicado." << std::endl;
+            }    
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
             }
 
-            eventoSelecionado.inserirComment(usuarioLogado, comentarioEvento);
-            std::cout << "Comentário publicado." << std::endl;
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.get();
             break;
@@ -214,33 +246,41 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            std::cout << "Comentarios:" << std::endl;
-            imprimirElementosComId(eventoSelecionado.listarComments());
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
-            int idComentario;
-            lerValor(idComentario); //progdefensiva
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(eventoSelecionado.listarComments());
 
-            const std::map<int, std::pair<Perfil, std::string>> &comentariosEvento = eventoSelecionado.listarComments();
-            std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarComentEvento = comentariosEvento.find(idComentario);
+                std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
+                int idComentario;
+                lerValor(idComentario); //progdefensiva
 
-            if(verificarComentEvento != comentariosEvento.end()){
+                const std::map<int, std::pair<Perfil, std::string>> &comentariosEvento = eventoSelecionado.listarComments();
+                std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarComentEvento = comentariosEvento.find(idComentario);
 
-                if(verificarComentEvento -> second.first.getidu() == usuarioLogado.getidu()){
+                if(verificarComentEvento != comentariosEvento.end()){
 
-                    eventoSelecionado.removerComment(idComentario);
-                    std::cout << "Comentario removido com sucesso." << std::endl;
+                    if(verificarComentEvento -> second.first.getidu() == usuarioLogado.getidu()){
+
+                        eventoSelecionado.removerComment(idComentario);
+                        std::cout << "Comentario removido com sucesso." << std::endl;
+                    }
+
+                    else {
+                        std::cout << "Voce nao possui permissao para apagar esse comentario" << std::endl;
+                    }
                 }
 
-                else {
-                    std::cout << "Voce nao possui permissao para apagar esse comentario" << std::endl;
-                }
+                else
+                    std::cout << "Comentario nao encontrado." << std::endl;
             }
 
-            else
-                std::cout << "Comentario nao encontrado." << std::endl;
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
 
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
@@ -255,9 +295,16 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
-
-            std::cout << "Numero de curtidas do post selecionado:" << eventoSelecionado.getLikes() << std::endl;
+            try
+            {
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
+                std::cout << "Numero de curtidas do post selecionado:" << eventoSelecionado.getLikes() << std::endl;
+                exibirUsuariosQueCurtiram(postDeEvento_, idEvento, gerenciador_);
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }            
 
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
@@ -272,15 +319,22 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            if(eventoSelecionado.inserirLike(usuarioLogado) == true)
-                std::cout << "Curtida registrada." << std::endl;
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            else
-                std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+                if(eventoSelecionado.inserirLike(usuarioLogado) == true)
+                    std::cout << "Curtida registrada." << std::endl;
 
-            std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+                else
+                    std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+
+                std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
 
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
@@ -294,16 +348,23 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
 
             int idEvento;
             lerValor(idEvento); //progdefensiva
-            Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            if(eventoSelecionado.removerLike(usuarioLogado) == true)
-                std::cout << "Curtida removida." << std::endl;
-            
-            else
-                std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+            try{
+                Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
 
-            std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+                if(eventoSelecionado.removerLike(usuarioLogado) == true)
+                    std::cout << "Curtida removida." << std::endl;
+                
+                else
+                    std::cout << "Voce nao curtiu essa publicacao." << std::endl;
 
+                std::cout << "Numero de curtidas atual:" << eventoSelecionado.getLikes() << std::endl;
+            }
+
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
