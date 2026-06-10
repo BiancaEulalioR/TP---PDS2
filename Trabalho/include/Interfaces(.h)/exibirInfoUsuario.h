@@ -3,6 +3,6 @@
 
 #include "Perfil.h"
 
-void exibirInfoUsuario(Perfil &perfil);
+void exibirInfoUsuario(Perfil& perfil, GerenciadorPerfis& gerenciador_);
 
 #endif 

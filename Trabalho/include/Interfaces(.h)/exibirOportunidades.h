@@ -10,6 +10,6 @@
 #include "GerenciadorPerfis.h"
 #include "Post.h"
 
-void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perfil &usuarioLogado, GerenciadorPerfis &gerenciador_);
+void exibirOportunidades(std::map<int, Oportunidades>& postDeOportunidade_, Perfil &usuarioLogado, GerenciadorPerfis &gerenciador_);
 
 #endif

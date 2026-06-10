@@ -4,6 +4,6 @@
 #include "Perfil.h"
 #include "GerenciadorPerfis.h"
 
-void configuracoes(Perfil &perfil, GerenciadorPerfis &gerenciador_, int &acesso);
+void configuracoes(Perfil& perfil, GerenciadorPerfis& gerenciador_, int &acesso);
 
 #endif 
