@@ -2,11 +2,11 @@
 
 ## Integrantes COMMIT TESTE
 
--Ayla Barcelos 
--Nicole Portes
--Samara Aquino
--Gustavo Henrique
--Bianca Ramos 
+- Ayla Barcelos 
+- Nicole Portes
+- Samara Aquino
+- Gustavo Henrique
+- Bianca Ramos 
 
 
 -------------------------------------------
@@ -81,10 +81,10 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 ## Organização - CampusConnect
 
 ### Organização das pastas
-° **Compliados/**: Contem o arquivo makefile;
-° **build/**: Contém os arquivos .o gerados durante a compilação;
-° **include/**: Contém os arquivos de cabeçalho (.h e .hpp), onde estão as declarações das classes e fuções utilizadas no programa;
-° **src/**: Contém as implementações dessas classes e funções (arquivos .cpp).
+- **Compliados/**: Contem o arquivo makefile;
+- **build/**: Contém os arquivos .o gerados durante a compilação;
+- **include/**: Contém os arquivos de cabeçalho (.h e .hpp), onde estão as declarações das classes e fuções utilizadas no programa;
+- **src/**: Contém as implementações dessas classes e funções (arquivos .cpp).
 
 ---
 ### Arquitetura
