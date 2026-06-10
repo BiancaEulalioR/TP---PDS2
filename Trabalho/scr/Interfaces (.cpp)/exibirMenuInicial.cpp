@@ -59,7 +59,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
         {
             std::cout << "E-mail: " << std::endl;
             std::getline(std::cin, email);
-            verificaTexto(email);
+            verificaEmail(email);
             
             std::cout << "Nome completo: " << std::endl;
             std::getline(std::cin, nome);
@@ -67,15 +67,15 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
              
             std::cout << "Nome de usuario: " << std::endl;
             std::getline(std::cin, usuario);
-            verificaTexto(usuario);
+            verificaUsuario(usuario);
              
             std::cout << "Senha: " << std::endl;
             std::getline(std::cin, senha);
-            verificaTexto(senha);
+            verificaSenha(senha);
              
             std::cout << "Telefone: " << std::endl;
             std::getline(std::cin, telefone);
-            verificaTexto(telefone);
+            verificaTelefone(telefone);
             
             bio = " ";
             gerenciador_.criaPerfil(nome, usuario, senha, bio, telefone, email);
