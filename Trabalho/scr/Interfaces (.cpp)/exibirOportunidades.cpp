@@ -431,3 +431,4 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
     }
 }
+
