@@ -68,11 +68,18 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             std::cout << "Nome de usuario: " << std::endl;
             std::getline(std::cin, usuario);
             verificaUsuario(usuario);
+            // verificar se usuario ja existe:
+            while (gerenciador_.buscaPorUsuario(usuario) != nullptr)
+            {
+                std::cout << "Esse nome de usuario ja esta em uso. Digite outro: " << std::endl;
+                std::getline(std::cin, usuario);
+                verificaUsuario(usuario);
+            }
              
             std::cout << "Senha: " << std::endl;
             std::getline(std::cin, senha);
             verificaSenha(senha);
-             
+            
             std::cout << "Telefone: " << std::endl;
             std::getline(std::cin, telefone);
             verificaTelefone(telefone);
