@@ -7,7 +7,7 @@
 #include "Tratamentoerros.hpp"
 
 //------------------------------------OPORTUNIDADES----------------------------------------------------------
-void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perfil &usuarioLogado) //atualizar na chamada da funcao para passar o perfil do usuario logado    
+void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perfil &usuarioLogado, GerenciadorPerfis &gerenciador_)
 {
 
     int opcao = 0;

@@ -7,7 +7,7 @@
 #include "Tratamentoerros.hpp"
 
 //--------------------------------------EVENTOS----------------------------------------------------------
-void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
+void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, GerenciadorPerfis &gerenciador_)
 {
     int opcaoEvento = 0;
 
@@ -379,7 +379,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado)
         // Tratamento de exceção
         default:
         {
-            std::cout << "Opcao digitada invalida. Tente novamente digitando um numero entre 1 e 9." << std::endl;
+            std::cout << "Opcao digitada invalida. Tente novamente digitando um numero entre 1 e 11." << std::endl;
             break;
         }
         }
