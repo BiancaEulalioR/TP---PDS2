@@ -57,14 +57,14 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
             std::cout << "Agora digite o numero de contato com ddd, tudo junto :" << std::endl;
             std::cin.ignore();
             std::getline(std::cin, contatoLido);
-            while (contatoLido.size() != 11)
+/*             while (contatoLido.size() != 11)
             {
                 std::cout << "Numero invalido. Digite novamente" << std::endl;
                 std::getline(std::cin, contatoLido);
             }
             int numeroLido = std::stoi(contatoLido);
-
-            Servico novoServico(descricaoLida, numeroLido, idS, usuarioLogado.getidu(), usuarioLogado);
+ */
+            Servico novoServico(descricaoLida, contatoLido, idS, usuarioLogado.getidu(), usuarioLogado);
             postDeServico_.insert({idS, novoServico});
             std::cout << "Servico publicado!" << std::endl;
             std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
@@ -108,16 +108,16 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                     {
                         std::cout << "Digite o novo numero de contato:" << std::endl;
                         std::string contatoStr;
-                        int novoContato;
-                        std::cin.ignore();
+/*                         int novoContato;
+ */                        std::cin.ignore();
                         std::getline(std::cin, contatoStr);
-                        while (contatoStr.size() != 11)
+/*                         while (contatoStr.size() != 11)
                         {
                             std::cout << "Numero invalido. Digite novamente" << std::endl;
                             std::getline(std::cin, contatoStr);
                         }
-                        novoContato = std::stoi(contatoStr);
-                        servicoSelecionado.setNumeroContato(novoContato);
+ */                      //  novoContato = std::stoi(contatoStr);
+                        servicoSelecionado.setNumeroContato(contatoStr);
                         std::cout << "Servico atualizado com sucesso!" << std::endl;
                         std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
                         std::cin.ignore();
@@ -380,3 +380,4 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         }
     } 
 }
+
