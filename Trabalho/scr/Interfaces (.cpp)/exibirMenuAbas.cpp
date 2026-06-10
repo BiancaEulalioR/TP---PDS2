@@ -30,7 +30,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         {
         case 1:
         {
-            exibirSpotted(postDeSpotted_);
+            exibirSpotted(postDeSpotted_, usuarioLogado);
             break;
         }
         case 2:

@@ -2,7 +2,7 @@
 #include <string>
 
 #include "Spotted.h"
-#include "Interfaces.h"
+#include "exibirSpotted.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
 
@@ -11,6 +11,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 {
 
     int opcaoSpotted = 0;
+
 
     while (opcaoSpotted != 10)
     {
@@ -25,7 +26,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         std::cout << "8. Remover curtida de spotted" << std::endl;
         std::cout << "9. Remover spotted" << std::endl;
         std::cout << "10. Voltar ao menu principal" << std::endl;
-        
+        lerValor(opcaoSpotted);
 
         switch (opcaoSpotted)
         {
@@ -45,7 +46,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cin.ignore();
             std::cin.get();
             break;
-            }
+        }
         
 
         case 2:
@@ -72,11 +73,18 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
-            std::cout << "Comentarios:" << std::endl;
-            imprimirElementosComId(spottedSelecionado.listarComments());
+            try{
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(spottedSelecionado.listarComments());
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }           
+                       
             std::cout << "Pressione enter para voltar." << std::endl;
             std::cin.ignore();
             std::cin.get();
@@ -90,20 +98,26 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
-            std::string comentarioSpotted;
-            std::cout << "Digite o comentario: " << std::endl;
-            std::cin.ignore();
-            std::getline(std::cin, comentarioSpotted);
-
-            while (comentarioSpotted.empty())
-            {
-                std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
+            try{
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+                std::string comentarioSpotted;
+                std::cout << "Digite o comentario: " << std::endl;
+                std::cin.ignore();
                 std::getline(std::cin, comentarioSpotted);
-            }
 
-            spottedSelecionado.inserirComment(usuarioLogado, comentarioSpotted);
-            std::cout << "Comentário publicado." << std::endl;
+                while (comentarioSpotted.empty())
+                {
+                    std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
+                    std::getline(std::cin, comentarioSpotted);
+                }
+
+                spottedSelecionado.inserirComment(usuarioLogado, comentarioSpotted);
+                std::cout << "Comentário publicado." << std::endl;
+            }           
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.get();
             break;         
@@ -114,54 +128,89 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted;
             lerValor (idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
             
-           std::cout << "Comentarios:" << std::endl;
-            imprimirElementosComId(spottedSelecionado.listarComments());
+            try{
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+                
+                std::cout << "Comentarios:" << std::endl;
+                imprimirElementosComId(spottedSelecionado.listarComments());
 
-            std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
-            int idComentario;
+                std::cout << "Digite o ID do comentario que deseja remover:" << std::endl;
+                int idComentario;
+                lerValor(idComentario);
 
-            const std::map<int, std::pair<Perfil, std::string>> &comentariosSpotted = spottedSelecionado.listarComments();
-            std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarCommentSpotted = comentariosSpotted.find(idComentario);
+                const std::map<int, std::pair<Perfil, std::string>> &comentariosSpotted = spottedSelecionado.listarComments();
+                std::map<int, std::pair<Perfil, std::string>>::const_iterator verificarCommentSpotted = comentariosSpotted.find(idComentario);
 
-            if(verificarCommentSpotted != comentariosSpotted.end()){
+                if(verificarCommentSpotted != comentariosSpotted.end()){
 
-                if(verificarCommentSpotted -> second.first.getidu() == usuarioLogado.getidu()){
+                    if(verificarCommentSpotted -> second.first.getidu() == usuarioLogado.getidu()){
 
-                    spottedSelecionado.removerComment(idComentario);
-                    std::cout << "Comentario removido com sucesso." << std::endl;
+                        spottedSelecionado.removerComment(idComentario);
+                        std::cout << "Comentario removido com sucesso." << std::endl;
+                    }
+
+                    else {
+                        std::cout << "Voce nao possui permissao para apagar esse comentario" << std::endl;
+                    }
                 }
 
-                else {
-                    std::cout << "Voce nao possui permissao para apagar esse comentario" << std::endl;
-                }
+                else
+                    std::cout << "Comentario nao encontrado." << std::endl;
             }
-
-            else
-                std::cout << "Comentario nao encontrado." << std::endl;
-
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }           
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
+        // Visualizar curtidas -- CORRIGIDO AYLA: case 6 faltando
+        case 6:
+        {
+            std::cout << "Digite o ID do spotted:" << std::endl;
+            int idSpotted;
+            lerValor(idSpotted); //progdefensiva
+
+            try
+            {
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+                std::cout << "Numero de curtidas: " << spottedSelecionado.getLikes() << std::endl;
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
+
+            std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
+            std::cin.ignore();
+            std::cin.get();
+            break;
+        }
+      
         case 7:
         {
             std::cout << "Digite o ID do spotted:" << std::endl;
             int idSpotted;
             lerValor  (idSpotted); //progdefensiva
 
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
-            
-            if(spottedSelecionado.inserirLike(usuarioLogado) == true)
-                std::cout << "Curtida registrada." << std::endl;
+            try {
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
+                
+                if(spottedSelecionado.inserirLike(usuarioLogado) == true)
+                    std::cout << "Curtida registrada." << std::endl;
 
-            else
-                std::cout << "Voce ja curtiu essa publicacao." << std::endl;
+                else
+                    std::cout << "Voce ja curtiu essa publicacao." << std::endl;
 
-            std::cout << "Numero de curtidas atual:" << spottedSelecionado.getLikes() << std::endl;
-
+                std::cout << "Numero de curtidas atual:" << spottedSelecionado.getLikes() << std::endl;
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Pressione enter para voltar para o menu de spotted." << std::endl;
             std::cin.ignore();
             std::cin.get();
@@ -169,24 +218,32 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         }
         case 8:
         {
-           std::cout << "Digite o ID do evento: " << std::endl;
+           std::cout << "Digite o ID do spotted: " << std::endl;
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
-            if(spottedSelecionado.removerLike(usuarioLogado) == true)
-                std::cout << "Curtida removida." << std::endl;
-            
-            else
-                std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+            try // CORRIGIDO 5: adicionado try/catch
+            {
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
-            std::cout << "Numero de curtidas atual:" << spottedSelecionado.getLikes() << std::endl;
+                if (spottedSelecionado.removerLike(usuarioLogado) == true)
+                    std::cout << "Curtida removida." << std::endl;
+                else
+                    std::cout << "Voce nao curtiu essa publicacao." << std::endl;
+
+                std::cout << "Numero de curtidas atual: " << spottedSelecionado.getLikes() << std::endl;
+            }
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
 
             std::cout << "Pressione enter para voltar para o menu de spotted." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
+
         }
         case 9:
         {
@@ -194,16 +251,22 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);   
+            try // CORRIGIDO 5: adicionado try/catch
+            {
+                Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
-            if(spottedSelecionado.getPerfil().getidu() == usuarioLogado.getidu()){
-            postDeSpotted_.erase(idSpotted);
-            std::cout << "Spotted removido com sucesso." << std::endl;
+                if (spottedSelecionado.getPerfil().getidu() == usuarioLogado.getidu())
+                {
+                    postDeSpotted_.erase(idSpotted);
+                    std::cout << "Spotted removido com sucesso." << std::endl;
+                }
+                else
+                    std::cout << "Voce nao possui permissao para apagar esse spotted." << std::endl;
             }
-
-            else
-                std::cout << "Voce nao possui permissao para apagar esse spotted." << std::endl;
-
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Pressione enter para voltar para menu de spotted." << std::endl;
             std::cin.ignore();
             std::cin.get();
@@ -214,6 +277,12 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         {
             break;
         }
+
+        default:
+        {
+            std::cout << "Opcao invalida. Tente novamente digitando um numero entre 1 e 10." << std::endl;
+            break;
+        }        
         }
     }
 }
