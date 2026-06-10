@@ -9,6 +9,7 @@
 #include "exibirAbaBuscar.h"
 #include "exibirInfoUsuario.h"
 #include "configuracoes.h"
+#include "Tratamentoerros.hpp" 
 
 void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento> &postDeEvento_,
                     std::map<int, Servico> &postDeServico_, std::map<int, Oportunidades> &postDeOportunidade_, 
