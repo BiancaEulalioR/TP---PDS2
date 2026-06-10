@@ -9,7 +9,7 @@
 #include "Interfaces.h"
 #include <string>
 
-void main()
+int main()
 {
     // inicializando maps para guardar os posts:
     std::map<int, Spotted> postDeSpotted_;
@@ -32,7 +32,7 @@ void main()
         while (acesso){
             Perfil* usuarioLogado =  gerenciador_.buscaPorID(id);
             if(usuarioLogado != nullptr)
-                exibirMenuAbas(postDeSpotted_, postDeEvento_, postDeServico_, postDeOportunidade_, *usuarioLogado, acesso, id, gerenciador_);
+                exibirMenuAbas(*usuarioLogado, acesso, id, gerenciador_, postDeSpotted_, postDeEvento_, postDeOportunidade_, postDeServico_);
             
             else{
                 std::cout << "ERRO 404" << std::endl;
@@ -41,4 +41,6 @@ void main()
 
         }
     }
+
+    return 0;
 }
