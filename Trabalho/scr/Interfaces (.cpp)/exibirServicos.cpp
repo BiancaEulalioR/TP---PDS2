@@ -11,7 +11,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
 {
     int opcao = 0;
 
-    while(opcao != 12) {// CORRIGIDO AYLA: adicionado loop while-antes o menu aparecia só uma vez
+    while(opcao != 12) {
         std::cout << "=== SERVICOS ===" << std::endl;
         std::cout << "1. Ver servicos publicados;" << std::endl;
         std::cout << "2. Publicar um servico;" << std::endl;
