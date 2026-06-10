@@ -11,9 +11,9 @@
 #include "configuracoes.h"
 #include "Tratamentoerros.hpp" 
 
-void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento> &postDeEvento_,
-                    std::map<int, Servico> &postDeServico_, std::map<int, Oportunidades> &postDeOportunidade_, 
-                     Perfil& usuarioLogado, int &acesso, const int id, GerenciadorPerfis& gerenciador_)
+void exibirMenuAbas(Perfil& usuarioLogado, int &acesso, const int id, GerenciadorPerfis& gerenciador_, 
+                    std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento> &postDeEvento_, 
+                    std::map<int, Oportunidades>& postDeOportunidade_, std::map<int, Servico> &postDeServico_)
 {
     while(acesso){
         int aux3 = 0;
@@ -21,7 +21,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         std::cout << "1.Spotted" << std::endl;
         std::cout << "2.Eventos" << std::endl;
         std::cout << "3.Oportunidades" << std::endl;
-        std::cout << "4.Serviços" << std::endl;
+        std::cout << "4.Servicos" << std::endl;
         std::cout << "5.Buscar" << std::endl;
         std::cout << "6.Perfil" << std::endl;
         std::cout << "7.Configuracoes" << std::endl;
@@ -31,7 +31,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         {
         case 1:
         {
-            exibirSpotted(postDeSpotted_, usuarioLogado);
+            exibirSpotted(postDeSpotted_, usuarioLogado, gerenciador_);
             break;
         }
         case 2:
@@ -39,7 +39,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
             exibirEventos(postDeEvento_, usuarioLogado, gerenciador_);
             break;
         }
-        case 3:
+         case 3:
         {
             exibirOportunidades(postDeOportunidade_, usuarioLogado, gerenciador_);
             break;
@@ -51,11 +51,11 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         }
         case 5: {
             exibirAbaBuscar(gerenciador_, postDeEvento_, postDeOportunidade_, postDeServico_);
-            break;
+            break; 
         }
         case 6:
         {
-            exibirInfoUsuario(usuarioLogado); // Necessário implementar após a criação do case
+            exibirInfoUsuario(usuarioLogado, gerenciador_);
             break;
         }
         case 7:
@@ -71,3 +71,4 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         }
     }
 }
+
