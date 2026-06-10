@@ -100,7 +100,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-           
+           try{
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
                 std::string comentarioSpotted;
                 std::cout << "Digite o comentario: " << std::endl;
@@ -110,7 +110,11 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
                 spottedSelecionado.inserirComment(usuarioLogado, comentarioSpotted);
                 std::cout << "Comentário publicado." << std::endl;
-            
+            }           
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.get();
             break;         
