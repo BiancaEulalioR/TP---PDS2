@@ -58,15 +58,25 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
         case 2:
         {
             std::cout << "E-mail: " << std::endl;
-            std::cin >> email;
+            std::getline(std::cin, email);
+            verificaTexto(email);
+            
             std::cout << "Nome completo: " << std::endl;
-            std::cin >> nome;
+            std::getline(std::cin, nome);
+            verificaTexto(email);
+             
             std::cout << "Nome de usuario: " << std::endl;
-            std::cin >> usuario;
+            std::getline(std::cin, usuario);
+            verificaTexto(usuario);
+             
             std::cout << "Senha: " << std::endl;
-            std::cin >> senha;
+            std::getline(std::cin, senha);
+            verificaTexto(senha);
+             
             std::cout << "Telefone: " << std::endl;
-            std::cin >> telefone;
+            std::getline(std::cin, telefone);
+            verificaTexto(telefone);
+            
             bio = " ";
             gerenciador_.criaPerfil(nome, usuario, senha, bio, telefone, email);
             Perfil *p = gerenciador_.buscaPorUsuario(usuario);
