@@ -208,7 +208,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             lerValor(idOp); //progdefensiva
 
             try{
-            Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
                 std::cout << "Usuario que publicou: " << opSelecionada.getPerfil().getUsuario() << std::endl;
                 std::cout << "Contato: " << opSelecionada.getContato() << std::endl;
@@ -236,11 +236,11 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             lerValor(idOp); //progdefensiva
 
             try{
-            Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
-            std::cout << "Comentarios:" << std::endl;
+                std::cout << "Comentarios:" << std::endl;
 
-            imprimirElementosComId(opSelecionada.listarComments());
+                imprimirElementosComId(opSelecionada.listarComments());
             }
 
             catch (const std::invalid_argument &e)

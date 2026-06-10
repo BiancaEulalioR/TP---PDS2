@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
 
-#include "Evento.h"
-#include "exibirOportunidades.h" 
-#include "Interfaces.h"
-#include "funcoesAuxiliares.hpp"
-#include "Tratamentoerros.hpp"
+#include "exibirMenuAbas.h"
+#include "exibirSpotted.h"
+#include "exibirEventos.h"
+#include "exibirOportunidades.h"
+#include "exibirServicos.h"
+#include "exibirAbaBuscar.h"
+#include "exibirInfoUsuario.h"
+#include "configuracoes.h"
 
 void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento> &postDeEvento_,
                     std::map<int, Servico> &postDeServico_, std::map<int, Oportunidades> &postDeOportunidade_, 
@@ -37,12 +40,12 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         }
         case 3:
         {
-            exibirOportunidades(postDeOportunidade_, usuarioLogado, gerenciador);
+            exibirOportunidades(postDeOportunidade_, usuarioLogado, gerenciador_);
             break;
         }
         case 4:
         {
-            exibirServicos(postDeServico_);
+            exibirServicos(postDeServico_, usuarioLogado, gerenciador_);
             break;
         }
         case 5: {
