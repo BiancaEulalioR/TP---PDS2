@@ -6,7 +6,15 @@
 #include "Servico.h"
 #include "Spotted.h"
 #include "GerenciadorPerfis.h"
-#include "Interfaces.h"
+#include "Interfaces(.h)/configuracoes.h"
+#include "Interfaces(.h)/exibirAbaBuscar.h"
+#include "Interfaces(.h)/exibirEventos.h"
+#include "Interfaces(.h)/exibirInfoUsuario.h"
+#include "Interfaces(.h)/exibirMenuAbas.h"
+#include "Interfaces(.h)/exibirMenuInicial.h"
+#include "Interfaces(.h)/exibirOportunidades.h"
+#include "Interfaces(.h)/exibirServicos.h"
+#include "Interfaces(.h)/exibirSpotted.h"
 #include <string>
 
 int main()
