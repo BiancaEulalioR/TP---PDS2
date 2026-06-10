@@ -27,10 +27,12 @@ public:
 
     size_t getLikes();
     int getComments();
-    std::set<int>& getPessoasQueCurtiram();
 
     virtual void idContador();
+
+    std::set<int>& getPessoasQueCurtiram();
     const std::map<int, std::pair<Perfil, std::string>>& listarComments();
 };
 
 #endif
+
