@@ -28,7 +28,7 @@ void verificaTexto(std::string texto){
     }
         catch (const std::invalid_argument &e)
         {
-            std::cout << "Erro: " << e.what() << "Por favor, digite novamente: "<< std::endl;
+            std::cout << "Erro: " << e.what() << " Por favor, digite novamente: "<< std::endl;
             std::getline(std::cin, texto); 
             }
 }
