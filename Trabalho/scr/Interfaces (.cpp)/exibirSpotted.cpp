@@ -98,30 +98,21 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            try{
+           
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
                 std::string comentarioSpotted;
                 std::cout << "Digite o comentario: " << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, comentarioSpotted);
-
-                while (comentarioSpotted.empty())
-                {
-                    std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
-                    std::getline(std::cin, comentarioSpotted);
-                }
+                verificaTexto(comentarioSpotted); //progdefensiva
 
                 spottedSelecionado.inserirComment(usuarioLogado, comentarioSpotted);
                 std::cout << "Comentário publicado." << std::endl;
-            }           
-            catch (const std::invalid_argument &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
+            
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.get();
             break;         
-        }
+        
         // Apagar comentários
         case 5:
         {

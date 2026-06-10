@@ -205,27 +205,16 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
             int idserv1;
             lerValor(idserv1); // progdefensiva
 
-            try{
+            
                 Servico &servicoSelecionado1 = acharPost(postDeServico_, idserv1);
                 std::string novoComentario;
                 std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, novoComentario);
-
-                while (novoComentario.empty())
-                {
-                    std::cout << "O comentario esta vazio. Digite-o novamente:" << std::endl;
-                    std::cin.ignore();
-                    std::getline(std::cin, novoComentario);
-                }
+                verificaTexto(novoComentario); // progdefensiva
 
                 servicoSelecionado1.inserirComment(usuarioLogado, novoComentario);
                 std::cout << "Comentario publicado." << std::endl;
-            }
-            catch (const std::invalid_argument &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
 
             std::cout << "Pressione enter para voltar." << std::endl;   
             std::cin.ignore();

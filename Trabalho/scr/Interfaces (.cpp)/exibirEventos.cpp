@@ -213,27 +213,17 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 int idEvento;
                 lerValor(idEvento); //progdefensiva
 
-            try{
+            
                 Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
                 std::string comentarioEvento;
                 std::cout << "Digite o comentario: " << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, comentarioEvento);
-
-                while (comentarioEvento.empty())
-                {
-                    std::cout << "O comentario esta vazio. Por favor, digite novamente:" << std::endl;
-                    std::getline(std::cin, comentarioEvento);
-                }
+                verificaTexto(comentarioEvento); // progdefensiva
 
                 eventoSelecionado.inserirComment(usuarioLogado, comentarioEvento);
                 std::cout << "Comentario publicado." << std::endl;
-            }    
-            catch (const std::invalid_argument &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
-
+            
             std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
             std::cin.get();
             break;

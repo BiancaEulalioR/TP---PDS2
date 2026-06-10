@@ -261,7 +261,6 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             std::cout << "Digite o id da oportunidade:" << std::endl;
             lerValor(idOp); //progdefensiva
 
-            try{
                 Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
 
                 std::string comentario;
@@ -269,24 +268,11 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
                 std::cout << "Digite seu comentario:" << std::endl;
                 std::getline(std::cin, comentario);
-
-                while (comentario.empty())
-                {
-                    std::cout << "O comentario esta vazio. Digite novamente:" << std::endl;
-                    std::getline(std::cin, comentario);
-                }
+                verificaTexto(comentario); // progdefensiva
 
                 opSelecionada.inserirComment(usuarioLogado, comentario);
 
                 std::cout << "Comentario publicado." << std::endl;
-            }
-            
-            catch (const std::invalid_argument &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
-            std::cout << "Pressione enter para voltar." << std::endl;
-            std::cin.get();
 
             break;
         }
