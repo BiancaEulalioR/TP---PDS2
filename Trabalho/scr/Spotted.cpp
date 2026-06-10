@@ -2,10 +2,9 @@
 #include "Spotted.h"
 
 
-    Spotted::Spotted() : idCont_(0), spotted_() {}
+    Spotted::Spotted() : spotted_() {}
 
-    Spotted::Spotted(std::string spotted_, Perfil& usuario) : idCont_(id), 
-    perfilAssociadoSpotted_(usuario){}
+    Spotted::Spotted(std::string spotted_, Perfil& usuario) : perfilAssociadoSpotted_(usuario){}
         
 
     std::string Spotted::getSpotted(){
