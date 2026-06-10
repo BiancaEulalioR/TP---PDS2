@@ -7,14 +7,14 @@
 #include "Tratamentoerros.hpp"
 
 //--------------------------------------BUSCAR------------------------------------------------------------------
-void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& postDeEvento_, std::map<int, 
-                    Oportunidades>& postDeOportunidade_, std::map<int, Servico>& postDeServico_)
+void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& postDeEvento_, 
+                    std::map<int, Oportunidades>& postDeOportunidade_, std::map<int, Servico>& postDeServico_)
 {
     int opcaoBuscar = 0;
 
     while(opcaoBuscar != 2){
         std::cout << "=== BUSCAR ===" << std::endl;
-        std::cout << "1. Buscar por usuário" << std::endl;
+        std::cout << "1. Buscar por usuario" << std::endl;
         std::cout << "2. Voltar para menu principal" << std::endl;
         lerValor(opcaoBuscar); //progdefensiva
 
@@ -185,3 +185,4 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
 
     }
 }
+
