@@ -37,7 +37,7 @@ void exibirMenuAbas(std::map<int, Spotted> &postDeSpotted_, std::map<int, Evento
         }
         case 3:
         {
-            exibirOportunidades(postDeOportunidade_, usuarioLogado);
+            exibirOportunidades(postDeOportunidade_, usuarioLogado, gerenciador);
             break;
         }
         case 4:
