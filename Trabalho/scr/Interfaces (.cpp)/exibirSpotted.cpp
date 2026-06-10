@@ -5,9 +5,10 @@
 #include "exibirSpotted.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
+#include "GerenciadorPerfis.h"
 
 //--------------------------------------SPOTTED----------------------------------------------------------
-void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado)
+void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado, GerenciadorPerfis &gerenciador_)
 {
 
     int opcaoSpotted = 0;
