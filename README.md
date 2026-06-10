@@ -88,6 +88,7 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 
 ---
 ### Arquitetura
+```
 . programa
 ├── Compilados/
 │  └── makefile/
@@ -138,7 +139,7 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 │  └── Tratamentoerros.cpp
 └── .gitignore
 └── README.md
-
+```
 ---
 
 
