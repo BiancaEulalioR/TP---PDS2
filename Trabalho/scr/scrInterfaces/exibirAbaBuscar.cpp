@@ -35,11 +35,14 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                     if(usuarioEncontrado != nullptr){
                         int opcaoAcessarPost = 0;
 
+                        std::cout << std::endl;
                         std::cout << "=== PERFIL DE USUARIO ===" << std::endl;
+                        std::cout << std::endl;
                         std::cout << usuarioEncontrado -> getNome() << std::endl;
                         std::cout << "@" << usuarioEncontrado-> getUsuario() << std::endl;
                         std::cout << usuarioEncontrado -> getBio() << std::endl;
                         std::cout << "1. Acessar publicacoes de @" << usuarioEncontrado-> getUsuario() << std::endl;
+                        std::cout << std::endl;
                         lerValor(opcaoAcessarPost);
 
                         switch(opcaoAcessarPost){
@@ -50,15 +53,18 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                             int opcaoPostUsuario = 0;
 
                             while(opcaoPostUsuario != 4){
+                                    std::cout << std::endl;
                                     std::cout << "1. Eventos" << std::endl;
                                     std::cout << "2. Oportunidades" << std::endl;
                                     std::cout << "3. Servicos" << std::endl;
                                     std::cout << "4. Voltar ao perfil" << std::endl;
+                                    std::cout << std::endl;
                                     lerValor(opcaoPostUsuario);
                                         
                                     switch(opcaoPostUsuario){
                                         case 1: 
                                         {
+                                            std::cout << std::endl;
                                             std::cout << "=== EVENTOS DE @" << usuarioEncontrado-> getUsuario() << " ===" << std::endl;
 
                                             bool possuiEventos = false;
@@ -79,6 +85,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
 
                                             if(possuiEventos == false){
                                                 std::cout << "Esse usuario nao possui eventos publicados" << std::endl;
+                                                std::cout << std::endl;
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
@@ -87,6 +94,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                                         }
                                         case 2:
                                         {
+                                            std::cout << std::endl;
                                             std::cout << "=== OPORTUNIDADES DE @" << usuarioEncontrado-> getUsuario() << " ===" << std::endl;
 
                                             bool possuiOportunidades = false;
@@ -107,6 +115,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
 
                                             if(possuiOportunidades == false){
                                                 std::cout << "Esse usuario nao possui oportunidades publicados" << std::endl;
+                                                std::cout << std::endl;
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
@@ -115,6 +124,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                                         }
                                         case 3:
                                         {
+                                            std::cout << std::endl;
                                             std::cout << "=== SERVICOS DE @" << usuarioEncontrado-> getUsuario() << " ===" << std::endl;
 
                                             bool possuiServico = false;
@@ -135,6 +145,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
 
                                             if(possuiServico == false){
                                                 std::cout << "Esse usuario nao possui servicos publicados" << std::endl;
+                                                std::cout << std::endl;
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
@@ -157,12 +168,14 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                             }
                         default:{
                             std::cout << "Opcao nao encontrada. Por favor, tente novamente." << std::endl;
+                            std::cout << std::endl;
                             break;
                         }
                         }
                     }
                     else{
                         std::cout << "Usuario nao encontrado." << std::endl;
+                        std::cout << std::endl;
                     }
 
                     std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
