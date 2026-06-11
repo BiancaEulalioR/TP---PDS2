@@ -209,12 +209,13 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             try
             {
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
-                std::cout << "Numero de curtidas do spotted selecionado: " << spottedSelecionado.getLikes() << std::endl;
+                std::cout << "Numero de curtidas do spotted selecionado:" << spottedSelecionado.getLikes() << std::endl;
+                exibirUsuariosQueCurtiram(postDeSpotted_, idSpotted, gerenciador_);
             }
             catch (const std::invalid_argument &e)
             {
                 std::cout << e.what() << std::endl;
-            }
+            }       
 
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.ignore();
