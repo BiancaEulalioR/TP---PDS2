@@ -9,21 +9,17 @@
 #include <stdexcept>
 #include "GerenciadorPerfis.h"
 
-// Funcoes normais: ---------------------------------------------------------------------
-
-void carregarServicosSalvos(std::map<int, Servico> &servicos_);
-
-//---------------------------------------------------------------------------------------
 // Funcoes com template:-----------------------------------------------------------------
 
 template <typename ch, typename val>
 val &acharPost(std::map<ch, val> &conjunto, ch idEscolhido)
 {
     auto procurado = conjunto.find(idEscolhido);
-    if (procurado == conjunto.end()){
+    if (procurado == conjunto.end())
+    {
         throw std::invalid_argument("ID nao encontrado.");
     }
-        return procurado->second;
+    return procurado->second;
 }
 
 template <typename ch>
@@ -52,23 +48,23 @@ void imprimirElementosComId(const std::map<ch, std::pair<Perfil, std::string>> &
 {
     for (const auto &i : conjunto)
     {
-        std::cout << "ID: " << i.first << " - " 
-                  << i.second.first.getUsuario() << ": " 
+        std::cout << "ID: " << i.first << " - "
+                  << i.second.first.getUsuario() << ": "
                   << i.second.second << std::endl;
     }
 }
 
 template <typename ch, typename TipoDePost>
-void exibirUsuariosQueCurtiram(std::map<ch, TipoDePost> &conjunto, ch idEscolhido,  GerenciadorPerfis &mapComOsPerfis_)
+void exibirUsuariosQueCurtiram(std::map<ch, TipoDePost> &conjunto, ch idEscolhido, GerenciadorPerfis &mapComOsPerfis_)
 {
     Post &postSelecionado = acharPost(conjunto, idEscolhido);
     std::set<int> setDeQuemCurtiu = postSelecionado.getPessoasQueCurtiram();
     std::cout << "Esse post recebeu curtidas de:" << std::endl;
     for (auto i = setDeQuemCurtiu.begin(); i != setDeQuemCurtiu.end(); i++)
     {
-        Perfil *perfilQueCurtiu = mapComOsPerfis_.buscaPorID(*i);    
-        if(perfilQueCurtiu)
+        Perfil *perfilQueCurtiu = mapComOsPerfis_.buscaPorID(*i);
+        if (perfilQueCurtiu)
             std::cout << "@" << perfilQueCurtiu->getUsuario() << std::endl;
     }
     std::cout << std::endl;
-}   
+}

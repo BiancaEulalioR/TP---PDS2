@@ -16,17 +16,17 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
     {
 
         std::cout << "=== OPORTUNIDADES ===" << std::endl;
-        std::cout << "1. Ver oportunidades" << std::endl;
+        std::cout << "1. Ver oportunidades publicadas" << std::endl;
         std::cout << "2. Publicar oportunidade" << std::endl;
         std::cout << "3. Editar oportunidade" << std::endl;
         std::cout << "4. Apagar oportunidade" << std::endl;
         std::cout << "5. Vizualizar informacoes de contato" << std::endl; 
         std::cout << "6. Vizualizar comentarios" << std::endl;
-        std::cout << "7. Fazer comentario" << std::endl; 
-        std::cout << "8. Remover comentario" << std::endl; 
+        std::cout << "7. Publicar comentario em oportunidade" << std::endl; 
+        std::cout << "8. Apagar comentario de oportunidade" << std::endl; 
         std::cout << "9. Vizualizar curtidas" << std::endl;
         std::cout << "10. Curtir Oportunidade" << std::endl;  
-        std::cout << "11. Remover curtida" << std::endl; 
+        std::cout << "11. Remover curtida de oportunidade" << std::endl; 
         std::cout << "12. Voltar ao menu principal" << std::endl;
 
         lerValor(opcao); //progdefensiva

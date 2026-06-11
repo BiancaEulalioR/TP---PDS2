@@ -25,8 +25,6 @@ int main()
     std::map<int, Oportunidades> postDeOportunidade_;
     std::map<int, Servico> postDeServico_;
 
-    // lendo os posts e perfis ja salvos de outras vezes em que o programa foi aberto:
-
     // criação de um perfil
 
     int aux1, acesso = 0, id = 0;
@@ -37,16 +35,17 @@ int main()
     {
         exibirMenuInicial(gerenciador_, aux1, acesso, id, nome, usuario, senha, bio, telefone, email);
 
-        while (acesso){
-            Perfil* usuarioLogado =  gerenciador_.buscaPorID(id);
-            if(usuarioLogado != nullptr)
+        while (acesso)
+        {
+            Perfil *usuarioLogado = gerenciador_.buscaPorID(id);
+            if (usuarioLogado != nullptr)
                 exibirMenuAbas(*usuarioLogado, acesso, id, gerenciador_, postDeSpotted_, postDeEvento_, postDeOportunidade_, postDeServico_);
-            
-            else{
+
+            else
+            {
                 std::cout << "ERRO 404" << std::endl;
                 acesso = 0;
             }
-
         }
     }
 
