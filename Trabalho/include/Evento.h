@@ -22,6 +22,7 @@
             Perfil perfilAssociadoEvento_; ///< Perfil do usuario associado ao evento
 
         public:
+        
             /**
             * @brief Construtor padrao
             *
@@ -29,6 +30,7 @@
             * Necessario para uso em containers como std::map.
             */
             Evento();
+
             /**
             * @brief Construtor parametrizado
             *
