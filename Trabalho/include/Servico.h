@@ -4,7 +4,7 @@
 #include "Perfil.h"
 #include "Post.h"
 
-/*
+/** 
  * @brief Representa um post de serviço
  *
  * E um post, ou seja, herda os atributos e metodos da classe post
@@ -22,7 +22,7 @@ private:
     Perfil perfilAssociadoS_;
 
 public:
-    /*
+    /** 
      * @brief Construtor padrao
      *
      * Inicializa descricaoDoServico_ e numeroContato_ vazios
@@ -31,7 +31,7 @@ public:
      */
     Servico();
 
-    /*
+    /** 
      * @brief Construtor padrao
      *
      * @param descricao texto atribuido como a descrição do serviço
@@ -46,7 +46,7 @@ public:
      */
     Servico(std::string descricao, std::string num, int idServi, int idPerf, Perfil perf);
 
-    /*
+    /** 
      * @brief Destrutor padrao
      *
      * Desaloca as strings descricaoDoServico_ e numeroContato_
