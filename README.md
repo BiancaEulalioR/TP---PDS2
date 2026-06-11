@@ -168,23 +168,28 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 
 ---
 ## Divisão de Tarefas Entre os Integrantes
-- *Ayla*: Inicialmente a integrante ficou responsável pela implementação da classe de oportunidades, seguido da criação do menu de oportunidades, e por fim os tratamentos de execeções de validação de entradas, ID, verificação de usuario, telefone, senha, e email;
-- *Bianca*: Inicialmente ficou com a parte da implementação da classe Servico, seguida da criação do menu de servicos e das funções auxiliares acharPost(), imprimirElementos() e exibirUsuariosQueCurtiram();
-- *Gustavo*: Inicialmente responsável por criar a classe de perfil e gerenciamento de perfil, seguido da criação do menu inicial e exibir menu abas, aba de configurações e edição de perfil e por fim compilar o código;
-- *Nicole*: Inicialmente a participante ficou responsável por implementar a classe Eventos, seguido da implementação do menu de Eventos. Com isso, realizou a implementação da correlação entre os usuários as publicações e comentários feitos nas diversas classes, além de implementar a main. Por fim, também criou a função de buscar e redigiu o makefile, além de contribuir ativamente na coordenação dos testes de implementação do projeto. 
-- *Samara*: Inicialmente a integrante ficou responsável pela implementação das classes de Spotted e Post, seguido da criação do menu de Spotted, e por fim os tratamentos de exececões de validação de entradas de texto vazia.
-
----
-## Ciclo de Desenvolvimento e Aprendizados
-1. *Planejamento*: Primeiramente, planejávamos fazer
-2. *O que Realmente foi implementado*: 
-3. *Obstáculos*:
-4. *Aprendizado*:
+- *AYLA*: Inicialmente a integrante ficou responsável pela implementação da classe de oportunidades, seguido da criação do menu de oportunidades, e por fim os tratamentos de execeções de validação de entradas, ID, verificação de usuario, telefone, senha, e email;
+- *BIANCA*: Inicialmente ficou com a parte da implementação da classe Servico, seguida da criação do menu de servicos e das funções auxiliares acharPost(), imprimirElementos() e exibirUsuariosQueCurtiram();
+- *GUSTAVO*: Inicialmente responsável por criar a classe de perfil e gerenciamento de perfil, seguido da criação do menu inicial e exibir menu abas, aba de configurações e edição de perfil e por fim compilar o código;
+- *NICOLE*: Inicialmente a participante ficou responsável por implementar a classe Eventos, seguido da implementação do menu de Eventos. Com isso, realizou a implementação da correlação entre os usuários as publicações e comentários feitos nas diversas classes, além de implementar a main. Por fim, também criou a função de buscar e redigiu o makefile, além de contribuir ativamente na coordenação dos testes de implementação do projeto. 
+- *SAMARA*: Inicialmente a integrante ficou responsável pela implementação das classes de Spotted e Post, seguido da criação do menu de Spotted, e por fim os tratamentos de exececões de validação de entradas de texto vazia.
 
 ---
 ## Linha do Tempo das Sprints
 - *Sprint 1*: De 16/04 a 23/04 --> Criamos esse repositório no GitHub, Escolhemos a ideia definitiva do projeto e aperfeiçoamos seu escopo e fizemos os commits de teste no GitHub;
-- *Sprint 2*: De 24/04 a 07/05 --> Criamos as pastas/diretórios para armazenar os tipos de arquivos específicos (.cpp, .h, .o etc), nos reunimos para fazer os "User Stories"  e os cartões CRC das classes que planejamos implementar  
+- *Sprint 2*: De 24/04 a 07/05 --> Criamos as pastas/diretórios para armazenar os tipos de arquivos específicos (.cpp, .h, .o etc), nos reunimos para fazer os "User Stories"  e os cartões CRC das classes que planejamos implementar. Além disso, criamos os arquivos de cabeçalho (.h) para as classes que planejavamos ter;
+- *Sprint 3*: De 12/05 a 25/05 --> Implementamos os arquivos .cpp das classes que cada um ficou responsável;
+- *Sprint 4*: De 27/05 a 02/06 --> Fizemos os switch cases das abas do campus connect inicialmente todos no arquivo main.cpp, que, nesse momento ficou com quase 1000 linhas. Além disso, completamos algumas das classes que faltavam ter herança da classe post;
+- *Sprint 5*: De 03/06 a 11/06 --> Separamos o código da main que se tratava dos switch cases das abas específicas em arquivos diferents, para que o trabalho ficasse mais viável e organizado, criamos a classe GerenciadorPerfis para tomar de conta das ações relacionadas ao manuseio dos perfis da plataforma e testamos todo o código em arquivos locais, fazendo alterações pontuais em partes que apresentavam erros. Além disso, fizemos os comentários seguindo a padronização do doxygen, fizemos o makefile e a gravação do projeto funcionando.
+
+--- 
+## Ciclo de Desenvolvimento e Aprendizados
+1. *Planejamento*: Primeiramente, planejávamos fazer algo bem parecido com o que agora temos, ou seja, toda a estrutura dividada em abas e com tipos diferentes de post (eventos, oportunidades, serviços e spotted). Também pensamos em fazer arquivos .txt para salvar os perfis e posts criados nas vezes passadas em que o programa tivesse sido aberto, servindo como um pequeno banco de dados. Achavamos também que toda a implementação das abas do CampusConnect deveria ser feita no arquivo main.cpp, e assim o fizemos, inicialmente.
+2. *O que Realmente foi implementado*: Conseguimos entregar tudas as funcionalidades prometidas. O programa está completo conforme prometido e com algumas abas a mais, como a de busca e a configurações. O arquivo main.cpp ficou bem reduzido, de forma que agora apenas chama funções necessárias para o seu funcionamento. Além do mais, os arquivos .txt não foram implementados.
+3. *Obstáculos*: Não tivemos tempo de terminar as funcionalidades de leitura e escrita nos arquivos .txt, então tivemos que apagar essa parte do código (com funções feitas pela metade). Outro desafio que precisou ser contornado ocorreu na sprint 4, quando tivemos que gastar um tempo a mais separando as partes do main.cpp que já haviam sido implementadas em arquivos diferentes para, apenas a partir daí, continuar a implementação
+4. *Aprendizado*: Aprendemos que, no desenvolvimento de um projeto, nem sempre é possível executar tudo o que inicialmente foi pensado e que é necessário estabelecer prioridades claras em relação ao que realmente gastaremos nosso tempo e esforço para realizar. Também aprendemos que devemos modularizar mais o código desde o início, para não ficar como o main.cpp na sprint 4 com quase 1000 linhas e extremamente desorganizado.
+
+---
 
 
 
