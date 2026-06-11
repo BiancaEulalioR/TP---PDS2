@@ -19,13 +19,13 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
         std::cout << "=== SPOTTED ===" << std::endl;
         std::cout << "1. Ver spotteds publicados" << std::endl;
         std::cout << "2. Publicar spotted" << std::endl;
+        std::cout << "9. Apagar spotted" << std::endl;
         std::cout << "3. Visualizar comentarios" << std::endl;
         std::cout << "4. Publicar comentario em spotted" << std::endl;
-        std::cout << "5. Remover comentario de spotted" << std::endl;
+        std::cout << "5. Apagar comentario de spotted" << std::endl;
         std::cout << "6. Visualizar curtidas" << std::endl;
         std::cout << "7. Curtir spotted" << std::endl;
         std::cout << "8. Remover curtida de spotted" << std::endl;
-        std::cout << "9. Remover spotted" << std::endl;
         std::cout << "10. Voltar ao menu principal" << std::endl;
         lerValor(opcaoSpotted); //progdefensiva
 

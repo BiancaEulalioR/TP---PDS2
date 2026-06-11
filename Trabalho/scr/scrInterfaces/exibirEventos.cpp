@@ -18,9 +18,9 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
         std::cout << "2. Publicar evento" << std::endl;
         std::cout << "3. Editar evento" << std::endl;
         std::cout << "4. Apagar evento" << std::endl;
-        std::cout << "5. Visualizar comentários" << std::endl;
+        std::cout << "5. Visualizar comentarios" << std::endl;
         std::cout << "6. Publicar comentario em evento" << std::endl;
-        std::cout << "7. Remover comentario de evento" << std::endl;
+        std::cout << "7. Apagar comentario de evento" << std::endl;
         std::cout << "8. Visualizar curtidas" << std::endl;
         std::cout << "9. Curtir evento" << std::endl;
         std::cout << "10. Remover curtida de evento" << std::endl;
