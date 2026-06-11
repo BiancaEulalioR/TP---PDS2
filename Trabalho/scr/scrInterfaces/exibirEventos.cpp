@@ -122,7 +122,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 while(contato_evento.empty()){
 
                                     std::cout << "Contato vazio. Tente novamente." << std::endl;
-                                    std::getline(std::cin, contato_evento);
+                                    std::getline(std::cin, novoContato);
                                 }
 
                                 eventoSelecionado.editarContato(novoContato);
@@ -140,7 +140,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 while(texto_evento.empty()){
 
                                     std::cout << "Descricao vazia. Tente novamente." << std::endl;
-                                    std::getline(std::cin, texto_evento);
+                                    std::getline(std::cin, novoTexto);
                                 }
 
                                 eventoSelecionado.editarEvento(novoTexto);
