@@ -29,15 +29,19 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             do
             {
                 std::cout << "Nome de usuario: " << std::endl;
+                std::cout << std::endl;
                 std::cin >> usuario;
                 std::cout << "Senha: " << std::endl;
+                std::cout << std::endl;
                 std::cin >> senha;
                 if (gerenciador_.verificaPerfil(usuario, senha))
                 {
                     acesso = 1;
                     Perfil *p = gerenciador_.buscaPorUsuario(usuario);
                     id = p->getidu();
+                    std::cout << std::endl;
                     std::cout << "Bem vindo ao CampusConnect!" << std::endl;
+                    std::cout << std::endl;
                 }
                 else
                 {
@@ -66,6 +70,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             std::cout << "=== CRIAR CONTA ===" << std::endl;
             std::cout << std::endl;
 
+            
             std::cout << "E-mail: " << std::endl;
             std::getline(std::cin, email);
             verificaEmail(email);
@@ -78,24 +83,29 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
                 verificaEmail(email);
             }            
             
+            std::cout << std::endl;
             std::cout << "Nome completo: " << std::endl;
             std::getline(std::cin, nome);
              
+            std::cout << std::endl;
             std::cout << "Nome de usuario: " << std::endl;
             std::getline(std::cin, usuario);
             verificaUsuario(usuario);
             // verificar se usuario ja existe:
             while (gerenciador_.buscaPorUsuario(usuario) != nullptr)
             {
+                std::cout << std::endl;
                 std::cout << "Esse nome de usuario ja esta em uso. Tente novamente: " << std::endl;
                 std::getline(std::cin, usuario);
                 verificaUsuario(usuario);
             }
              
+            std::cout << std::endl;
             std::cout << "Senha: " << std::endl;
             std::getline(std::cin, senha);
             verificaSenha(senha);
-            
+
+            std::cout << std::endl;
             std::cout << "Telefone: " << std::endl;
             std::getline(std::cin, telefone);
             verificaTelefone(telefone);
@@ -107,6 +117,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             acesso = 1;
             std::cout << std::endl;
             std::cout << "Connectado com sucesso!" << std::endl;
+            std::cout << std::endl;
             std::cout << "Seja bem vindo ao CampusConnect!" << std::endl;
             break;
         }
