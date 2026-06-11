@@ -103,8 +103,8 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                         case 4:
                         {
                             int tentativas = 0;
-                            bool senhacorreta = false;
-                            std::string senhaTemp;
+                            bool senhacorreta = false, iguais = false;
+                            std::string senhaTemp, nova1, nova2;
 
 
                             while(tentativas < 3 && !senhacorreta){
@@ -120,14 +120,32 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             }
 
                             if(!senhacorreta){
-                                std::cout << "Numero maximo de tentativas atingida. Operação cancelada." << std::endl;
+                                std::cout << "Numero maximo de tentativas atingida. Operacao cancelada." << std::endl;
                                 break;
                             }
+
                             std::cout << "Informe a nova senha: " << std::endl;
-                            std::cin >> senhaTemp;
-                            verificaSenha(senhaTemp);
+                            std::cin >> nova1;
+                            verificaSenha(nova1);
+
+                            std::cout << "Informe novamente a nova senha: " << std::endl;
+                            std::cin >> nova2;
+                            verificaSenha(nova2);
+                        
+                            while(nova1!=nova2){
+                            std::cout << "As senhas devem estar iguais, tente novamente: " << std::endl;
+                        
+                            std::cout << "Informe a nova senha: " << std::endl;
+                            std::cin >> nova1;
+                            verificaSenha(nova1);
+
+                            std::cout << "Informe novamente a nova senha: " << std::endl;
+                            std::cin >> nova2;
+                            verificaSenha(nova2);
+
+                            }
                             
-                            gerenciador_.editarPerfil(perfil.getidu(), "senha", senhaTemp);
+                            gerenciador_.editarPerfil(perfil.getidu(), "senha", nova1);
                             std::cout << "Senha atualizada com sucesso!" << std::endl;
                             break;
                         }
