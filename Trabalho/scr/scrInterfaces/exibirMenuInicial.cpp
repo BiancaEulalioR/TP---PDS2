@@ -12,7 +12,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
 
     do
     {
-        std::cout << "=== CAMPUSCONNECT ===" std::endl;
+        std::cout << "=== CAMPUSCONNECT ===" << std::endl;
         std::cout << std::endl;
         std::cout << "=== QUAL ACAO DESEJA REALIZAR? ===" << std::endl;
         std::cout << std::endl;

@@ -18,7 +18,7 @@ void exibirMenuAbas(Perfil& usuarioLogado, int &acesso, const int id, Gerenciado
     while(acesso){
         int aux3 = 0;
         std::cout << std::endl;
-        std::cout << "Qual aba deseja acessar: " << std::endl;
+        std::cout << "=== QUAL ABA DESEJA ACESSAR? === " << std::endl;
         std::cout << std::endl;
         std::cout << "1. Spotted" << std::endl;
         std::cout << "2. Eventos" << std::endl;
