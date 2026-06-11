@@ -107,7 +107,7 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             acesso = 1;
             std::cout << std::endl;
             std::cout << "Connectado com sucesso!" << std::endl;
-            std::cout << "Seja bem vindo ao CampusConnect!" std::endl;
+            std::cout << "Seja bem vindo ao CampusConnect!" << std::endl;
             break;
         }
 
