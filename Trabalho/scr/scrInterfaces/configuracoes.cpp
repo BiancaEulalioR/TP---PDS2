@@ -21,15 +21,19 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
             case 1:
             
             {
+                std::cin.ignore();
                 std::cout << "Informacoes do usuario:" << std::endl;
                 std::cout << "Email: " << perfil.getEmail() << std::endl;
                 std::cout << "Nome: " << perfil.getNome() << std::endl;
                 std::cout << "Telefone: " << perfil.getTelefone() << std::endl;
+                std::cout << "Pressione ENTER para continuar." << std::endl;
+                std::cin.get();
                 break;
             }
 
             case 2:
             {
+                std::cin.ignore();
                 int opcaoEditarPerfil = 0;
 
                 while (opcaoEditarPerfil!=5){
@@ -61,6 +65,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                             gerenciador_.editarPerfil(perfil.getidu(), "email", emailTemp);
                             std::cout << "Email atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
                             break;
                         }
 
@@ -74,6 +81,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             verificaTelefone(telefoneTemp);
                             gerenciador_.editarPerfil(perfil.getidu(), "telefone", telefoneTemp);
                             std::cout << "Telefone atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
 
                             break;
                         }
@@ -96,6 +106,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                             gerenciador_.editarPerfil(perfil.getidu(), "usuario", usuarioTemp);
                             std::cout << "Usuario atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
 
                             break;
                         }
@@ -121,6 +134,8 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                             if(!senhacorreta){
                                 std::cout << "Numero maximo de tentativas atingida. Operacao cancelada." << std::endl;
+                                std::cout << "Pressione ENTER para continuar." << std::endl;
+                                std::cin.get();
                                 break;
                             }
 
@@ -147,6 +162,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             
                             gerenciador_.editarPerfil(perfil.getidu(), "senha", nova1);
                             std::cout << "Senha atualizada com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
                             break;
                         }
 
