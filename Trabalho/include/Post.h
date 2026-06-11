@@ -65,7 +65,7 @@ public:
     virtual void idContador();//ver se estamos usando
 
     std::set<int>& getPessoasQueCurtiram();
-    const std::map<int, std::pair<Perfil, std::string>>& listarComments();
+    const std::map<int, std::pair<Perfil, std::string>>& listarComments();  
 };
 
 #endif
