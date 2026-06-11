@@ -64,8 +64,20 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             std::cin.ignore();
             std::getline(std::cin, contato_evento);
 
+            while(contato_evento.empty()){
+
+                std::cout << "Contato vazio. Tente novamente." << std::endl;
+                std::getline(std::cin, contato_evento);
+            }
+
             std::cout << "Digite o texto do evento a ser publicado:" << std::endl;
             std::getline(std::cin, texto_evento);
+
+            while(texto_evento.empty()){
+                
+                std::cout << "Descricao vazia. Tente novamente." << std::endl;
+                std::getline(std::cin, texto_evento);
+            }
 
             Evento novoEvento(texto_evento, contato_evento, usuarioLogado);
             postDeEvento_[id] = novoEvento;
@@ -106,6 +118,13 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::cout << "Digite o novo contato:" << std::endl;
                                 std::cin.ignore();
                                 std::getline(std::cin, novoContato);
+
+                                while(contato_evento.empty()){
+
+                                    std::cout << "Contato vazio. Tente novamente." << std::endl;
+                                    std::getline(std::cin, contato_evento);
+                                }
+
                                 eventoSelecionado.editarContato(novoContato);
                                 std::cout << "Contato atualizado com sucesso." << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
@@ -117,6 +136,13 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::cout << "Digite o novo evento:" << std::endl;
                                 std::cin.ignore();
                                 std::getline(std::cin, novoTexto);
+
+                                while(texto_evento.empty()){
+
+                                    std::cout << "Descricao vazia. Tente novamente." << std::endl;
+                                    std::getline(std::cin, texto_evento);
+                                }
+
                                 eventoSelecionado.editarEvento(novoTexto);
                                 std::cout << "Evento atualizado com sucesso." << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
