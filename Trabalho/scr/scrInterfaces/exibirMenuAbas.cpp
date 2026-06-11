@@ -17,14 +17,17 @@ void exibirMenuAbas(Perfil& usuarioLogado, int &acesso, const int id, Gerenciado
 {
     while(acesso){
         int aux3 = 0;
+        std::cout << std::endl;
         std::cout << "Qual aba deseja acessar: " << std::endl;
-        std::cout << "1.Spotted" << std::endl;
-        std::cout << "2.Eventos" << std::endl;
-        std::cout << "3.Oportunidades" << std::endl;
-        std::cout << "4.Servicos" << std::endl;
-        std::cout << "5.Buscar" << std::endl;
-        std::cout << "6.Perfil" << std::endl;
-        std::cout << "7.Configuracoes" << std::endl;
+        std::cout << std::endl;
+        std::cout << "1. Spotted" << std::endl;
+        std::cout << "2. Eventos" << std::endl;
+        std::cout << "3. Oportunidades" << std::endl;
+        std::cout << "4. Servicos" << std::endl;
+        std::cout << "5. Buscar" << std::endl;
+        std::cout << "6. Perfil" << std::endl;
+        std::cout << "7. Configuracoes" << std::endl;
+        std::cout << std::endl;
         lerValor(aux3); //progdefensiva
 
         switch (aux3)
@@ -66,6 +69,7 @@ void exibirMenuAbas(Perfil& usuarioLogado, int &acesso, const int id, Gerenciado
         default:
         {
             std::cout << "Opcao nao encontrada. Tente novamente." << std::endl;
+            std::cout << std::endl;
             break;
         }
         }
