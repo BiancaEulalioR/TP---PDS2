@@ -12,6 +12,7 @@
                             novoPerfil.setidu(id_);
                             perfis_[id_] = novoPerfil;
                             IDUsuario_[usuario] = id_;
+                            emailV.insert(email);
                             id_++;
                         }
 
@@ -32,8 +33,11 @@
                 it->second.setBio(novo);
             if(parametro=="telefone")
                 it->second.setTelefone(novo);
-            if(parametro=="email")
+            if(parametro=="email"){
+                emailV.erase(it->second.getEmail());
+                emailV.insert(novo);
                 it->second.setEmail(novo);
+            }
         }
      }
 
@@ -42,6 +46,7 @@
          auto it = perfis_.find(id);
 
          if(it != perfis_.end()){
+            emailV.erase(it->second.getEmail());
             IDUsuario_.erase(it->second.getUsuario());
             perfis_.erase(it);
          }
@@ -84,6 +89,11 @@
         if(it != perfis_.end())
             return &it->second;
         return nullptr;
+    }
+
+    bool GerenciadorPerfis::buscaemail(std::string email){
+        if(emailV.count(email)>0) return true;
+        else return false;
     }
 
 
