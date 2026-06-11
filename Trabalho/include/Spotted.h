@@ -6,10 +6,10 @@
 #include "Post.h"
 
 /**
- * @brief Faz posts anônimos
- * Armazena o texto da publicação anônima e
- * o usuário associado a postagem,
- * faz operações básicas de rede sociais
+ * @brief Faz postagens de texto de forma anonima
+ * Armazena o texto da publicacao anonima e
+ * o usuario associado a postagem,
+ * faz operacoes basicas de rede sociais
  * 
  */
     class Spotted : public Post {
@@ -20,16 +20,18 @@
 
     public:
     /**
-    * @brief Construtor padrão. Inicializa textoSpotted_ e perfilAssociadoSpotted_ vazios
+    * @brief Construtor padrao. Inicializa textoSpotted_ e perfilAssociadoSpotted_ vazios
     */
     Spotted(); 
 
     /**
-    * @brief Construtor padrão. 
+    * @brief Construtor padrao. 
     * @param textoSpotted_ texto a ser publicado
-    * @param perfilAssociadoSpotted_ usuario que fará a publicação
+    * @param perfilAssociadoSpotted_ usuario que fara a publicação
     */
     Spotted(std::string spotted_, Perfil& usuario);
+
+    //getters
     Perfil getPerfil() const;
     std::string getSpotted();
 
