@@ -19,11 +19,12 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
         switch(opcao){
             case 1:
+            
             {
                 std::cout << "Informacoes do usuario:" << std::endl;
-                std::cout << perfil.getEmail() << std::endl;
-                std::cout << perfil.getNome() << std::endl;
-                std::cout << perfil.getTelefone() << std::endl;
+                std::cout << "Email: " << perfil.getEmail() << std::endl;
+                std::cout << "Nome: " << perfil.getNome() << std::endl;
+                std::cout << "Telefone: " << perfil.getTelefone() << std::endl;
                 break;
             }
 
@@ -47,7 +48,19 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             std::cout << "Informe o novo e-mail: " << std::endl;
                             std::string emailTemp;
                             std::cin >> emailTemp;
+
+                            verificaEmail(emailTemp);
+
+                            while (gerenciador_.buscaemail(emailTemp) &&
+                                emailTemp != perfil.getEmail()) // informar email existe ou o próprio e-mail
+                            {
+                                std::cout << "Esse email ja esta cadastrado. Digite outro:" << std::endl;
+                                std::cin >> emailTemp;
+                                verificaEmail(emailTemp);
+                            }
+
                             gerenciador_.editarPerfil(perfil.getidu(), "email", emailTemp);
+                            std::cout << "Email atualizado com sucesso!" << std::endl;
                             break;
                         }
 
@@ -57,25 +70,11 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             std::cout << "Informe o novo numero de telefone: " << std::endl;
                             std::string telefoneTemp;
                             std::cin >> telefoneTemp;
+
+                            verificaTelefone(telefoneTemp);
                             gerenciador_.editarPerfil(perfil.getidu(), "telefone", telefoneTemp);
-                            std::string emailTemp;
-                            std::cin >> emailTemp;
+                            std::cout << "Telefone atualizado com sucesso!" << std::endl;
 
-                            verificaEmail(emailTemp);
-
-                            while (gerenciador_.buscaemail(emailTemp) &&
-                                emailTemp != perfil.getEmail())
-                            {
-                                std::cout << "Esse email ja esta cadastrado. Digite outro:"
-                                        << std::endl;
-
-                                std::cin >> emailTemp;
-
-                                verificaEmail(emailTemp);
-                            }
-
-                            gerenciador_.editarPerfil(perfil.getidu(), "email", emailTemp);
-                            
                             break;
                         }
 
@@ -85,18 +84,32 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             std::cout << "Informe o novo usuario: " << std::endl;
                             std::string usuarioTemp;
                             std::cin >> usuarioTemp;
+
+                            verificaUsuario(usuarioTemp);
+
+                            while (gerenciador_.buscaPorUsuario(usuarioTemp) != nullptr && usuarioTemp != perfil.getUsuario())
+                            {   
+                                std::cout << "Esse usuario ja esta cadastrado. Digite outro:" << std::endl;
+                                std::cin >> usuarioTemp;
+                                verificaUsuario(usuarioTemp);
+                            }
+
                             gerenciador_.editarPerfil(perfil.getidu(), "usuario", usuarioTemp);
+                            std::cout << "Usuario atualizado com sucesso!" << std::endl;
+
                             break;
                         }
 
                         case 4:
                         {
                             std::cout << "Senha atual: " << std::endl << perfil.getSenha() << std::endl;
-                            std::cout << "Infrmore o novo senha: " << std::endl;
-
+                            std::cout << "Informe a novo senha: " << std::endl;
                             std::string senhaTemp;
                             std::cin >> senhaTemp;
+                            verificaSenha(senhaTemp);
+                            
                             gerenciador_.editarPerfil(perfil.getidu(), "senha", senhaTemp);
+                            std::cout << "Senha atualizada com sucesso!" << std::endl;
                             break;
 
                         }
@@ -128,6 +141,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                 }
                     if(opcao2==1){
                         gerenciador_.apagaPerfil(perfil.getidu(), perfil.getUsuario());
+                        std::cout << "Conta apagada com sucesso." << std::endl;
                         acesso = 0;
                         opcao = 4;
                     }
