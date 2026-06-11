@@ -36,7 +36,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                     std::cout << "O que deseja editar?" << std::endl;
                     std::cout << "1. E-mail" << std::endl;
                     std::cout << "2. Telefone" << std::endl;
-                    std::cout << "3. Usuário" << std::endl;
+                    std::cout << "3. Usuario" << std::endl;
                     std::cout << "4. Senha" << std::endl;
                     std::cout << "5. Voltar ao menu de configuracoes" << std::endl;
                     lerValor(opcaoEditarPerfil); //progdefensiva
@@ -102,16 +102,34 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                         case 4:
                         {
-                            std::cout << "Senha atual: " << std::endl << perfil.getSenha() << std::endl;
-                            std::cout << "Informe a novo senha: " << std::endl;
+                            int tentativas = 0;
+                            bool senhacorreta = false;
                             std::string senhaTemp;
+
+
+                            while(tentativas < 3 && !senhacorreta){
+                                std::cout << "Digite sua senha atual: " <<  std::endl;
+                                std::cin >> senhaTemp;
+                            
+                                if(gerenciador_.verificaPerfil(perfil.getUsuario(), senhaTemp)) 
+                                    senhacorreta = true;
+                                else {
+                                    std::cout << "Senha incorreta tente novamente." << std::endl;
+                                    tentativas++;
+                                }
+                            }
+
+                            if(!senhacorreta){
+                                std::cout << "Numero maximo de tentativas atingida. Operação cancelada." << std::endl;
+                                break;
+                            }
+                            std::cout << "Informe a nova senha: " << std::endl;
                             std::cin >> senhaTemp;
                             verificaSenha(senhaTemp);
                             
                             gerenciador_.editarPerfil(perfil.getidu(), "senha", senhaTemp);
                             std::cout << "Senha atualizada com sucesso!" << std::endl;
                             break;
-
                         }
 
                         case 5:
