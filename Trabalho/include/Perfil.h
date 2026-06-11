@@ -3,9 +3,31 @@
 
 #include <string>
 
-class Perfil{
-    public:
-        // Getters
+/*
+ * @brief Representa o perfil do usuario
+ *
+ * Armazena nome, senha, biografia, telefone, email e nome de usuario da pessoa; todos como strings.
+ * Armazena tambem o id do perfil que e usado como a chave associada ao objeto perfil especifico no gerenciador
+ */
+class Perfil
+{
+public:
+    /*
+     * @brief Construtor padrao
+     *
+     * Inicializa nome_, senha_, bio_, telefone_, email_ e usuario_ como strings vazias
+     * Declara idu
+     */
+    Perfil();
+
+    /*
+     * @brief Destrutor padrao
+     *
+     * Desaloca as strings nome_, senha_, bio_, telefone_, email_ e usuario_
+     */
+    ~Perfil();
+
+    // Getters
     std::string getNome() const;
     std::string getUsuario() const;
     std::string getSenha() const;
@@ -14,6 +36,7 @@ class Perfil{
     std::string getEmail() const;
     int getidu() const;
 
+    // Setters
     void setNome(std::string nome);
     void setSenha(std::string senha);
     void setBio(std::string bio);
@@ -21,15 +44,14 @@ class Perfil{
     void setEmail(std::string email);
     void setUsuario(std::string usuario);
     void setidu(int id);
-    
-    private:
-    //dados
+
+private:
     std::string nome_;
     std::string senha_;
     std::string bio_;
     std::string telefone_;
     std::string email_;
     std::string usuario_;
-    int idu;
+    int idu; ///< chave do map de perfis relacionada ao objeto do tipo Perfil
 };
 #endif

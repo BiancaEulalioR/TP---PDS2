@@ -1,5 +1,7 @@
 #include "GerenciadorPerfis.h"
 
+    GerenciadorPerfis::GerenciadorPerfis(){}
+
     void GerenciadorPerfis::criaPerfil(std::string nome, std::string usuario, std::string senha, 
                         std::string bio, std::string telefone, std::string email){
                             Perfil novoPerfil;

@@ -69,17 +69,3 @@ void Servico::setPerfilAssociado(Perfil novoPerfilAssociado)
 {
     perfilAssociadoS_ = novoPerfilAssociado;
 }
-
-// Outros Metodos:
-void Servico::editarDescricao(std::string ParteDoTexto, int numeroCaracteres, std::string novoTexto)
-{
-    numeroCaracteres = ParteDoTexto.size();
-    size_t indiceEdicao = descricaoDoServico_.find(ParteDoTexto);
-    if (indiceEdicao != std::string::npos)
-        descricaoDoServico_.replace(indiceEdicao, numeroCaracteres, novoTexto);
-}
-
-void Servico::reescreverDescricao(std::string novaDescricao)
-{
-    descricaoDoServico_ = novaDescricao;
-}
