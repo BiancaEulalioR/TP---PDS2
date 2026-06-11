@@ -62,6 +62,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cout << "Digite o spotted a ser publicado: " << std::endl;
             std::cin.ignore();
             std::getline(std::cin, spotted);
+            verificaTexto(spotted);
 
             Spotted novoSpotted(spotted, usuarioLogado);
             postDeSpotted_[id] = novoSpotted;
@@ -80,7 +81,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            try // CORRIGIDO 5: adicionado try/catch
+            try
             {
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
@@ -209,12 +210,13 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             try
             {
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
-                std::cout << "Numero de curtidas do spotted selecionado: " << spottedSelecionado.getLikes() << std::endl;
+                std::cout << "Numero de curtidas do spotted selecionado:" << spottedSelecionado.getLikes() << std::endl;
+                exibirUsuariosQueCurtiram(postDeSpotted_, idSpotted, gerenciador_);
             }
             catch (const std::invalid_argument &e)
             {
                 std::cout << e.what() << std::endl;
-            }
+            }       
 
             std::cout << "Pressione enter para voltar para o menu de spotteds." << std::endl;
             std::cin.ignore();

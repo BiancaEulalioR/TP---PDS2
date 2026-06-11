@@ -131,6 +131,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                                 opSelecionada.setContato(novoContato);
                                 std::cout << "Contato atualizado com sucesso!" << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
+                                std::cin.get();
                                 break;
 
                             case 2:
@@ -147,6 +148,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                                 opSelecionada.setDescricao(novaDescricao);
                                 std::cout << "Descricao atualizada com sucesso!" << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
+                                std::cin.get();
                                 break;
 
                             case 3:

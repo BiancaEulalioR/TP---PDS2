@@ -128,6 +128,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 eventoSelecionado.editarContato(novoContato);
                                 std::cout << "Contato atualizado com sucesso." << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
+                                std::cin.get();
                                 break;
                             }
 
@@ -146,6 +147,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 eventoSelecionado.editarEvento(novoTexto);
                                 std::cout << "Evento atualizado com sucesso." << std::endl;
                                 std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
+                                std::cin.get();
                                 break;
                             }
 

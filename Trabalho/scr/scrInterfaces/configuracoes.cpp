@@ -9,36 +9,46 @@
 void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso){
     int opcao = 0;
     while(opcao!=4){
-        std::cout << "===CONFIGURACOES===" << std::endl;
-        std::cout << "1.Exibir informacoes de perfil" << std::endl;
-        std::cout << "2.Editar informacoes de perfil" << std::endl; // Implementar aindaaaaa
-        std::cout << "3.Apagar conta" << std::endl;
-        std::cout << "4.Sair da conta" << std::endl;
-        std::cout << "5.Retornar ao menu principal" << std::endl;
+        std::cout << std::endl;
+        std::cout << "=== CONFIGURACOES ===" << std::endl;
+        std::cout << std::endl;
+        std::cout << "1. Exibir informacoes de perfil" << std::endl;
+        std::cout << "2. Editar informacoes de perfil" << std::endl; // Implementar aindaaaaa
+        std::cout << "3. Apagar conta" << std::endl;
+        std::cout << "4. Desconnectar" << std::endl;
+        std::cout << "5. Retornar ao menu principal" << std::endl;
+        std::cout << std::endl;
         lerValor(opcao); //progdefensiva
 
         switch(opcao){
             case 1:
             
             {
-                std::cout << "Informacoes do usuario:" << std::endl;
+                std::cin.ignore();
+                std::cout << "=== INFORMACOES DE USUARIO ===" << std::endl;
+                std::cout << std::endl;
                 std::cout << "Email: " << perfil.getEmail() << std::endl;
                 std::cout << "Nome: " << perfil.getNome() << std::endl;
                 std::cout << "Telefone: " << perfil.getTelefone() << std::endl;
+                std::cout << "Pressione ENTER para continuar." << std::endl;
+                std::cin.get();
                 break;
             }
 
             case 2:
             {
+                std::cin.ignore();
                 int opcaoEditarPerfil = 0;
 
                 while (opcaoEditarPerfil!=5){
                     std::cout << "O que deseja editar?" << std::endl;
+                    std::cout << std::endl;
                     std::cout << "1. E-mail" << std::endl;
                     std::cout << "2. Telefone" << std::endl;
-                    std::cout << "3. Usuário" << std::endl;
+                    std::cout << "3. Usuario" << std::endl;
                     std::cout << "4. Senha" << std::endl;
                     std::cout << "5. Voltar ao menu de configuracoes" << std::endl;
+                    std::cout << std::endl;
                     lerValor(opcaoEditarPerfil); //progdefensiva
 
                     switch(opcaoEditarPerfil){
@@ -61,6 +71,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                             gerenciador_.editarPerfil(perfil.getidu(), "email", emailTemp);
                             std::cout << "Email atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
                             break;
                         }
 
@@ -74,6 +87,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             verificaTelefone(telefoneTemp);
                             gerenciador_.editarPerfil(perfil.getidu(), "telefone", telefoneTemp);
                             std::cout << "Telefone atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
 
                             break;
                         }
@@ -96,22 +112,66 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                             gerenciador_.editarPerfil(perfil.getidu(), "usuario", usuarioTemp);
                             std::cout << "Usuario atualizado com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
 
                             break;
                         }
 
                         case 4:
                         {
-                            std::cout << "Senha atual: " << std::endl << perfil.getSenha() << std::endl;
-                            std::cout << "Informe a novo senha: " << std::endl;
-                            std::string senhaTemp;
-                            std::cin >> senhaTemp;
-                            verificaSenha(senhaTemp);
-                            
-                            gerenciador_.editarPerfil(perfil.getidu(), "senha", senhaTemp);
-                            std::cout << "Senha atualizada com sucesso!" << std::endl;
-                            break;
+                            int tentativas = 0;
+                            bool senhacorreta = false, iguais = false;
+                            std::string senhaTemp, nova1, nova2;
 
+
+                            while(tentativas < 3 && !senhacorreta){
+                                std::cout << "Digite sua senha atual: " <<  std::endl;
+                                std::cin >> senhaTemp;
+                            
+                                if(gerenciador_.verificaPerfil(perfil.getUsuario(), senhaTemp)) 
+                                    senhacorreta = true;
+                                else {
+                                    std::cout << "Senha incorreta tente novamente." << std::endl;
+                                    tentativas++;
+                                }
+                            }
+
+                            if(!senhacorreta){
+                                std::cout << "Numero maximo de tentativas atingida. Operacao cancelada." << std::endl;
+                                std::cout << "Pressione ENTER para continuar." << std::endl;
+                                std::cin.get();
+                                break;
+                            }
+
+                            std::cout << "Informe a nova senha: " << std::endl;
+                            std::cin >> nova1;
+                            verificaSenha(nova1);
+
+                            std::cout << "Informe novamente a nova senha: " << std::endl;
+                            std::cin >> nova2;
+                            verificaSenha(nova2);
+                        
+                            while(nova1!=nova2){
+                            std::cout << "As senhas devem estar iguais, tente novamente: " << std::endl;
+                        
+                            std::cout << "Informe a nova senha: " << std::endl;
+                            std::cin >> nova1;
+                            verificaSenha(nova1);
+
+                            std::cout << "Informe novamente a nova senha: " << std::endl;
+                            std::cin >> nova2;
+                            verificaSenha(nova2);
+
+                            }
+                            
+                            gerenciador_.editarPerfil(perfil.getidu(), "senha", nova1);
+                            std::cout << "Senha atualizada com sucesso!" << std::endl;
+                            std::cout << "Pressione ENTER para continuar." << std::endl;
+                            std::cin.ignore();
+                            std::cin.get();
+                            break;
                         }
 
                         case 5:
@@ -122,6 +182,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                         default:
                         {
                             std::cout << "Opcao invalida, tente novamente." << std::endl;
+                            std::cout << std::endl;
                             break;
                         }
                     }
@@ -133,15 +194,17 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
             {
                 int opcao2 = 0;
                 while(opcao2 != 1 && opcao2 != 2){
-                    std::cout << "Tem certeza que deseja apagar a sua conta, e um caminho sem volta!" << std::endl;
-                    std::cout << "1.Confirmar" << std::endl << "2.Cancelar" << std::endl;
+                    std::cout << "Tem certeza que deseja se desconnectar para sempre? E um caminho sem volta..." << std::endl;
+                    std::cout << "1. Confirmar" << std::endl << "2. Cancelar" << std::endl;
                     lerValor(opcao2); //progdefensiva;
                     if(opcao2 != 1 && opcao2 != 2)
                     std::cout << "Opcao invalida tente novamente" << std::endl;
                 }
                     if(opcao2==1){
                         gerenciador_.apagaPerfil(perfil.getidu(), perfil.getUsuario());
-                        std::cout << "Conta apagada com sucesso." << std::endl;
+                        std::cout << std::endl;
+                        std::cout << "=== CONTA DESCONNECTADA PARA SEMPRE ===" << std::endl;
+                        std::cout << std::endl;
                         acesso = 0;
                         opcao = 4;
                     }
