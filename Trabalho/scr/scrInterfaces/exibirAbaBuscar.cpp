@@ -21,6 +21,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
         std::cout << std::endl;
         std::cout << "1. Buscar por usuario" << std::endl;
         std::cout << "2. Voltar para menu principal" << std::endl;
+        std::cout << std::endl;
         lerValor(opcaoBuscar); //progdefensiva
 
             switch(opcaoBuscar){

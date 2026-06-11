@@ -202,7 +202,9 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                 }
                     if(opcao2==1){
                         gerenciador_.apagaPerfil(perfil.getidu(), perfil.getUsuario());
-                        std::cout << "Conta apagada com sucesso." << std::endl;
+                        std::cout << std::endl;
+                        std::cout << "=== CONTA DESCONNECTADA PARA SEMPRE ===" << std::endl;
+                        std::cout << std::endl;
                         acesso = 0;
                         opcao = 4;
                     }
