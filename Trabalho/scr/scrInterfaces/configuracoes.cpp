@@ -10,13 +10,13 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
     int opcao = 0;
     while(opcao!=4){
         std::cout << std::endl;
-        std::cout << "===CONFIGURACOES===" << std::endl;
+        std::cout << "=== CONFIGURACOES ===" << std::endl;
         std::cout << std::endl;
-        std::cout << "1.Exibir informacoes de perfil" << std::endl;
-        std::cout << "2.Editar informacoes de perfil" << std::endl; // Implementar aindaaaaa
-        std::cout << "3.Apagar conta" << std::endl;
-        std::cout << "4.Sair da conta" << std::endl;
-        std::cout << "5.Retornar ao menu principal" << std::endl;
+        std::cout << "1. Exibir informacoes de perfil" << std::endl;
+        std::cout << "2. Editar informacoes de perfil" << std::endl; // Implementar aindaaaaa
+        std::cout << "3. Apagar conta" << std::endl;
+        std::cout << "4. Desconnectar" << std::endl;
+        std::cout << "5. Retornar ao menu principal" << std::endl;
         std::cout << std::endl;
         lerValor(opcao); //progdefensiva
 
@@ -194,8 +194,8 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
             {
                 int opcao2 = 0;
                 while(opcao2 != 1 && opcao2 != 2){
-                    std::cout << "Tem certeza que deseja apagar a sua conta, e um caminho sem volta!" << std::endl;
-                    std::cout << "1.Confirmar" << std::endl << "2.Cancelar" << std::endl;
+                    std::cout << "Tem certeza que deseja se desconnectar para sempre? E um caminho sem volta..." << std::endl;
+                    std::cout << "1. Confirmar" << std::endl << "2. Cancelar" << std::endl;
                     lerValor(opcao2); //progdefensiva;
                     if(opcao2 != 1 && opcao2 != 2)
                     std::cout << "Opcao invalida tente novamente" << std::endl;
