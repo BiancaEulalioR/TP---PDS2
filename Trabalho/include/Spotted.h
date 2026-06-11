@@ -10,9 +10,9 @@
  * Armazena o texto da publicacao anonima e
  * o usuario associado a postagem,
  * faz operacoes basicas de rede sociais
- * 
+ * e classe filha de post herdando seus metodos e atributos
  */
-    class Spotted : public Post {
+    class Spotted : public Post 
     private:
     //dados
     std::string textoSpotted_; //texto do spotted
@@ -20,7 +20,7 @@
 
     public:
     /**
-    * @brief Construtor padrao. Inicializa textoSpotted_ e perfilAssociadoSpotted_ vazios
+    * @brief Construtor padrao. Inicializa vazio
     */
     Spotted(); 
 
