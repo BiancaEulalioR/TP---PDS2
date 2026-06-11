@@ -9,7 +9,6 @@ all:
 	g++ -Iinclude -c scr/Servico.cpp -o build/classes/Servico.o
 	g++ -Iinclude -c scr/Spotted.cpp -o build/classes/Spotted.o
 
-	g++ -Iinclude -o build/classesExtras/funcoesAuxiliares.o
 	g++ -Iinclude -c scr/Tratamentoerros.cpp -o build/classesExtras/Tratamentoerros.o
 
 	g++ -Iinclude -Iinclude/includeInterfaces -c scr/scrInterfaces/configuracoes.cpp -o build/interfaces/configuracoes.o
@@ -27,7 +26,7 @@ all:
 
 	g++ build/classes/Evento.o build/classes/Oportunidades.o build/classes/Perfil.o build/classes/GerenciadorPerfis.o \
 		build/classes/Post.o build/classes/Servico.o build/classes/Spotted.o \
-		build/classesExtras/funcoesAuxiliares.o build/classesExtras/Tratamentoerros.o \
+		build/classesExtras/Tratamentoerros.o \
 		build/interfaces/configuracoes.o build/interfaces/exibirAbaBuscar.o build/interfaces/exibirInfoUsuario.o \
 		build/interfaces/exibirMenuAbas.o build/interfaces/exibirMenuInicial.o \
 		build/interfaces/exibirEventos.o build/interfaces/exibirOportunidades.o build/interfaces/exibirServicos.o \
