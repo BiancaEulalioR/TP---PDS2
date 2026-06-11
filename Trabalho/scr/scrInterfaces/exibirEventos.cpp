@@ -119,7 +119,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::cin.ignore();
                                 std::getline(std::cin, novoContato);
 
-                                while(contato_evento.empty()){
+                                while(novoContato.empty()){
 
                                     std::cout << "Contato vazio. Tente novamente." << std::endl;
                                     std::getline(std::cin, novoContato);
@@ -137,7 +137,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::cin.ignore();
                                 std::getline(std::cin, novoTexto);
 
-                                while(texto_evento.empty()){
+                                while(novoTexto.empty()){
 
                                     std::cout << "Descricao vazia. Tente novamente." << std::endl;
                                     std::getline(std::cin, novoTexto);
