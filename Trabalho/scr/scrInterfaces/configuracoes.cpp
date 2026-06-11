@@ -58,6 +58,24 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                             std::string telefoneTemp;
                             std::cin >> telefoneTemp;
                             gerenciador_.editarPerfil(perfil.getidu(), "telefone", telefoneTemp);
+                            std::string emailTemp;
+                            std::cin >> emailTemp;
+
+                            verificaEmail(emailTemp);
+
+                            while (gerenciador_.buscaemail(emailTemp) &&
+                                emailTemp != perfil.getEmail())
+                            {
+                                std::cout << "Esse email ja esta cadastrado. Digite outro:"
+                                        << std::endl;
+
+                                std::cin >> emailTemp;
+
+                                verificaEmail(emailTemp);
+                            }
+
+                            gerenciador_.editarPerfil(perfil.getidu(), "email", emailTemp);
+                            
                             break;
                         }
 
