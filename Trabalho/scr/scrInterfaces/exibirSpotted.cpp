@@ -62,6 +62,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
             std::cout << "Digite o spotted a ser publicado: " << std::endl;
             std::cin.ignore();
             std::getline(std::cin, spotted);
+            verificaTexto(spotted);
 
             Spotted novoSpotted(spotted, usuarioLogado);
             postDeSpotted_[id] = novoSpotted;

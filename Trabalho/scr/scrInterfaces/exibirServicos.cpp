@@ -15,18 +15,18 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         std::cout << std::endl;
         std::cout << "=== SERVICOS ===" << std::endl;
         std::cout << std::endl;
-        std::cout << "1. Ver servicos publicados;" << std::endl;
-        std::cout << "2. Publicar um servico;" << std::endl;
-        std::cout << "3. Editar Servico" << std::endl;
-        std::cout << "4. Remover servico;" << std::endl;
-        std::cout << "5. Vizualizar comentarios;" << std::endl;
-        std::cout << "6. Publicar comentario em um servico;" << std::endl;
-        std::cout << "7. Remover comentario de um servico;" << std::endl;
-        std::cout << "8. Vizualizar curtidas;" << std::endl;
-        std::cout << "9. Curtir servico;" << std::endl;
-        std::cout << "10. Remover curtida de um servico;" << std::endl;
-        std::cout << "11. Ver informacoes de contato de um servico;" << std::endl;
-        std::cout << "12. Voltar ao menu principal." << std::endl;
+        std::cout << "1. Ver servicos publicados" << std::endl;
+        std::cout << "2. Publicar um servico" << std::endl;
+        std::cout << "3. Editar servico" << std::endl;
+        std::cout << "4. Remover servico" << std::endl;
+        std::cout << "5. Vizualizar comentarios" << std::endl;
+        std::cout << "6. Publicar comentario em um servico" << std::endl;
+        std::cout << "7. Remover comentario de um servico" << std::endl;
+        std::cout << "8. Vizualizar curtidas" << std::endl;
+        std::cout << "9. Curtir servico" << std::endl;
+        std::cout << "10. Remover curtida de um servico" << std::endl;
+        std::cout << "11. Ver informacoes de contato de um servico" << std::endl;
+        std::cout << "12. Voltar ao menu principal" << std::endl;
         std::cout << std::endl;
         lerValor(opcao); // progdefensiva
 
