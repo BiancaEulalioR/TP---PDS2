@@ -9,7 +9,7 @@ all:
 	g++ -Iinclude -c scr/Servico.cpp -o build/classes/Servico.o
 	g++ -Iinclude -c scr/Spotted.cpp -o build/classes/Spotted.o
 
-	g++ -Iinclude -c scr/funcoesAuxiliares.cpp -o build/classesExtras/funcoesAuxiliares.o
+	g++ -Iinclude -o build/classesExtras/funcoesAuxiliares.o
 	g++ -Iinclude -c scr/Tratamentoerros.cpp -o build/classesExtras/Tratamentoerros.o
 
 	g++ -Iinclude -Iinclude/includeInterfaces -c scr/scrInterfaces/configuracoes.cpp -o build/interfaces/configuracoes.o
