@@ -2,19 +2,22 @@
 #include "Spotted.h"
 
 
-    Spotted::Spotted() : spotted_() {}
+    Spotted::Spotted() : textoSpotted_() {}
 
-    Spotted::Spotted(std::string spotted_, Perfil& usuario) : perfilAssociadoSpotted_(usuario){}
+    Spotted::Spotted(std::string spotted_, Perfil& usuario) {
+        textoSpotted_ = spotted_;
+        perfilAssociadoSpotted_ = usuario;
+    }
         
 
     std::string Spotted::getSpotted(){
-    return spotted_;
+        return textoSpotted_;
     }
 
     void Spotted::apagarPost(){
-    spotted_ = "";
+        textoSpotted_ = "";
     }
     Perfil Spotted::getPerfil() const{
-    return perfilAssociadoSpotted_; }
+        return perfilAssociadoSpotted_; }
     
 

@@ -9,7 +9,7 @@
     class Spotted : public Post {
     private:
     //dados
-    std::string spotted_; //texto do spotted
+    std::string textoSpotted_; //texto do spotted
     Perfil perfilAssociadoSpotted_;
 
     public:
