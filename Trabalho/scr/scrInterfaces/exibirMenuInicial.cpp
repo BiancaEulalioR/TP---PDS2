@@ -75,7 +75,6 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             
             std::cout << "Nome completo: " << std::endl;
             std::getline(std::cin, nome);
-            verificaTexto(nome);
              
             std::cout << "Nome de usuario: " << std::endl;
             std::getline(std::cin, usuario);

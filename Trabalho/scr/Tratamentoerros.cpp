@@ -103,13 +103,10 @@ void verificaUsuario(std::string &usuario)
             if (usuario.empty())
                 throw std::invalid_argument("O nome de usuario esta vazio.");
 
-            if (usuario.size() < 3)
-                throw std::invalid_argument("O nome de usuario deve ter pelo menos 3 caracteres.");
-
             for (char c : usuario)
             {
-                if (c == ' ')
-                    throw std::invalid_argument("O nome de usuario nao pode conter espacos.");
+                if (!isalnum(c) && c != '.' && c != '_')
+                    throw std::invalid_argument("O nome de usuario so pode conter letras, numeros, ponto e underline.");
             }
 
             valido = true;
