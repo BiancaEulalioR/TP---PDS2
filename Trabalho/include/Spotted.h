@@ -12,7 +12,7 @@
  * faz operacoes basicas de rede sociais
  * e classe filha de post herdando seus metodos e atributos
  */
-    class Spotted : public Post 
+    class Spotted : public Post {
     private:
     //dados
     std::string textoSpotted_; //texto do spotted
