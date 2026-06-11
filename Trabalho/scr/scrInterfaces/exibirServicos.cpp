@@ -12,7 +12,9 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
     int opcao = 0;
 
     while(opcao != 12) {
+        std::cout << std::endl;
         std::cout << "=== SERVICOS ===" << std::endl;
+        std::cout << std::endl;
         std::cout << "1. Ver servicos publicados;" << std::endl;
         std::cout << "2. Publicar um servico;" << std::endl;
         std::cout << "3. Editar Servico" << std::endl;
@@ -25,6 +27,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         std::cout << "10. Remover curtida de um servico;" << std::endl;
         std::cout << "11. Ver informacoes de contato de um servico;" << std::endl;
         std::cout << "12. Voltar ao menu principal." << std::endl;
+        std::cout << std::endl;
         lerValor(opcao); // progdefensiva
 
         switch (opcao)
@@ -36,7 +39,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                 std::cout << (i.second).getDescricaoDoServico() << std::endl;
                 std::cout << (i.second).getLikes() << " likes  " << (i.second).getComments() << " comentarios  " << std::endl;
             }
-            std::cout << "\nPressione enter para voltar." << std::endl;
+            std::cout << "\nPressione enter para voltar ao menu de servicos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -44,7 +47,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         {
             std::string descricaoLida, contatoLido;
             int idS = postDeServico_.size();
-            std::cout << "Para postar um novo servico, primeiro digite a descricao dele:" << std::endl;
+            std::cout << "Digite o texto do servico a ser publicado:" << std::endl;
             std::cin.ignore();
             std::getline(std::cin, descricaoLida);
 
@@ -57,13 +60,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
             std::cout << "Agora digite o numero de contato com ddd, tudo junto :" << std::endl;
             std::cin.ignore();
             std::getline(std::cin, contatoLido);
-/*             while (contatoLido.size() != 11)
-            {
-                std::cout << "Numero invalido. Digite novamente" << std::endl;
-                std::getline(std::cin, contatoLido);
-            }
-            int numeroLido = std::stoi(contatoLido);
- */
+
             Servico novoServico(descricaoLida, contatoLido, idS, usuarioLogado.getidu(), usuarioLogado);
             postDeServico_.insert({idS, novoServico});
             std::cout << "Servico publicado!" << std::endl;
@@ -74,7 +71,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         }
         case 3:
         {
-            std::cout << "Digite o id do servico que deseja editar:" << std::endl;
+            std::cout << "Digite o id do servico:" << std::endl;
             int idLido;
             lerValor(idLido); // progdefensiva
 
@@ -83,8 +80,8 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                 if (servicoSelecionado.getPerfilAssociado().getidu() == usuarioLogado.getidu())
                 {
                     std::cout << "O que deseja editar?" << std::endl;
-                    std::cout << "1. Editar a descricao;" << std::endl;
-                    std::cout << "2. Editar o numero de contato;" << std::endl;
+                    std::cout << "1. Editar contato do servico;" << std::endl;
+                    std::cout << "2. Editar a descricao do servico;" << std::endl;
                     std::cout << "3. Voltar ao menu de servicos." << std::endl;
                     int opcao;
                     lerValor(opcao); // progdefensiva
@@ -92,6 +89,21 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                     switch (opcao)
                     {
                     case 1:
+                    {
+                        std::cout << "Digite o novo numero de contato:" << std::endl;
+                        std::string contatoStr;
+
+                        std::cin.ignore();
+                        std::getline(std::cin, contatoStr);
+
+                        servicoSelecionado.setNumeroContato(contatoStr);
+                        std::cout << "Contato atualizado com sucesso!" << std::endl;
+                        std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
+                        std::cin.ignore();
+                        std::cin.get();
+                        break;
+                    }
+                    case 2:
                     {
                         std::cout << "Digite a nova descricao do servico:" << std::endl;
                         std::string novaDescricaoServico;
@@ -104,30 +116,10 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                         std::cin.get();
                         break;
                     }
-                    case 2:
-                    {
-                        std::cout << "Digite o novo numero de contato:" << std::endl;
-                        std::string contatoStr;
-/*                         int novoContato;
- */                        std::cin.ignore();
-                        std::getline(std::cin, contatoStr);
-/*                         while (contatoStr.size() != 11)
-                        {
-                            std::cout << "Numero invalido. Digite novamente" << std::endl;
-                            std::getline(std::cin, contatoStr);
-                        }
- */                      //  novoContato = std::stoi(contatoStr);
-                        servicoSelecionado.setNumeroContato(contatoStr);
-                        std::cout << "Servico atualizado com sucesso!" << std::endl;
-                        std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
-                        std::cin.ignore();
-                        std::cin.get();
-                        break;
-                    }
                     case 3:
                         break;
                     default:
-                        std::cout << "Opcao invalida. Pressione enter para voltar" << std::endl;
+                        std::cout << "Opcao invalida. Tente novamente digitando um numero de 1 a 3." << std::endl;
                         std::cin.ignore();
                         std::cin.get();
                         break;
@@ -151,7 +143,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         }
         case 4:
         {
-            std::cout << "Digite o ID do servico que deseja deletar: " << std::endl;
+            std::cout << "Digite o ID do servico: " << std::endl;
 
             int idServico;
             lerValor(idServico); // progdefensiva
@@ -180,7 +172,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         }
         case 5:
         {
-            std::cout << "Deseja ver os comentarios de qual post de servico?(digite o id)" << std::endl;
+            std::cout << "Digite o ID do servico: " << std::endl;
             int idserv;
             lerValor(idserv); // progdefensiva
 
@@ -194,20 +186,20 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
             {
                 std::cout << e.what() << std::endl;
             }
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
         case 6:
         {
-            std::cout << "Em qual post de Servico deseja deixar um comentario?(digite o id)" << std::endl;
+            std::cout << "Digite o ID do servico: " << std::endl;
             int idserv1;
             lerValor(idserv1); // progdefensiva
             try{
                 Servico &servicoSelecionado1 = acharPost(postDeServico_, idserv1);
                 std::string novoComentario;
-                std::cout << "Digite seu comentario (apertando enter apenas quando terminar):" << std::endl;
+                std::cout << "Digite o comentario:" << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, novoComentario);
                 verificaTexto(novoComentario); //progdefensiva
@@ -220,7 +212,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar." << std::endl;   
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;   
             std::cin.ignore();
             std::cin.get();
             break;
@@ -291,7 +283,7 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
             {
                 std::cout << e.what() << std::endl;
             }
-            std::cout << "Pressione enter para voltar para o menu de servicos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de servicos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -350,14 +342,14 @@ void exibirServicos(std::map<int, Servico> &postDeServico_, Perfil &usuarioLogad
         }
         case 11:
         {
-            std::cout << "De qual servico deseja ver as informacoes de contato?(digite o id)" << std::endl;
+            std::cout << "Digite o ID do servico: " << std::endl;
             int idserv2;
             lerValor(idserv2); // progdefensiva
 
             try{
                 Servico &servicoSelecionado2 = acharPost(postDeServico_, idserv2);
                 std::string nomeDoPrestador = (servicoSelecionado2.getPerfilAssociado()).getUsuario();
-                std::cout << "Usuario que postou esse servico: " << nomeDoPrestador << std::endl;
+                std::cout << "Usuario que publicou: " << nomeDoPrestador << std::endl;
                 std::cout << "Telefone para contado: " << servicoSelecionado2.getNumeroContato() << std::endl;
             }
             catch (const std::invalid_argument &e)

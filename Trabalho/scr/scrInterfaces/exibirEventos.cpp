@@ -13,7 +13,9 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
 
     while (opcaoEvento != 11)
     {
+        std::cout << std::endl;
         std::cout << "=== EVENTOS ===" << std::endl;
+        std::cout << std::endl;
         std::cout << "1. Ver eventos publicados" << std::endl;
         std::cout << "2. Publicar evento" << std::endl;
         std::cout << "3. Editar evento" << std::endl;
@@ -25,6 +27,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
         std::cout << "9. Curtir evento" << std::endl;
         std::cout << "10. Remover curtida de evento" << std::endl;
         std::cout << "11. Voltar ao menu principal" << std::endl;
+        std::cout << std::endl;
         lerValor(opcaoEvento); //progdefensiva
 
         switch (opcaoEvento)
@@ -45,7 +48,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << " " << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para o menu de eventos " << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos " << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -57,7 +60,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             std::string texto_evento, contato_evento;
             int id = postDeEvento_.size();
 
-            std::cout << "Digite o contato responsável pela organizacao do evento:" << std::endl;
+            std::cout << "Digite o contato responsavel pela organizacao do evento:" << std::endl;
             std::cin.ignore();
             std::getline(std::cin, contato_evento);
 
@@ -68,7 +71,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             postDeEvento_[id] = novoEvento;
 
             std::cout << "Evento publicado!" << std::endl;
-            std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.get();
             break;
         }
@@ -92,7 +95,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                     while (opcaoEditarEvento != 3){
                     std::cout << "O que deseja editar?" << std::endl;
                     std::cout << "1. Editar contato de evento" << std::endl;
-                    std::cout << "2. Editar texto do evento" << std::endl;
+                    std::cout << "2. Editar descricao do evento" << std::endl;
                     std::cout << "3. Voltar ao menu de eventos" << std::endl;
                     lerValor(opcaoEditarEvento); //progdefensiva
 
@@ -105,6 +108,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::getline(std::cin, novoContato);
                                 eventoSelecionado.editarContato(novoContato);
                                 std::cout << "Contato atualizado com sucesso." << std::endl;
+                                std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
                                 break;
                             }
 
@@ -115,6 +119,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                                 std::getline(std::cin, novoTexto);
                                 eventoSelecionado.editarEvento(novoTexto);
                                 std::cout << "Evento atualizado com sucesso." << std::endl;
+                                std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
                                 break;
                             }
 
@@ -141,7 +146,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -171,7 +176,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -198,7 +203,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             }
 
 
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
 
@@ -229,7 +234,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }
             
-            std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.get();
             break;
         }
@@ -277,7 +282,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -293,7 +298,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             try
             {
                 Evento &eventoSelecionado = acharPost(postDeEvento_, idEvento);
-                std::cout << "Numero de curtidas do post selecionado:" << eventoSelecionado.getLikes() << std::endl;
+                std::cout << "Numero de curtidas do evento selecionado:" << eventoSelecionado.getLikes() << std::endl;
                 exibirUsuariosQueCurtiram(postDeEvento_, idEvento, gerenciador_);
             }
             catch (const std::invalid_argument &e)
@@ -301,7 +306,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }            
 
-            std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -331,7 +336,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -360,7 +365,7 @@ void exibirEventos(std::map<int, Evento> &postDeEvento_, Perfil& usuarioLogado, 
             {
                 std::cout << e.what() << std::endl;
             }
-            std::cout << "Pressione enter para voltar para o menu de eventos." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de eventos." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
