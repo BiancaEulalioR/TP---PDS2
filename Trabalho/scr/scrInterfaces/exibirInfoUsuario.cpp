@@ -28,7 +28,6 @@ void exibirInfoUsuario(Perfil &perfil, GerenciadorPerfis &gerenciador_)
                 std::cout << perfil.getNome() << std::endl;
                 std::cout << perfil.getUsuario() << std::endl;
                 std::cout << perfil.getBio() << std::endl;
-                std::cout << std::endl;
                 break;
             }
 

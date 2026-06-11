@@ -9,12 +9,15 @@
 void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso){
     int opcao = 0;
     while(opcao!=4){
+        std::cout << std::endl;
         std::cout << "===CONFIGURACOES===" << std::endl;
+        std::cout << std::endl;
         std::cout << "1.Exibir informacoes de perfil" << std::endl;
         std::cout << "2.Editar informacoes de perfil" << std::endl; // Implementar aindaaaaa
         std::cout << "3.Apagar conta" << std::endl;
         std::cout << "4.Sair da conta" << std::endl;
         std::cout << "5.Retornar ao menu principal" << std::endl;
+        std::cout << std::endl;
         lerValor(opcao); //progdefensiva
 
         switch(opcao){
@@ -22,7 +25,8 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
             
             {
                 std::cin.ignore();
-                std::cout << "Informacoes do usuario:" << std::endl;
+                std::cout << "=== INFORMACOES DE USUARIO ===" << std::endl;
+                std::cout << std::endl;
                 std::cout << "Email: " << perfil.getEmail() << std::endl;
                 std::cout << "Nome: " << perfil.getNome() << std::endl;
                 std::cout << "Telefone: " << perfil.getTelefone() << std::endl;
@@ -38,11 +42,13 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
 
                 while (opcaoEditarPerfil!=5){
                     std::cout << "O que deseja editar?" << std::endl;
+                    std::cout << std::endl;
                     std::cout << "1. E-mail" << std::endl;
                     std::cout << "2. Telefone" << std::endl;
                     std::cout << "3. Usuario" << std::endl;
                     std::cout << "4. Senha" << std::endl;
                     std::cout << "5. Voltar ao menu de configuracoes" << std::endl;
+                    std::cout << std::endl;
                     lerValor(opcaoEditarPerfil); //progdefensiva
 
                     switch(opcaoEditarPerfil){
@@ -176,6 +182,7 @@ void configuracoes(Perfil &perfil, GerenciadorPerfis& gerenciador_, int &acesso)
                         default:
                         {
                             std::cout << "Opcao invalida, tente novamente." << std::endl;
+                            std::cout << std::endl;
                             break;
                         }
                     }

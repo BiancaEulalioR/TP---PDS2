@@ -89,6 +89,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
+                                            std::cin.ignore();
                                             std::cin.get();
                                             break;
                                         }
@@ -119,6 +120,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
+                                            std::cin.ignore();
                                             std::cin.get();
                                             break;
                                         }
@@ -149,6 +151,7 @@ void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& pos
                                             }
 
                                             std::cout << "Pressione enter para voltar para o menu de publicacoes." << std::endl;
+                                            std::cin.ignore();
                                             std::cin.get();
                                             break;
                                         }
