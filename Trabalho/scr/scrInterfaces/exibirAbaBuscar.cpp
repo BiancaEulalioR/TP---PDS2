@@ -1,9 +1,13 @@
 #include <iostream>
 #include <string>
+#include <map>
 
 #include "Evento.h"
+#include "Oportunidades.h"
+#include "Servico.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
+#include "GerenciadorPerfis.h"
 
 //--------------------------------------BUSCAR------------------------------------------------------------------
 void exibirAbaBuscar(GerenciadorPerfis& gerenciador_, std::map<int, Evento>& postDeEvento_, 
