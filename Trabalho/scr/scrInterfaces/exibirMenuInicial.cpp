@@ -64,6 +64,14 @@ void exibirMenuInicial(GerenciadorPerfis &gerenciador_, int &aux1, int &acesso, 
             std::cout << "E-mail: " << std::endl;
             std::getline(std::cin, email);
             verificaEmail(email);
+            while (gerenciador_.buscaemail(email))
+            {
+                std::cout << "Esse email ja esta cadastrado. Digite outro:"
+                        << std::endl;
+
+                std::getline(std::cin, email);
+                verificaEmail(email);
+            }            
             
             std::cout << "Nome completo: " << std::endl;
             std::getline(std::cin, nome);

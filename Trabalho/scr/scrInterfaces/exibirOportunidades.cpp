@@ -14,20 +14,22 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
     while (opcao != 12)
     {
-
+        std::cout << std::endl;
         std::cout << "=== OPORTUNIDADES ===" << std::endl;
-        std::cout << "1. Ver oportunidades" << std::endl;
+        std::cout << std::endl;
+        std::cout << "1. Ver oportunidades publicadas" << std::endl;
         std::cout << "2. Publicar oportunidade" << std::endl;
         std::cout << "3. Editar oportunidade" << std::endl;
         std::cout << "4. Apagar oportunidade" << std::endl;
-        std::cout << "5. Vizualizar informacoes de contato" << std::endl; 
-        std::cout << "6. Vizualizar comentarios" << std::endl;
-        std::cout << "7. Fazer comentario" << std::endl; 
-        std::cout << "8. Remover comentario" << std::endl; 
-        std::cout << "9. Vizualizar curtidas" << std::endl;
-        std::cout << "10. Curtir Oportunidade" << std::endl;  
-        std::cout << "11. Remover curtida" << std::endl; 
+        std::cout << "5. Vizualizar comentarios" << std::endl;
+        std::cout << "6. Publicar comentario em oportunidade" << std::endl; 
+        std::cout << "7. Apagar comentario de oportunidade" << std::endl; 
+        std::cout << "8. Vizualizar curtidas" << std::endl;
+        std::cout << "9. Curtir Oportunidade" << std::endl;  
+        std::cout << "10. Remover curtida de oportunidade" << std::endl; 
+        std::cout << "11. Vizualizar informacoes de contato" << std::endl; 
         std::cout << "12. Voltar ao menu principal" << std::endl;
+        std::cout << std::endl;
 
         lerValor(opcao); //progdefensiva
 
@@ -45,7 +47,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << i.second.getLikes() << " curtidas " << i.second.getComments() << " comentarios" << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore(); // Ignora/descarta caracteres do buffer
             std::cin.get();    // Captura um único caractere, obs:testar se qualquer tecla funciona
             break;
@@ -60,6 +62,15 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
             std::cin.ignore();
 
+            std::cout << "Digite o contato responsavel pela oportunidade:" << std::endl;
+            std::getline(std::cin, contato);
+
+            while (contato.empty())
+            {
+                std::cout << "Contato vazio. Digite novamente:" << std::endl;
+                std::getline(std::cin, contato);
+            }
+
             std::cout << "Digite a descricao da oportunidade:" << std::endl;
             std::getline(std::cin, descricao); // le a linha inteira, incluindo os espaços, e so para com Enter
 
@@ -69,21 +80,12 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::getline(std::cin, descricao);
             }
 
-            std::cout << "Digite o contato:" << std::endl;
-            std::getline(std::cin, contato);
-
-            while (contato.empty())
-            {
-                std::cout << "Contato vazio. Digite novamente:" << std::endl;
-                std::getline(std::cin, contato);
-            }
-
 
             Oportunidades novaOp(id, descricao, contato, usuarioLogado);
             postDeOportunidade_[id] = novaOp;
 
-            std::cout << "Oportunidade publicada com sucesso!" << std::endl;
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Oportunidade publicada!" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.get();
 
             break;
@@ -108,9 +110,9 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
                     while (opcaoEditar != 3){
                         std::cout << "O que deseja editar?" << std::endl;
-                        std::cout << "1. Editar contato" << std::endl;
-                        std::cout << "2. Editar descricao" << std::endl;
-                        std::cout << "3. Voltar ao menu" << std::endl;
+                        std::cout << "1. Editar contato de oportunidade" << std::endl;
+                        std::cout << "2. Editar descricao da oportunidade" << std::endl;
+                        std::cout << "3. Voltar ao menu de oportunidades" << std::endl;
                         lerValor(opcaoEditar); //progdefensiva
                     
 
@@ -128,6 +130,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                                 
                                 opSelecionada.setContato(novoContato);
                                 std::cout << "Contato atualizado com sucesso!" << std::endl;
+                                std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
                                 break;
 
                             case 2:
@@ -143,13 +146,14 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
                                 opSelecionada.setDescricao(novaDescricao);
                                 std::cout << "Descricao atualizada com sucesso!" << std::endl;
+                                std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
                                 break;
 
                             case 3:
                                 break;
 
                             default:
-                                std::cout << "Opcao invalida." << std::endl;
+                                std::cout << "Opcao invalida. Tente novamente digitando um numero de 1 a 3." << std::endl;
                                 break;
                             }
                         }
@@ -163,7 +167,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             }
 
 
-            std::cout << "Pressione enter para voltar para o menu" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades" << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
@@ -193,41 +197,15 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades" << std::endl;
             std::cin.ignore();
             std::cin.get();
             
             break;
         }
-        // vizualizar informacoes de contato
-        case 5:
-        {
-            int idOp;
-
-            std::cout << "Digite o id da oportunidade:" << std::endl;
-            lerValor(idOp); //progdefensiva
-
-            try{
-                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
-
-                std::cout << "Usuario que publicou: " << opSelecionada.getPerfil().getUsuario() << std::endl;
-                std::cout << "Contato: " << opSelecionada.getContato() << std::endl;
-            }
-            
-            catch (const std::invalid_argument &e)
-            {
-                std::cout << e.what() << std::endl;
-            }
-
-            std::cout << "Pressione enter para voltar." << std::endl;
-            std::cin.ignore();
-            std::cin.get();
-
-            break;
-
-        }
+        
         // Visualizar comentarios
-        case 6:
+        case 5:
         {
  
             int idOp;
@@ -248,13 +226,13 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
         // Publicar comentario
-        case 7:
+        case 6:
         {
             int idOp;
 
@@ -267,7 +245,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::string comentario;
                 std::cin.ignore();
 
-                std::cout << "Digite seu comentario:" << std::endl;
+                std::cout << "Digite o comentario:" << std::endl;
                 std::getline(std::cin, comentario);
                 verificaTexto(comentario); //progdefensiva
 
@@ -280,13 +258,13 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             {
                 std::cout << e.what() << std::endl;
             }
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.get();
 
             break;
         }
         // Remover comentario
-        case 8:
+        case 7:
         {
 
             int idOp;
@@ -329,13 +307,13 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar." << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
         // Vizualizar curtidas
-        case 9:
+        case 8:
         {
             int idOp;
 
@@ -344,7 +322,7 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
 
             try{
                 Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
-                std::cout << "Numero de curtidas: " << opSelecionada.getLikes() << std::endl;
+                std::cout << "Numero de curtidas da oportunidade selecionada: " << opSelecionada.getLikes() << std::endl;
                 exibirUsuariosQueCurtiram(postDeOportunidade_, idOp, gerenciador_);
             }
 
@@ -353,14 +331,14 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para o menu" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();
             std::cin.get(); 
 
             break;
         }
         // Curtir oportunidade
-        case 10:
+        case 9:
         {
             std::cout << "Digite o ID da oportunidade: " << std::endl;
 
@@ -383,13 +361,13 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
             {
                 std::cout << e.what() << std::endl;
             }
-            std::cout << "Pressione enter para voltar para o menu" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();
             std::cin.get();
             break;
         }
         //Remover curtida
-        case 11:
+        case 10:
         {
             std::cout << "Digite o ID da oportunidade: " << std::endl;    
 
@@ -413,18 +391,46 @@ void exibirOportunidades(std::map<int, Oportunidades> &postDeOportunidade_, Perf
                 std::cout << e.what() << std::endl;
             }
 
-            std::cout << "Pressione enter para voltar para o menu" << std::endl;
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
             std::cin.ignore();  
             std::cin.get();
             break;
         }
+
+        // Visualizar informacoes de contato
+        case 11: 
+        {
+            int idOp;
+
+            std::cout << "Digite o id da oportunidade:" << std::endl;
+            lerValor(idOp); //progdefensiva
+
+            try{
+                Oportunidades &opSelecionada = acharPost(postDeOportunidade_, idOp);
+
+                std::cout << "Usuario que publicou: " << opSelecionada.getPerfil().getUsuario() << std::endl;
+                std::cout << "Contato: " << opSelecionada.getContato() << std::endl;
+            }
+            
+            catch (const std::invalid_argument &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
+
+            std::cout << "Pressione enter para voltar ao menu de oportunidades." << std::endl;
+            std::cin.ignore();
+            std::cin.get();
+
+            break;
+        }
+
         case 12: {
             break;
         }
             
         default:
         {
-            std::cout << "Opcao invalida." << std::endl;
+            std::cout << "Opcao digitada invalida. tente novamente digitando um numero entre 1 e 12." << std::endl;
         }
 
         }   

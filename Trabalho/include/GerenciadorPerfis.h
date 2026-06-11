@@ -3,12 +3,14 @@
 
 #include "Perfil.h"
 #include <map>
+#include <set>
 
 /*
  * @brief Representa uma forma de armazenar e organizar os perfis da plataforma
  *
  * Armazena um map para guardar todos os perfis associados ao seu respectivo id/chave (atributo "idu" da classe Perfil)
  * Armazena outro map para guardar os ids dos usuarios
+ * Armazena um set para guardar os emails dos usuarios
  * Armazena, tambem, o id do usuario usado para fazer o controle dos dados nos maps
  */
 class GerenciadorPerfis
@@ -73,6 +75,16 @@ public:
     bool verificaPerfil(std::string usuario, std::string senha);
 
     /*
+     * @brief verifica se o email digitado existe dentro do set emailV
+     *
+     * @param email string que contem o email a ser verificado
+     *
+     * @return true se o email for achado no set
+     * @return false se ele nao for encontrado
+     */
+    bool buscaemail(std::string email);
+
+    /*
      * @brief encontra o perfil desejado em perfis_
      *
      * @param usuario nome de usuario do perfil que deseja encontrar
@@ -111,6 +123,7 @@ public:
 private:
     std::map<int, Perfil> perfis_;
     std::map<std::string, int> IDUsuario_;
+    std::set<std::string> emailV;
     int id_ = 0;
 };
 
