@@ -23,7 +23,7 @@ all:
 	g++ -Iinclude -Iinclude/includeInterfaces -c scr/scrInterfaces/exibirServicos.cpp -o build/interfaces/exibirServicos.o
 	g++ -Iinclude -Iinclude/includeInterfaces -c scr/scrInterfaces/exibirSpotted.cpp -o build/interfaces/exibirSpotted.o
 
-	g++ -Iinclude -Iinclude/includeInterfaces -c scr/scrInterfaces/main.cpp -o build/main.o
+	g++ -Iinclude -Iinclude/includeInterfaces -c scr/main.cpp -o build/main.o
 
 	g++ build/classes/Evento.o build/classes/Oportunidades.o build/classes/Perfil.o build/classes/GerenciadorPerfis.o \
 		build/classes/Post.o build/classes/Servico.o build/classes/Spotted.o \
