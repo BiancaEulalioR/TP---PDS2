@@ -31,22 +31,29 @@ public:
 
     /**
     * @brief Deixa uma curtida no post
+    * 
     * @param autor usuario associado ao post
+    * 
     * @return true se o usuario associado nao curtiu, false se o usuario curtiu
+    * 
     * @details evita que o usuario curta novamente uma postagem
     */
     bool inserirLike(Perfil& autor);
 
     /**
     * @brief Remove sua curtida no post
+    * 
     * @param autor usuario associado ao post
+    * 
     * @return true se o usuario associado curtiu, false se o usuario nao curtiu
+    * 
     * @details evita que o usuario descurta novamente uma postagem que ele nao curtiu
     */
     bool removerLike(Perfil& autor);
 
     /**
     * @brief Remove sua curtida no post
+    * 
     * @param autor usuario associado ao post
     * @param comment comentario a ser publicado 
     */
@@ -54,7 +61,9 @@ public:
 
     /**
     * @brief Remove sua curtida no post
+    * 
     * @param id do comentario a ser removido
+    * 
     * @details remove o comentario baseado no seu id
     */
     void removerComment(int id);
