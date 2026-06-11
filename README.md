@@ -172,14 +172,13 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 - *BIANCA*: Inicialmente ficou com a parte da implementação da classe Servico, seguida da criação do menu de servicos e das funções auxiliares acharPost(), imprimirElementos() e exibirUsuariosQueCurtiram();
 - *GUSTAVO*: Inicialmente responsável por criar a classe de perfil e gerenciamento de perfil, seguido da criação do menu inicial e exibir menu abas, aba de configurações e edição de perfil e por fim compilar o código;
 - *NICOLE*: Inicialmente a participante ficou responsável por implementar a classe Eventos, seguido da implementação do menu de Eventos. Com isso, realizou a implementação da correlação entre os usuários as publicações e comentários feitos nas diversas classes, além de implementar a main. Por fim, também criou a função de buscar e redigiu o makefile, além de contribuir ativamente na coordenação dos testes de implementação do projeto. 
-- *SAMARA*: Inicialmente a integrante ficou responsável pela implementação das classes de Spotted e Post, seguido da criação do menu de Spotted, e por fim os tratamentos de exececões de validação de entradas de texto vazia.
-
+- *SAMARA*: Inicialmente a integrante ficou responsável pela implementação da classe Spotted, e seu respectivo menu. Além disso implementou a classe Post, sendo ela a classe mãe das outras classes, responsável pelos metódos e atributos herdados pelas mesmas. Por fim realizou a implementação e criação da função de tratamentos de execeções responsável pela validação de entradas vazias na publicação de comentários em todos os menus.
 ---
 ## Linha do Tempo das Sprints
 - *Sprint 1*: De 16/04 a 23/04 --> Criamos esse repositório no GitHub, Escolhemos a ideia definitiva do projeto e aperfeiçoamos seu escopo e fizemos os commits de teste no GitHub;
 - *Sprint 2*: De 24/04 a 07/05 --> Criamos as pastas/diretórios para armazenar os tipos de arquivos específicos (.cpp, .h, .o etc), nos reunimos para fazer os "User Stories"  e os cartões CRC das classes que planejamos implementar. Além disso, criamos os arquivos de cabeçalho (.h) para as classes que planejavamos ter;
 - *Sprint 3*: De 12/05 a 25/05 --> Implementamos os arquivos .cpp das classes que cada um ficou responsável;
-- *Sprint 4*: De 27/05 a 02/06 --> Fizemos os switch cases das abas do campus connect inicialmente todos no arquivo main.cpp, que, nesse momento ficou com quase 1000 linhas. Além disso, completamos algumas das classes que faltavam ter herança da classe post;
+- *Sprint 4*: De 27/05 a 02/06 --> Fizemos os switch cases das abas do campus connect inicialmente todos no arquivo main.cpp, que, nesse momento ficou com aproximadamente 1000 linhas. Além disso, completamos algumas das classes que faltavam ter herança da classe post;
 - *Sprint 5*: De 03/06 a 11/06 --> Separamos o código da main que se tratava dos switch cases das abas específicas em arquivos diferents, para que o trabalho ficasse mais viável e organizado, criamos a classe GerenciadorPerfis para tomar de conta das ações relacionadas ao manuseio dos perfis da plataforma e testamos todo o código em arquivos locais, fazendo alterações pontuais em partes que apresentavam erros. Além disso, fizemos os comentários seguindo a padronização do doxygen, fizemos o makefile e a gravação do projeto funcionando.
 
 --- 
