@@ -80,7 +80,7 @@ void exibirSpotted(std::map<int, Spotted> &postDeSpotted_, Perfil& usuarioLogado
 
             int idSpotted;
             lerValor(idSpotted); //progdefensiva
-            try // CORRIGIDO 5: adicionado try/catch
+            try
             {
                 Spotted &spottedSelecionado = acharPost(postDeSpotted_, idSpotted);
 
