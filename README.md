@@ -159,12 +159,12 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 ---
 ### Tratamento de exceções/programação defensiva
 - Tratamento de entradas vazias "verificaTexto()" --> Publicação de comentários em todas as funções de exibir;
-- Validação de ID --> Presente em todos os cases nos quais é preciso achar um post usando a função "acharPost()";
-- Verificação de e-mail "verificaEmail()" --> É usada no momento de fazer o cadastro e de editar o perfil. Ela verifica se o e-mail inserido pelo usuário possui "@" e "." e se não está vazio;
-- Verificação de usuario "verificaUsuario()" --> Usada no cadastro e na parte de editar o perfil. Verifica se o nome de usuário fornecido não está vazio e se não contem espaços;
-- Verificação de telefone "verificaTelefone()" --> Está na parte de cadastro e de editar o perfil. Ela só permite que o numero de telefone tenha 11 caracteres e apenas numeros, ou seja, não são permitidos caracteres especiais. Tambám não permite que o telefone esteja vazio;
+- Validação de ID --> Presente em todos os cases nos quais é preciso achar um post usando a função "acharPost()", garantindo que o ID existe antes de operar;
+- Verificação de e-mail "verificaEmail()" -->  Usada no cadastro e edição de perfil. Exige @, . e campo não vazio;
+- Verificação de usuario "verificaUsuario()" --> Usada no cadastro e na parte de edição do perfil. Rejeita entradas vazias e caracteres que não sejam letras, números, . ou _;
+- Verificação de telefone "verificaTelefone()" --> Usada na parte de cadastro e de edição do perfil. Ela só permite que o número de telefone tenha 11 caracteres e apenas números, ou seja, não são permitidos caracteres especiais. Tambám não permite que o telefone esteja vazio;
 - verificação de senha "verificaSenha()" --> Usada no cadastro e na parte de editar o perfil. Verifica se a senha tem no mínimo 6 caracteres e se não está vazio;
-- Tratamento de entradas do cin "lerValor()" --> Verifica se o tipo digitado está coerente com a variável utilizada.
+- Tratamento de entradas do cin "lerValor()" --> Verifica se o valor digitado está compatível com a variável esperada.
 
 ---
 ## Divisão de Tarefas Entre os Integrantes

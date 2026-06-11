@@ -5,7 +5,7 @@
 #include <map>
 #include <set>
 
-/*
+/**
  * @brief Representa uma forma de armazenar e organizar os perfis da plataforma
  *
  * Armazena um map para guardar todos os perfis associados ao seu respectivo id/chave (atributo "idu" da classe Perfil)
@@ -16,7 +16,7 @@
 class GerenciadorPerfis
 {
 public:
-    /*
+    /**
      * @brief Construtor padrao
      *
      * Inicializa perfis_ e IDUsuario_
@@ -24,7 +24,7 @@ public:
      */
     GerenciadorPerfis();
 
-    /*
+    /**
      * @brief Cria um novo perfil
      *
      * Chama o construtor padrao da classe Perfil, armazenao novo perfil em perfis_ e guarda seu id em IDUsuario_
@@ -39,7 +39,7 @@ public:
     void criaPerfil(std::string nome, std::string usuario, std::string senha,
                     std::string bio, std::string telefone, std::string email);
 
-    /*
+    /**
      * @brief Edita alguma informacao especifica do perfil selecionado
      *
      * @param id chave associada ao perfil que se quer editar
@@ -52,7 +52,7 @@ public:
      */
     void editarPerfil(int id, std::string parametro, std::string novo);
 
-    /*
+    /**
      * @brief Deleta o perfil selecionado de perfis_ e deleta tambem seu id de IDUsuario_
      *
      * @param id chave do perfil selecionado para poder acha-lo em perfis_
@@ -63,7 +63,7 @@ public:
      */
     void apagaPerfil(int id, std::string usuario);
 
-    /*
+    /**
      * @brief Verfica se o perfil existe dentro de perfis_
      *
      * @param usuario nome de usuario usado para buscar o perfil desejado no map perfis_
@@ -74,7 +74,7 @@ public:
      */
     bool verificaPerfil(std::string usuario, std::string senha);
 
-    /*
+    /**
      * @brief verifica se o email digitado existe dentro do set emailV
      *
      * @param email string que contem o email a ser verificado
@@ -84,7 +84,7 @@ public:
      */
     bool buscaemail(std::string email);
 
-    /*
+    /**
      * @brief encontra o perfil desejado em perfis_
      *
      * @param usuario nome de usuario do perfil que deseja encontrar
@@ -93,7 +93,7 @@ public:
      */
     Perfil *buscaPorUsuario(std::string usuario);
 
-    /*
+    /**
      * @brief encontra o perfil desejado em perfis_
      *
      * @param id chave/id do perfil que deseja encontrar
@@ -102,7 +102,7 @@ public:
      */
     Perfil *buscaPorID(int id);
 
-    /*
+    /**
      * @brief Permuta os caracteres da senha de forma a nao armazena-la da forma original
      *
      * @param senha string com a senha nao codificada do perfil
@@ -111,7 +111,7 @@ public:
      */
     std::string codificador(std::string senha);
 
-    /*
+    /**
      * @brief Permuta os caracteres da senha de forma a transforma-la de volta no seu estado original
      *
      * @param senha string com a senha codificada

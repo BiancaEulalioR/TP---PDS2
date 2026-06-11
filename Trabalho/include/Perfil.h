@@ -3,7 +3,7 @@
 
 #include <string>
 
-/*
+/**
  * @brief Representa o perfil do usuario
  *
  * Armazena nome, senha, biografia, telefone, email e nome de usuario da pessoa; todos como strings.
@@ -12,7 +12,7 @@
 class Perfil
 {
 public:
-    /*
+    /**
      * @brief Construtor padrao
      *
      * Inicializa nome_, senha_, bio_, telefone_, email_ e usuario_ como strings vazias
@@ -20,7 +20,7 @@ public:
      */
     Perfil();
 
-    /*
+    /**
      * @brief Destrutor padrao
      *
      * Desaloca as strings nome_, senha_, bio_, telefone_, email_ e usuario_
