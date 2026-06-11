@@ -2,7 +2,6 @@
 #include <string>
 
 #include "Evento.h"
-#include "Interfaces.h"
 #include "funcoesAuxiliares.hpp"
 #include "Tratamentoerros.hpp"
 
