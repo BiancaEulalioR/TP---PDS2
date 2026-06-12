@@ -161,7 +161,7 @@ Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, us
 - Associação de curtidas ao usuário que curtiu. Anteriormente planejávamos apenas implementar um contador de curtidas em cada post;
 - Listar os usuários que curtiram determinado post;
 - Associação dos comentários à quem comentou;
-- Classe GrenciadorPerfis para fcilitar a manipulação das ações relacionadas aos perfis, como edições e armazenamento de dados;
+- Classe GerenciadorPerfis para facilitar a manipulação das ações relacionadas aos perfis, como edições e armazenamento de dados;
 
 ---
 ## Instruções de uso com exemplos (entradas/saídas)
@@ -261,7 +261,7 @@ Alguém sabe o que aconteceu na bibllioteca hoje?
 **Publicar spotted (`2`):**
 ```
 Digite o spotted a ser publicado:
-> O bandeijão hoje estava pessimo
+> O bandejão hoje estava pessimo
 
 Spotted publicado!
 ```
