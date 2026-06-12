@@ -539,8 +539,7 @@ Telefone: 31999990000
 4. Senha
 5. Voltar ao menu de configuracoes
 ```
-
-Exemplo — alterar senha (`4`):
+>(`4`):
 ```
 Digite sua senha atual:
 > *******
