@@ -142,6 +142,8 @@ Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, us
 │  └── Servico.cpp
 │  └── Spotted.cpp
 │  └── Tratamentoerros.cpp
+└── Nova pasta/html/
+│  └── [arquivos gerados pelo Doxygen]
 └── makefile
 └── .gitignore
 └── README.md
