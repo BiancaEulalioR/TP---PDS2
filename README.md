@@ -2,11 +2,11 @@
 
 ## Integrantes 
 
-- Ayla Barcelos 
-- Nicole Portes
-- Samara Aquino
-- Gustavo Henrique
-- Bianca Ramos 
+- Ayla Barcelos (aylabarcelos);
+- Nicole Portes (portesvalina);
+- Samara Aquino (Samaraquinof);
+- Gustavo Henrique (GustavoHenriquedns);
+- Bianca Ramos (BiancaEulalioR);
 
 
 -------------------------------------------
@@ -78,6 +78,17 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 | **Serviços** | Criar serviços, editar serviços                                                    | Perfil, Post       |
 
 ---
+## Como Compilar e Executar
+Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, usando o WSL, são:
+- make clean
+- git pull
+- make
+- .build/Trabalho
+
+---
+## Link do video
+
+---
 ## Organização - CampusConnect
 
 ### Organização das pastas
@@ -90,13 +101,8 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 ### Arquitetura
 ```
 . programa
-├── Compilados/
-│  └── makefile/
-│    └── makefile
-├── build/
-│  └── [arquivos.o]
 ├── include/
-│  └── interfaces(.h)/
+│  └── includeInterfaces/
 |    └── configuracoes.h
 |    └── exibirAbaBuscar.h
 |    └── exibirEventos.h
@@ -109,7 +115,6 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 │  └── Evento.h
 │  └── funcoesAuxiliares.hpp
 │  └── GerenciadorPerfis.h
-│  └── funcoesAuxiliares.hpp
 │  └── Oportunidades.h
 │  └── Perfil.h
 │  └── Post.h
@@ -117,7 +122,7 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 │  └── Spotted.h
 │  └── Tratamentoerros.hpp
 └── src/
-│  └── Interfaces(.cpp)/
+│  └── scrInterfaces/
 |    └── configuracoes.cpp
 |    └── exibirAbaBuscar.cpp
 |    └── exibirEventos.cpp
@@ -137,6 +142,7 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 │  └── Servico.cpp
 │  └── Spotted.cpp
 │  └── Tratamentoerros.cpp
+└── makefile
 └── .gitignore
 └── README.md
 ```
@@ -187,6 +193,22 @@ vida universitária e a comunicação entre os estudantes. A solução consiste 
 2. *O que Realmente foi implementado*: Conseguimos entregar tudas as funcionalidades prometidas. O programa está completo conforme prometido e com algumas abas a mais, como a de busca e a configurações. O arquivo main.cpp ficou bem reduzido, de forma que agora apenas chama funções necessárias para o seu funcionamento. Além do mais, os arquivos .txt não foram implementados.
 3. *Obstáculos*: Não tivemos tempo de terminar as funcionalidades de leitura e escrita nos arquivos .txt, então tivemos que apagar essa parte do código (com funções feitas pela metade). Outro desafio que precisou ser contornado ocorreu na sprint 4, quando tivemos que gastar um tempo a mais separando as partes do main.cpp que já haviam sido implementadas em arquivos diferentes para, apenas a partir daí, continuar a implementação
 4. *Aprendizado*: Aprendemos que, no desenvolvimento de um projeto, nem sempre é possível executar tudo o que inicialmente foi pensado e que é necessário estabelecer prioridades claras em relação ao que realmente gastaremos nosso tempo e esforço para realizar. Também aprendemos que devemos modularizar mais o código desde o início, para não ficar como o main.cpp na sprint 4 com quase 1000 linhas e extremamente desorganizado.
+
+---
+## Documentação do Doxygen
+O projeto foi inteiramente documentado através de comentários no padrão do Doxygen nos arquivos .h utilizados.
+
+## Como Gerar a Documentação
+1. abrir o doxygen GUI;
+2. Selecionar, como ambiente de execuçaõ, o diretório raiz do trabalho;
+3. Selecionar a aba "project" em "wizard" e escolher a pasta scr, certificando-se de deixar marcada a opção "Scan Recursively";
+4. Ainda em "Wizard", mas agora na aba "mode", selecionar a opção "Optimize for C++ output";
+5. Na aba "Output" em "Wizard", certificar-se de que "HTML" está marcado;
+6. dar um click em "Run doxygen" na aba "run".
+
+## Como acessar
+- Apertar no botão "Show HTML output" ainda na aba "run";
+- OU, simplesmente abrir o arquivo "index.html" gerado dentro da pasta escolhida para a geração dessa documentação;
 
 ---
 
