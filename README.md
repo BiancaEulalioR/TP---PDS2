@@ -92,10 +92,9 @@ Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, us
 ## Organização - CampusConnect
 
 ### Organização das pastas
-- **Compliados/**: Contem o arquivo makefile;
-- **build/**: Contém os arquivos .o gerados durante a compilação;
 - **include/**: Contém os arquivos de cabeçalho (.h e .hpp), onde estão as declarações das classes e fuções utilizadas no programa;
-- **src/**: Contém as implementações dessas classes e funções (arquivos .cpp).
+- **src/**: Contém as implementações dessas classes e funções (arquivos .cpp);
+- **Nova pasta/html**: Contém os arquivos gerados pelo Doxygen.
 
 ---
 ### Arquitetura
