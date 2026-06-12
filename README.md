@@ -164,7 +164,410 @@ Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, us
 - Classe GrenciadorPerfis para fcilitar a manipulação das ações relacionadas aos perfis, como edições e armazenamento de dados;
 
 ---
-### Tratamento de exceções/programação defensiva
+## Instruções de uso com exemplos (entradas/saídas)
+
+O sistema é executado via terminal e opera por meio de menus interativos numerados. O usuário navega inserindo o número correspondente à opção desejada e pressionando Enter.
+
+---
+### Menu inicial
+Ao iniciar o sistema, o usuário é recebido com:
+
+```
+=== CAMPUSCONNECT ===
+
+=== QUAL ACAO DESEJA REALIZAR? ===
+
+1. CONNECTE-SE
+2. CADASTRE-SE
+```
+
+#### Login (`1`)
+
+```
+Nome de usuario:
+> joaosilva
+Senha:
+> *******
+
+Bem vindo ao CampusConnect!
+```
+
+**Credenciais inválidas:**
+```
+Usuario ou senha incorretos.
+1. Tentar novamente
+2. Voltar ao menu
+```
+
+#### Cadastro (`2`)
+
+```
+=== CRIAR CONTA ===
+
+E-mail:
+> joao@email.com
+Nome completo:
+> João Silva
+Nome de usuario:
+> joaosilva
+Senha:
+> *******
+Telefone:
+> 31999990000
+
+Connectado com sucesso!
+Seja bem vindo ao CampusConnect!
+```
+### Menu Principal
+Após o login, o sistema exibe o menu de navegação:
+
+```
+=== QUAL ABA DESEJA ACESSAR? ===
+
+1. Spotted
+2. Eventos
+3. Oportunidades
+4. Servicos
+5. Buscar
+6. Perfil
+7. Configuracoes
+```
+
+**Entrada:** `1` → Acessa a aba Spotted  
+### 1. Spotted
+
+```
+=== SPOTTED ===
+1. Ver spotteds publicados
+2. Publicar spotted
+3. Apagar spotted
+4. Visualizar comentarios
+5. Publicar comentario em spotted
+6. Apagar comentario de spotted
+7. Visualizar curtidas
+8. Curtir spotted
+9. Remover curtida de spotted
+10. Voltar ao menu principal
+```
+
+**Ver spotteds (`1`):**
+```
+SPOTTED (0)
+Alguém sabe o que aconteceu na bibllioteca hoje?
+3 curtidas
+2 comentarios
+```
+
+**Publicar spotted (`2`):**
+```
+Digite o spotted a ser publicado:
+> O bandeijão hoje estava pessimo
+
+Spotted publicado!
+```
+
+**Apagar spotted (`3`):**
+```
+Digite o ID do spotted:
+> 0
+
+Spotted removido com sucesso.
+// Sem permissão: Voce nao possui permissao para apagar esse spotted.
+```
+
+**Publicar comentário (`5`):**
+```
+Digite o ID do spotted:
+> 0
+Digite o comentario:
+> Parece que dois amigos brigaram...
+
+Comentario publicado.
+```
+
+**Curtir spotted (`8`):**
+```
+Digite o ID do spotted:
+> 0
+
+Curtida registrada.
+Numero de curtidas atual: 4
+// Já curtido: Voce ja curtiu essa publicacao.
+```
+
+---
+
+### 2. Eventos
+
+```
+=== EVENTOS ===
+1. Ver eventos publicados
+2. Publicar evento
+3. Editar evento
+4. Apagar evento
+5. Visualizar comentarios
+6. Publicar comentario em evento
+7. Apagar comentario de evento
+8. Visualizar curtidas
+9. Curtir evento
+10. Remover curtida de evento
+11. Voltar ao menu principal
+```
+
+**Ver eventos (`1`):**
+```
+EVENTO (0)
+@joao
+Contato: (31) 99999-0000
+Festa Junina do bloco de Engenharia - 20/06, 19h
+5 curtidas
+3 comentarios
+```
+
+**Publicar evento (`2`):**
+```
+Digite o contato responsavel pela organizacao do evento:
+> (31) 99999-0000
+Digite o texto do evento a ser publicado:
+> Palestra sobre IA - 15/07, Sala 302
+
+Evento publicado!
+```
+
+**Editar evento (`3`):**
+```
+Digite o ID do evento:
+> 0
+1. Editar contato de evento
+2. Editar descricao do evento
+3. Voltar ao menu de eventos
+> 2
+Digite o novo evento:
+> Palestra sobre IA - 16/07, Sala 302
+
+Evento atualizado com sucesso.
+// Sem permissão: Voce nao possui permissao para editar esse evento.
+```
+
+> Comentários e curtidas seguem o mesmo padrão da aba Spotted.
+
+---
+
+### 3. Oportunidades
+
+```
+=== OPORTUNIDADES ===
+1. Ver oportunidades publicadas
+2. Publicar oportunidade
+3. Editar oportunidade
+4. Apagar oportunidade
+5. Vizualizar comentarios
+6. Publicar comentario em oportunidade
+7. Apagar comentario de oportunidade
+8. Vizualizar curtidas
+9. Curtir Oportunidade
+10. Remover curtida de oportunidade
+11. Vizualizar informacoes de contato
+12. Voltar ao menu principal
+```
+
+**Publicar oportunidade (`2`):**
+```
+Digite o contato responsavel pela oportunidade:
+> (31) 98888-2222
+Digite a descricao da oportunidade:
+> Processo seletivo para monitor de Cálculo 2 - 18/06
+
+Oportunidade publicada!
+```
+
+**Visualizar informações de contato (`11`):**
+```
+Digite o id da oportunidade:
+> 0
+
+Usuario que publicou: @joao
+Contato: (31) 98888-2222
+```
+
+> Editar, apagar, comentários e curtidas seguem o mesmo padrão da aba Eventos.
+
+---
+
+### 4. Serviços
+
+```
+=== SERVICOS ===
+1. Ver servicos publicados
+2. Publicar um servico
+3. Editar servico
+4. Remover servico
+5. Vizualizar comentarios
+6. Publicar comentario em um servico
+7. Remover comentario de um servico
+8. Vizualizar curtidas
+9. Curtir servico
+10. Remover curtida de um servico
+11. Ver informacoes de contato de um servico
+12. Voltar ao menu principal
+```
+
+**Publicar serviço (`2`):**
+```
+Digite o texto do servico a ser publicado:
+> Aulas de violão para iniciantes
+Agora digite o numero de contato com ddd, tudo junto:
+> 31988887777
+
+Servico publicado!
+```
+
+**Ver informações de contato (`11`):**
+```
+Digite o ID do servico:
+> 0
+
+Usuario que publicou: @maria
+Telefone para contado: 31988887777
+```
+
+> Editar, apagar, comentários e curtidas seguem o mesmo padrão da aba Eventos.
+
+---
+
+### 5. Buscar
+
+```
+=== BUSCAR ===
+1. Buscar por usuario
+2. Voltar para menu principal
+```
+
+**Buscar usuário (`1`):**
+```
+Digite o nome de usuario que deseja buscar:
+> maria
+
+=== PERFIL DE USUARIO ===
+
+Maria Souza
+@maria
+Estudante de Letras apaixonada por literatura
+1. Acessar publicacoes de @maria
+```
+
+Ao acessar as publicações, um submenu é exibido:
+
+```
+1. Eventos
+2. Oportunidades
+3. Servicos
+4. Voltar ao perfil
+```
+
+```
+=== EVENTOS DE @maria ===
+
+EVENTO (2)
+Show de Talentos - 25/07, Auditório Central
+Contato: (31) 98888-1111
+10 curtidas
+4 comentarios
+
+// Sem publicações: Esse usuario nao possui eventos publicados
+// Usuário inexistente: Usuario nao encontrado.
+```
+
+---
+
+### 6. Perfil
+
+```
+=== PERFIL ===
+1. Exibir Informacoes do perfil
+2. Editar biografia
+3. Editar nome de usuario
+4. Retornar ao menu principal
+```
+
+**Exibir perfil (`1`):**
+```
+=== INFORMACOES DO PERFIL ===
+
+João Silva
+@joaosilva
+Estudante de Ciência da Computação - 3º período
+```
+
+**Editar biografia (`2`):**
+```
+Biografia atual:
+Estudante de Ciência da Computação - 3º período
+Informe a nova bio:
+> Apaixonado por IA e sistemas embarcados
+
+Bio alterada com sucesso
+```
+
+---
+
+### 7. Configurações
+
+```
+=== CONFIGURACOES ===
+1. Exibir informacoes de perfil
+2. Editar informacoes de perfil
+3. Apagar conta
+4. Desconnectar
+5. Retornar ao menu principal
+```
+
+**Exibir informações (`1`):**
+```
+=== INFORMACOES DE USUARIO ===
+
+Email: joao@email.com
+Nome: João Silva
+Telefone: 31999990000
+```
+
+**Editar informações (`2`)** abre um submenu:
+```
+1. E-mail
+2. Telefone
+3. Usuario
+4. Senha
+5. Voltar ao menu de configuracoes
+```
+
+Exemplo — alterar senha (`4`):
+```
+Digite sua senha atual:
+> *******
+Informe a nova senha:
+> novasenha123
+Informe novamente a nova senha:
+> novasenha123
+
+Senha atualizada com sucesso!
+// Senhas diferentes: As senhas devem estar iguais, tente novamente.
+// 3 erros seguidos: Numero maximo de tentativas atingida. Operacao cancelada.
+```
+
+**Apagar conta (`3`):**
+```
+Tem certeza que deseja se desconnectar para sempre? E um caminho sem volta...
+1. Confirmar
+2. Cancelar
+> 1
+
+=== CONTA DESCONNECTADA PARA SEMPRE ===
+```
+
+**Desconectar (`4`):** encerra a sessão e retorna à tela inicial.
+
+---
+## Tratamento de exceções/programação defensiva
 - Tratamento de entradas vazias "verificaTexto()" --> Publicação de comentários em todas as funções de exibir;
 - Validação de ID --> Presente em todos os cases nos quais é preciso achar um post usando a função "acharPost()", garantindo que o ID existe antes de operar;
 - Verificação de e-mail "verificaEmail()" -->  Usada no cadastro e edição de perfil. Exige @, . e campo não vazio;
