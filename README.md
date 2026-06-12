@@ -540,7 +540,6 @@ Telefone: 31999990000
 5. Voltar ao menu de configuracoes
 ```
 >4
-```
 Digite sua senha atual:
 > *******
 Informe a nova senha:
