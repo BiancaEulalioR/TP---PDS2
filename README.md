@@ -88,6 +88,7 @@ Estando na pasta "Trabalho", os comandos que devem ser digitados no terminal, us
 ---
 ## Link do video
 
+ https://youtu.be/znEe9lgDX0g 
 ---
 ## Organização - CampusConnect
 
